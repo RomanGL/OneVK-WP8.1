@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1B92C2C-8B7D-4E8B-8901-3FB7AD356E46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OneVK.Core.VK</RootNamespace>
+    <AssemblyName>OneVK.Core.VK</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\OneVK.Core.Models\OneVK.Core.Models.csproj">
+      <Project>{35b9514c-6cf0-48c5-bd7b-7b47e564b5dd}</Project>
+      <Name>OneVK.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.Services\OneVK.Core.Services.csproj">
+      <Project>{a3322349-48b9-44c0-bbb3-bc58f5c288f3}</Project>
+      <Name>OneVK.Core.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TargetPlatform Include="Windows, Version=8.1" />
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaptchaRequestHandler.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="IVKLoginService.cs" />
+    <Compile Include="IVKLongPollService.cs" />
+    <Compile Include="IVKService.cs" />
+    <Compile Include="Json\VKGroupCountersConverter.cs" />
+    <Compile Include="Json\VKBirthdayDateToDateTimeConverter.cs" />
+    <Compile Include="Json\VKBooleanConverter.cs" />
+    <Compile Include="Json\VKLongPollUpdateConverter.cs" />
+    <Compile Include="Json\VKResponseErrorConverter.cs" />
+    <Compile Include="Models\Audio\VKAudio.cs" />
+    <Compile Include="Models\Audio\VKAudioAlbum.cs" />
+    <Compile Include="Models\Audio\VKAudioGenre.cs" />
+    <Compile Include="Models\Audio\VKAudioLyrics.cs" />
+    <Compile Include="Models\Common\IVKItemOwner.cs" />
+    <Compile Include="Models\Common\VKAccessToken.cs" />
+    <Compile Include="Models\Common\VKBaseItemsObject.cs" />
+    <Compile Include="Models\Common\VKCaptchaRequest.cs" />
+    <Compile Include="Models\Common\VKCaptchaResponse.cs" />
+    <Compile Include="Models\Common\VKCity.cs" />
+    <Compile Include="Models\Common\VKComments.cs" />
+    <Compile Include="Models\Common\VKContact.cs" />
+    <Compile Include="Models\Common\VKCountedItemsObject.cs" />
+    <Compile Include="Models\Common\VKCountersBase.cs" />
+    <Compile Include="Models\Common\VKCountry.cs" />
+    <Compile Include="Models\Common\VKErrors.cs" />
+    <Compile Include="Models\Common\VKGeo.cs" />
+    <Compile Include="Models\Common\VKLikes.cs" />
+    <Compile Include="Models\Common\VKLink.cs" />
+    <Compile Include="Models\Common\VKOperationIsSuccess.cs" />
+    <Compile Include="Models\Common\VKPlace.cs" />
+    <Compile Include="Models\Common\VKPlatform.cs" />
+    <Compile Include="Models\Common\VKReposts.cs" />
+    <Compile Include="Models\Common\VKResponse.cs" />
+    <Compile Include="Models\Groups\Settings\VKGroupAccess.cs" />
+    <Compile Include="Models\Groups\Settings\VKGroupSubject.cs" />
+    <Compile Include="Models\Groups\Settings\VKThreeStateModule.cs" />
+    <Compile Include="Models\Groups\Settings\VKTwoStateModule.cs" />
+    <Compile Include="Models\Groups\Settings\VKFourStateModule.cs" />
+    <Compile Include="Models\Groups\VKContact.cs" />
+    <Compile Include="Models\Groups\VKGroup.cs" />
+    <Compile Include="Models\Groups\VKGroupCounters.cs" />
+    <Compile Include="Models\Groups\VKGroupExtended.cs" />
+    <Compile Include="Models\Groups\VKGroupIsClosed.cs" />
+    <Compile Include="Models\Groups\VKGroupMainSection.cs" />
+    <Compile Include="Models\Groups\Settings\VKGroupSettings.cs" />
+    <Compile Include="Models\Groups\VKGroupType.cs" />
+    <Compile Include="Models\Groups\VKLink.cs" />
+    <Compile Include="Models\Groups\VKUserBanInfo.cs" />
+    <Compile Include="Models\Groups\VKUserIsAdmin.cs" />
+    <Compile Include="Models\Groups\VKUserMemberStatus.cs" />
+    <Compile Include="Models\LongPoll\Updates\IVKLongPollUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\MessageDeletedUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\MessageFlagsReplacedUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\MessageFlagsResettedUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\MessageFlagsSettedUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\MessageReceivedUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\MessagesCounterChangedUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\RawUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\UserIsTypingInChatUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\UserIsTypingInDialogUpdate.cs" />
+    <Compile Include="Models\LongPoll\Updates\VKLongPollUpdateType.cs" />
+    <Compile Include="Models\LongPoll\VKLongPollErrors.cs" />
+    <Compile Include="Models\LongPoll\VKLongPollResponse.cs" />
+    <Compile Include="Models\LongPoll\VKLongPollServerData.cs" />
+    <Compile Include="Models\LongPoll\VKLongPollServiceStopReason.cs" />
+    <Compile Include="Models\LongPoll\VKMessageFlags.cs" />
+    <Compile Include="Models\LongPoll\WebConnectionException.cs" />
+    <Compile Include="Models\Newsfeed\VKNewsfeedGetResponse.cs" />
+    <Compile Include="Models\Newsfeed\VKNewsfeedItem.cs" />
+    <Compile Include="Models\Newsfeed\VKNewsfeedItemType.cs" />
+    <Compile Include="Models\Photo\VKAlbumModel.cs" />
+    <Compile Include="Models\Users\VKAlcohol.cs" />
+    <Compile Include="Models\Users\VKLifeMain.cs" />
+    <Compile Include="Models\Users\VKOccupation.cs" />
+    <Compile Include="Models\Users\VKOccupationType.cs" />
+    <Compile Include="Models\Users\VKPeopleMain.cs" />
+    <Compile Include="Models\Users\VKPersonalInfo.cs" />
+    <Compile Include="Models\Users\VKPolitical.cs" />
+    <Compile Include="Models\Users\VKRelation.cs" />
+    <Compile Include="Models\Users\VKSchool.cs" />
+    <Compile Include="Models\Users\VKSmoking.cs" />
+    <Compile Include="Models\Users\VKUniversity.cs" />
+    <Compile Include="Models\Users\VKUser.cs" />
+    <Compile Include="Models\Users\VKUserContacts.cs" />
+    <Compile Include="Models\Users\VKUserCounters.cs" />
+    <Compile Include="Models\Common\VKDeactivated.cs" />
+    <Compile Include="Models\Users\VKUserEducation.cs" />
+    <Compile Include="Models\Users\VKUserLastSeen.cs" />
+    <Compile Include="Models\Users\VKUserSex.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VKLoginService.cs" />
+    <Compile Include="VKLongPollService.cs" />
+    <Compile Include="VKPushNotificationsService.cs" />
+    <Compile Include="VKService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps">
+      <HintPath>..\Libs\Microsoft.Practices.Prism.StoreApps.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=1.50.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.1.50.3\lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

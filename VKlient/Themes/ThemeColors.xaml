@@ -1,0 +1,154 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--<Color x:Key="CustomAccentColor">#2b569a</Color>-->
+    <Color x:Key="CustomAccentColor">#FF3278BE</Color>
+    <Color x:Key="MenuButtonPressedBackgroundColor">#40FFFFFF</Color>
+    <SolidColorBrush x:Key="NotificationsBadgeBackground" Color="#FFDA312C"/>
+    <SolidColorBrush x:Key="DialogBadgeForegroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="MenuDimmingBackgroundBrush" Color="#CC000000"/>
+    <Color x:Key="ListItemPressedBackgroundColor">#33828282</Color>
+
+    <Color x:Key="ErrorPopupBackground">#FFB40000</Color>
+    <Color x:Key="WarningPopupBackground">#FFFFAF00</Color>
+    <Color x:Key="InfoPopupBackground">#FF32A000</Color>    
+
+    <SolidColorBrush x:Key="LikeStickerNotificationBrush" Color="#FFB8545C"/>
+    <SolidColorBrush x:Key="FollowStickerNotificationBrush" Color="#FF5785B9"/>
+    <SolidColorBrush x:Key="FriendAcceptedStickerNotificationBrush" Color="#FF4AC55A"/>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <!--Темная тема-->
+        <ResourceDictionary x:Key="Default">
+            <x:String x:Key="ErrorTitle">Ну как же так...</x:String>            
+            
+            <SolidColorBrush x:Key="TopBarBackgroundBrush" Color="#FF232323"/>
+            <Color x:Key="TopBarBackgroundColor">#FF232323</Color>
+            <SolidColorBrush x:Key="TopBarOpacityBackgroundBrush" Color="#FF232323" Opacity="0.95"/>
+            <SolidColorBrush x:Key="TopBarIntermediateBackgroundBrush" Color="#FF232323" Opacity="0.8"/>
+            <SolidColorBrush x:Key="PostBackgroundBrush" Color="#FF0F0F0F"/>
+            <SolidColorBrush x:Key="MenuPanelBackgroundBrush" Color="#FF191919"/>
+            <SolidColorBrush x:Key="TextForegroundBrush" Color="#FFCDCDCD"/>
+            <SolidColorBrush x:Key="ListPageBackgroundBrush" Color="Black"/>
+            <SolidColorBrush x:Key="PageBackgroundBrush" Color="Black"/>
+            <SolidColorBrush x:Key="PostTitleForegroundBrush" Color="#FFCDCDCD"/>
+            <SolidColorBrush x:Key="ChromeBrush" Color="#FF646464"/>
+            <SolidColorBrush x:Key="ItemBackgroundBrush" Color="#FF191919"/>
+            <SolidColorBrush x:Key="ImageBackgroundBrush" Color="#B2000000"/>
+            <SolidColorBrush x:Key="AudioButtonBackgroundBrush" Color="#FF232323"/>
+            <SolidColorBrush x:Key="MenuPanelProfileImageBackgroundBrush" Color="#FF232323"/>
+            <SolidColorBrush x:Key="HighContrastForegroundBrush" Color="#FFCDCDCD"/>
+            <SolidColorBrush x:Key="LowContrastForegroundBrush" Color="#FF464646"/>
+            <SolidColorBrush x:Key="CountersPanelBackgroundBrush" Color="#FF191919"/>  
+            <SolidColorBrush x:Key="MenuPanelForegroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="ListSeparatorBackgroundColor" Color="#FF232323"/>
+            <SolidColorBrush x:Key="ChatBubbleBackgroundBrush" Color="#FF232323"/>
+            <SolidColorBrush x:Key="ChatBubbleDimmingBackgroundBrush" Color="#FF191919"/>
+            <Color x:Key="ToggleSwitchBorderColor">#FF3278BE</Color>
+
+            <SolidColorBrush x:Key="ProgressBarForegroundBrush" Color="#FFCDCDCD"/>
+            <SolidColorBrush x:Key="ProgressBarBackgroundBrush" Color="#4C232323"/>
+            <SolidColorBrush x:Key="ProgressControlBackground" Color="#7F232323"/>
+
+            <Color x:Key="MenuItemPressedBackgroundColor">#3FFFFFFF</Color>            
+
+            <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#FF232323"/>
+            <SolidColorBrush x:Key="ButtonForegroundBrush" Color="#FFCDCDCD"/>
+            <SolidColorBrush x:Key="ButtonDisabledForegroundBrush" Color="#99CDCDCD"/>
+            <Color x:Key="ButtonBackgroundOverlayColor">#40FFFFFF</Color>
+            <Color x:Key="ButtonDisabledBackgroundOverlayColor">#7F000000</Color>
+            
+            <!--Login-->
+            <SolidColorBrush x:Key="LoginPageBackgroundBrush" Color="#FF232323"/>
+            <SolidColorBrush x:Key="LoginButtonBackgroundBrush" Color="#FF323232"/>
+            <SolidColorBrush x:Key="LoginButtonBackground2Brush" Color="#FF282828"/>
+            <SolidColorBrush x:Key="LoginButtonPressedBackgroundBrush" Color="#FF505050"/>
+            <SolidColorBrush x:Key="LoginButtonPressedBackground2Brush" Color="#FF464646"/>
+            <!--Login-->
+
+            <!--Pivot-->
+            <SolidColorBrush x:Key="PivotHeaderBackgroundBrush" Color="#FF232323" Opacity="0.95"/>
+            <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="White" />
+            <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="#99FFFFFF"/>
+            <!--Pivot-->
+
+            <SolidColorBrush x:Key="ComboBoxHighlightedBackgroundBrush" Color="#FF232323"/>
+            <SolidColorBrush x:Key="ComboBoxHighlightedForegroundBrush" Color="#FFCDCDCD"/>
+
+            <LinearGradientBrush x:Key="ProfileGradientBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#CC0F0F0F" Offset="0"/>
+                <GradientStop Color="#FF0F0F0F" Offset="1"/>
+            </LinearGradientBrush>            
+
+            <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource CustomAccentColor}"/>  
+            <ImageBrush x:Key="BotStickerBrush" Stretch="Uniform" ImageSource="ms-appx:///Assets/BotStickerDark.png"/>
+            <ImageBrush x:Key="ExceptionStickerBrush" Stretch="Uniform" ImageSource="ms-appx:///Assets/ExceptionDark.png"/>
+        </ResourceDictionary>
+        
+        <!--Светлая тема-->
+        <ResourceDictionary x:Key="Light">
+            <x:String x:Key="ErrorTitle">Как неудобно вышло...</x:String>
+            
+            <SolidColorBrush x:Key="TopBarBackgroundBrush" Color="{StaticResource CustomAccentColor}"/>
+            <Color x:Key="TopBarBackgroundColor">#FF3278BE</Color>
+            <SolidColorBrush x:Key="TopBarOpacityBackgroundBrush" Color="{StaticResource CustomAccentColor}" Opacity="0.95"/>
+            <SolidColorBrush x:Key="TopBarIntermediateBackgroundBrush" Color="{StaticResource CustomAccentColor}" Opacity="0.8"/>
+            <SolidColorBrush x:Key="PostBackgroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="MenuPanelBackgroundBrush" Color="#FF303741"/>
+            <SolidColorBrush x:Key="TextForegroundBrush" Color="#FF323232"/>
+            <SolidColorBrush x:Key="ListPageBackgroundBrush" Color="#FFEDF0F3"/>
+            <SolidColorBrush x:Key="PageBackgroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="PostTitleForegroundBrush" Color="{StaticResource CustomAccentColor}"/>
+            <SolidColorBrush x:Key="ChromeBrush" Color="{StaticResource CustomAccentColor}"/>
+            <SolidColorBrush x:Key="ItemBackgroundBrush" Color="Transparent"/>
+            <SolidColorBrush x:Key="ImageBackgroundBrush" Color="#99C3D1DE"/>
+            <SolidColorBrush x:Key="AudioButtonBackgroundBrush" Color="{StaticResource CustomAccentColor}"/>
+            <SolidColorBrush x:Key="MenuPanelProfileImageBackgroundBrush" Color="#FFEDF0F3"/>
+            <SolidColorBrush x:Key="HighContrastForegroundBrush" Color="{StaticResource CustomAccentColor}"/>
+            <SolidColorBrush x:Key="LowContrastForegroundBrush" Color="#FF90A4B2"/>
+            <SolidColorBrush x:Key="CountersPanelBackgroundBrush" Color="#FFE9EEF5"/>
+            <SolidColorBrush x:Key="MenuPanelForegroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="ChatBubbleBackgroundBrush" Color="#FF3278BE"/>
+            <SolidColorBrush x:Key="ChatBubbleDimmingBackgroundBrush" Color="#FF145AA0"/>
+
+            <SolidColorBrush x:Key="ProgressBarForegroundBrush" Color="{StaticResource CustomAccentColor}"/>
+            <SolidColorBrush x:Key="ProgressBarBackgroundBrush" Color="#332B569A"/>
+            <SolidColorBrush x:Key="ProgressControlBackground" Color="#7FFFFFFF"/>
+
+            <Color x:Key="MenuItemPressedBackgroundColor">#3F000000</Color>
+            <SolidColorBrush x:Key="ListSeparatorBackgroundColor" Color="#FFEDF0F3"/>
+            <Color x:Key="ToggleSwitchBorderColor">#FF3278BE</Color>
+
+            <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{StaticResource CustomAccentColor}"/>            
+            <SolidColorBrush x:Key="ButtonForegroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="ButtonDisabledForegroundBrush" Color="#99FFFFFF"/>
+            <Color x:Key="ButtonBackgroundOverlayColor">#40FFFFFF</Color>
+            <Color x:Key="ButtonDisabledBackgroundOverlayColor">#7F000000</Color>
+
+            <!--Login-->
+            <SolidColorBrush x:Key="LoginPageBackgroundBrush" Color="{StaticResource CustomAccentColor}"/>
+            <SolidColorBrush x:Key="LoginButtonBackgroundBrush" Color="#FF4682D2"/>
+            <SolidColorBrush x:Key="LoginButtonBackground2Brush" Color="#FF4673D2"/>
+            <SolidColorBrush x:Key="LoginButtonPressedBackgroundBrush" Color="#FF58A0FF"/>
+            <SolidColorBrush x:Key="LoginButtonPressedBackground2Brush" Color="#FF5282E8"/>
+            <!--Login-->
+
+            <!--Pivot-->
+            <SolidColorBrush x:Key="PivotHeaderBackgroundBrush" Color="{StaticResource CustomAccentColor}" Opacity="0.95"/>
+            <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="White" />
+            <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="#99FFFFFF" />
+            <!--Pivot-->
+
+            <SolidColorBrush x:Key="ComboBoxHighlightedBackgroundBrush" Color="White"/>
+            <SolidColorBrush x:Key="ComboBoxHighlightedForegroundBrush" Color="#FF323232"/>
+
+            <LinearGradientBrush x:Key="ProfileGradientBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#CCFFFFFF" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+
+            <SolidColorBrush x:Key="AccentBrush" Color="{ThemeResource CustomAccentColor}"/>
+            <ImageBrush x:Key="BotStickerBrush" Stretch="Uniform" ImageSource="ms-appx:///Assets/BotStickerLight.png"/>
+            <ImageBrush x:Key="ExceptionStickerBrush" Stretch="Uniform" ImageSource="ms-appx:///Assets/ExceptionLight.png"/>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

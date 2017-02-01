@@ -1,0 +1,103 @@
+﻿<Page
+    x:Class="OneVK.Views.BotView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource PageBackgroundBrush}"
+    controls:ChromeFrame.IsVisible="Visible"
+    controls:ChromeFrame.Title="Бот OneVK"
+    DataContext="{Binding BotVM, Source={StaticResource Locator}}"
+    Style="{StaticResource TransitionPage}">
+    
+    <Page.Resources>
+        <Style x:Key="TitleStyle" TargetType="TextBlock" 
+               BasedOn="{StaticResource ListItem1Style}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+        <DataTemplate x:Key="ChatBubbleContentTemplate">
+           <TextBlock Text="{Binding}" Style="{StaticResource BaseTextStyle}" Foreground="White" Pivot.SlideInAnimationGroup="GroupOne" TextWrapping="Wrap"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="HistoryItemTemplate">
+            <controls:ChatBubble Content="{Binding}" ChatBubbleDirection="Right"
+    			HorizontalAlignment="Stretch"
+    			ContentTemplate="{StaticResource ChatBubbleContentTemplate}" 
+    			Margin="50,0,0,0" RenderTransformOrigin="0.5,0.5">
+                <controls:ChatBubble.RenderTransform>
+                    <CompositeTransform ScaleY="-1" TranslateX="0" TranslateY="0"/>
+                </controls:ChatBubble.RenderTransform>
+            </controls:ChatBubble>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Pivot Style="{StaticResource PivotStyle}">
+        <PivotItem Header="Главная" Style="{StaticResource PivotItemStyle}">
+            <Grid Margin="20,20,20,0" Style="{StaticResource TransitionGridStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Fill="{ThemeResource BotStickerBrush}" Height="200" Width="132" Grid.RowSpan="2"
+                               Pivot.SlideInAnimationGroup="GroupOne"/>
+                    <StackPanel Grid.Column="1" Grid.Row="0" Margin="10,0,0,0">
+                        <TextBlock Style="{StaticResource TitleStyle}"
+                                   Text="Привет, я бот OneVK!" Pivot.SlideInAnimationGroup="GroupTwo"/>
+                        <TextBlock Style="{StaticResource BaseTextStyle}"
+                                   Text="Я могу помочь тебе в чатах и диалогах. Достаточно позвать меня."
+                                   Pivot.SlideInAnimationGroup="GroupThree"/>
+                    </StackPanel>
+                    <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" 
+                            Content="{Binding BeginStopButtonText}"
+                            Command="{Binding BeginStopMonitoringCommand}"
+                            Margin="10,0,0,0" Pivot.SlideInAnimationGroup="GroupTwo" Style="{StaticResource ButtonStyle}"/>
+                </Grid>
+                <TextBlock Grid.Row="1" Style="{StaticResource TitleStyle}" Margin="0,10,0,0">
+                    <Run Text="Отвечено на"/>
+                    <Run Text="{Binding RepliesCount}"/>
+                    <Run Text="сообщений."/>
+                </TextBlock>
+            </Grid>
+        </PivotItem>
+        <PivotItem Header="Монитор активности" Style="{StaticResource PivotItemStyle}">
+            <ListView ItemsSource="{Binding LastHistory}" x:Name="MessagesList"
+					  ItemTemplate="{StaticResource HistoryItemTemplate}"
+					  SelectionMode="None" RenderTransformOrigin="0.5,0.5" Margin="20,0,20,10">
+                <ListView.RenderTransform>
+                    <CompositeTransform ScaleY="-1"/>
+                </ListView.RenderTransform>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <ContentPresenter HorizontalAlignment="Stretch"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <AddDeleteThemeTransition/>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </ListView.ItemContainerTransitions>
+            </ListView>
+        </PivotItem>
+    </Pivot>
+</Page>

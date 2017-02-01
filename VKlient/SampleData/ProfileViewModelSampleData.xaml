@@ -1,0 +1,43 @@
+﻿<ViewModel:ProfileViewModel 
+	xmlns:ViewModel="using:OneVK.ViewModel" 
+	xmlns:Execute="using:OneVK.Response.Execute" 
+	xmlns:Profile="using:OneVK.Model.Profile" 
+	xmlns:Common="using:OneVK.Model.Common" 
+    xmlns:Response="using:OneVK.Response"
+	xmlns:System="using:System" 
+	ProfileState="Normal" 
+	UniqueKey="profile1">
+	<ViewModel:ProfileViewModel.Info>
+		<Execute:ExecuteGetProfileInfoResponse>
+			<Execute:ExecuteGetProfileInfoResponse.Profile>
+				<Profile:VKProfileBaseExtended Blacklisted="False" 
+                                               BirthdayDate="06/21/1997 00:00:00" 
+                                               CanWritePrivateMessage="True" 
+                                               CanSeeAllPosts="True" 
+                                               CanPost="True" CanSeeAudio="True" 
+                                               CanWallComment="True" Deactivated="None" 
+                                               FullName="Павел Дуров" FirstName="Павел" 
+                                               LastName="Дуров" Online="True" 
+                                               OnlineMobile="False" 
+                                               Photo50="https://pp.vk.me/c9591/v9591001/70/VPSmUR954fQ.jpg" 
+                                               Photo100="https://pp.vk.me/c9591/v9591001/70/VPSmUR954fQ.jpg" 
+                                               Photo200="https://pp.vk.me/c9591/v9591001/70/VPSmUR954fQ.jpg" 
+                                               Status="I like Telegram!" Verified="True"
+                                               FullPlace="Санкт-Петербург, Россия">
+					<Profile:VKProfileBaseExtended.City>
+						<Common:VKCity Title="Санкт-Петербург"/>
+					</Profile:VKProfileBaseExtended.City>
+					<Profile:VKProfileBaseExtended.Country>
+						<Common:VKCountry Title="Россия"/>
+					</Profile:VKProfileBaseExtended.Country>
+					<Profile:VKProfileBaseExtended.ID>
+						<System:UInt64/>
+					</Profile:VKProfileBaseExtended.ID>
+					<Profile:VKProfileBaseExtended.LastSeen>
+						<Profile:VKLastSeen Platform="WindowsPhone" Time="05/10/2015 15:42:13"/>
+					</Profile:VKProfileBaseExtended.LastSeen>
+				</Profile:VKProfileBaseExtended>
+			</Execute:ExecuteGetProfileInfoResponse.Profile>
+		</Execute:ExecuteGetProfileInfoResponse>
+	</ViewModel:ProfileViewModel.Info>
+</ViewModel:ProfileViewModel>

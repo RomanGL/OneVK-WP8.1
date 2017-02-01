@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<ProjectGuidesConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectItemGuides>
+    <ProjectItemGuide TargetFile="NewsPage.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Top" Position="26" />
+            <Guide Alignment="Top" Position="104" />
+            <Guide Alignment="Left" Position="52" />
+            <Guide Alignment="Top" Position="80" />
+            <Guide Alignment="Left" Position="20" />
+            <Guide Alignment="Left" Position="59" />
+            <Guide Alignment="Left" Position="361" />
+            <Guide Alignment="Left" Position="340" />
+            <Guide Alignment="Top" Position="58" />
+            <Guide Alignment="Top" Position="65" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\LoginView.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Left" Position="145" />
+            <Guide Alignment="Left" Position="20" />
+            <Guide Alignment="Top" Position="462" />
+            <Guide Alignment="Top" Position="304" />
+            <Guide Alignment="Top" Position="345" />
+            <Guide Alignment="Top" Position="365" />
+            <Guide Alignment="Left" Position="238" />
+            <Guide Alignment="Top" Position="424" />
+            <Guide Alignment="Top" Position="406" />
+            <Guide Alignment="Left" Position="364" />
+            <Guide Alignment="Top" Position="519" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\TestPage.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Top" Position="164" />
+            <Guide Alignment="Top" Position="142" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\ProfileView.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Top" Position="237" />
+            <Guide Alignment="Top" Position="195" />
+            <Guide Alignment="Top" Position="145" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\PlayerView.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Left" Position="200" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\NewsView.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Top" Position="84" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\BlankPage1.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Top" Position="823" />
+            <Guide Alignment="Top" Position="782" />
+            <Guide Alignment="Left" Position="-304" />
+            <Guide Alignment="Left" Position="-285" />
+            <Guide Alignment="Left" Position="-329" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
+  </ProjectItemGuides>
+</ProjectGuidesConfiguration>

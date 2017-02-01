@@ -1,0 +1,79 @@
+﻿<mvvm:VisualStateAwarePage 
+    x:Name="page"
+    x:Class="OneVK.Views.NewsfeedView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="using:Microsoft.Practices.Prism.StoreApps"
+    xmlns:i="using:Microsoft.Xaml.Interactivity" 
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:c="using:OneVK.Controls"
+    xmlns:cw="using:OneVK.Controls.Wall"
+    xmlns:nf="using:OneVK.Core.VK.Models.Newsfeed"
+    xmlns:b="using:OneVK.Behaviors"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d"
+    Style="{StaticResource TransitionPage}"
+    Background="{ThemeResource ListPageBackgroundBrush}"
+    c:ChromeFrame.IsVisible="Visible"
+    c:ChromeFrame.Title="Новости">
+
+    <mvvm:VisualStateAwarePage.Resources>
+        <DataTemplate x:Key="PostTemplate">
+            <cw:PostPresenter Post="{Binding}"
+                              ParentDataContext="{Binding DataContext, ElementName=page}"/>
+        </DataTemplate>
+
+        <Style x:Key="PostContainerTemplate" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                          ContentTransitions="{TemplateBinding ContentTransitions}" 
+                                          Content="{TemplateBinding Content}" HorizontalAlignment="Stretch"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,0,0,10"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </mvvm:VisualStateAwarePage.Resources>
+    
+    <Pivot Style="{StaticResource PivotStyle}">
+        <PivotItem Header="Все" Style="{StaticResource PivotItemStyle}">
+            <ListView ItemsSource="{Binding Newsfeed}" Margin="0,-120,0,0"
+                      x:Name="NewsListView"
+                      DataFetchSize="13" IncrementalLoadingThreshold="5"
+                      ItemTemplate="{StaticResource PostTemplate}"                  
+                      SelectionMode="None" 
+                      ItemContainerStyle="{StaticResource PostContainerTemplate}"
+                      Style="{StaticResource TransitionListViewStyle}"
+                      IsSwipeEnabled="False" IsZoomedInView="True">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Rectangle Height="120"/>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.FooterTemplate>
+                    <DataTemplate>
+                        <c:StateBlock State="{Binding Newsfeed.ContentState}" Margin="0,200,0,200"
+                                      ReloadCommand="{Binding Newsfeed.LoadCommand}"
+                                      Height="150"/>
+                    </DataTemplate>
+                </ListView.FooterTemplate>
+                <ListView.FooterTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </ListView.FooterTransitions>
+
+                <i:Interaction.Behaviors>
+                    <b:ScrollOffsetBehavior FirstVisibleIndex="{Binding FirstVisibleIndex, Mode=TwoWay}"
+                                            UseIndexMethod="True"/>
+                </i:Interaction.Behaviors>
+            </ListView>
+        </PivotItem>
+    </Pivot>
+</mvvm:VisualStateAwarePage>

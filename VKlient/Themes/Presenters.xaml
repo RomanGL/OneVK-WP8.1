@@ -1,0 +1,197 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Controls"
+    xmlns:xaml="using:OneVK.Core.Xaml">
+
+    <!--Отображает коллекцию вложений-->
+    <Style TargetType="local:AttachmentsPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:AttachmentsPresenter">
+                    <StackPanel x:Name="RootPanel" VerticalAlignment="Top"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="ListVideoTemplate">
+        <Grid Height="75">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image Source="{Binding Photo320}" Width="100"/>
+            </Grid>
+            <StackPanel Grid.Column="1" Margin="9,0,0,0">
+                <TextBlock Text="{Binding Title}" Style="{StaticResource ListItem1Style}" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Text="{Binding Duration, Converter={StaticResource TimeSpanConverter}}" Style="{StaticResource ListItem2Style}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ListVideoAlbumTemplate">
+        <StackPanel>
+            <TextBlock Text="{Binding Title}" Style="{StaticResource ListItem1Style}" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AudioTemplate">
+        <Grid Margin="0,10,0,0" Tag="{Binding ID}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <AppBarButton Style="{StaticResource IconButtonStyle}" Margin="0,0,10,0"
+                          Pivot.SlideInAnimationGroup="GroupOne">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE102;" FontFamily="Segoe UI Symbol"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <StackPanel Grid.Column="1" Margin="5,0,0,0" VerticalAlignment="Top">
+                <TextBlock Text="{Binding Title}" Style="{StaticResource ListItem1Style}" Pivot.SlideInAnimationGroup="GroupOne"/>
+                <TextBlock Text="{Binding Artist}" Foreground="{ThemeResource PostTitleForegroundBrush}"
+                           Style="{StaticResource ListItem2Style}" Pivot.SlideInAnimationGroup="GroupTwo"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="10,8,0,0" Pivot.SlideInAnimationGroup="GroupThree">
+                <TextBlock Text="{Binding Duration, Converter={StaticResource TimeSpanConverter}}" FontSize="16" Foreground="{ThemeResource ChromeBrush}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!--Стиль контейнера презентера списков-->
+    <Style x:Key="ListItemsContainerStyle" TargetType="ListViewItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <ContentPresenter/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Отображает список медиаэлементов в виде сетки-->
+    <Style TargetType="local:MediaItemsPresenter">
+        <Setter Property="Margin" Value="-20,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MediaItemsPresenter">
+                    <Canvas x:Name="ContentRoot"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Style="{StaticResource TransitionCanvasStyle}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Отображает список аудиовложений-->
+    <Style TargetType="local:AudiosPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:AudiosPresenter">
+                    <ListView x:Name="ListPresenter" ItemsSource="{Binding Audios, RelativeSource={RelativeSource TemplatedParent}}"
+                              ItemContainerStyle="{StaticResource ListItemsContainerStyle}"
+                              ItemTemplate="{StaticResource AudioTemplate}"
+                              Style="{StaticResource TransitionListViewStyle}"
+                              IsItemClickEnabled="True"
+                              SelectionMode="None" IsSwipeEnabled="False" Margin="0,10,0,0">
+                    </ListView>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Шаблон документа-->
+    <DataTemplate x:Key="DocumentTemplate">
+        <Grid Background="Transparent" Margin="20,0,20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Height="40" Width="60" Background="{ThemeResource AccentBrush}">
+                <TextBlock Text="{Binding Extension}" Style="{StaticResource ListItem1Style}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="White"/>
+            </Border>
+            <TextBlock Grid.Column="1" Text="{Binding Title}" 
+                    Style="{StaticResource ListItem1Style}"                       
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="10,0,0,0"/>
+        </Grid>      
+    </DataTemplate>
+
+    <!--Шаблон ссылки-->
+    <DataTemplate x:Key="LinkTemplate">
+        <Grid Background="{ThemeResource ItemBackgroundBrush}">
+            <Grid Margin="20,10" Height="120" Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Width="2" Height="120" Background="{ThemeResource PostTitleForegroundBrush}"/>
+                <Image Visibility="{Binding HasImage, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    Grid.Column="1" Width="100" Height="100" Margin="10,0,0,0" Source="{Binding Photo50}" Stretch="UniformToFill"/>
+                <Grid Grid.Column="2" Margin="10,10,0,10">
+                    <TextBlock MaxLines="2" TextWrapping="WrapWholeWords" 
+                               Text="{Binding Title}" Style="{StaticResource ListItem1Style}" 
+                               Foreground="{ThemeResource PostTitleForegroundBrush}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Top"
+                               TextTrimming="WordEllipsis"/>
+                    <StackPanel VerticalAlignment="Bottom">
+                        <TextBlock Text="{Binding Description}" MaxLines="1" Margin="0,7,0,0" Style="{StaticResource ListItem1Style}" TextTrimming="CharacterEllipsis"/>
+                        <TextBlock Text="{Binding URL}" Foreground="{ThemeResource PostTitleForegroundBrush}" 
+                                   TextTrimming="CharacterEllipsis" MaxLines="1"
+                                   Style="{StaticResource ListItem2Style}"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>            
+        </Grid>
+    </DataTemplate>
+    
+    <!--Шаблон опроса-->
+    <DataTemplate x:Key="PollTemplate">
+        <Grid>
+            <Grid Margin="20,10" Background="Transparent">
+                <StackPanel>
+                    <TextBlock MaxLines="2" TextWrapping="WrapWholeWords"
+                               Text="Опрос" Style="{StaticResource ListItem1Style}"
+                               Foreground="{ThemeResource PostTitleForegroundBrush}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Top"
+                               TextTrimming="WordEllipsis"/>
+                    <TextBlock Text="{Binding Question}" Style="{StaticResource ListItem1Style}"
+                               Foreground="{ThemeResource PostTitleForegroundBrush}" 
+                               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </DataTemplate>
+
+    <xaml:ListItemTemplateSelector x:Key="ListItemTemplateSelector"
+                                   DocumentTemplate="{StaticResource DocumentTemplate}"
+                                   PollTemplate="{StaticResource PollTemplate}"
+                                   LinkTemplate="{StaticResource LinkTemplate}"/>
+
+    <!--Отображает список вложений в виде списка-->
+    <Style TargetType="local:ListItemsPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ListItemsPresenter">
+                    <ListView x:Name="ItemsContainer"
+                              ItemsSource="{Binding Items, RelativeSource={RelativeSource TemplatedParent}}"
+                              ItemTemplateSelector="{StaticResource ListItemTemplateSelector}"
+                              ItemContainerStyle="{StaticResource ListItemsContainerStyle}"
+                              Style="{StaticResource TransitionListViewStyle}"
+                              IsItemClickEnabled="True"
+                              SelectionMode="None" IsSwipeEnabled="False" Margin="-20,20,-20,0"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

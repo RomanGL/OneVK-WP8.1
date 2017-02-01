@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07522FAC-C338-46DB-93AA-AB6B5318EC43}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OneVK</RootNamespace>
+    <AssemblyName>OneVK.Core</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ONEVK_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ONEVK_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ONEVK_CORE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ONEVK_CORE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;ONEVK_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WP81|AnyCPU'">
+    <OutputPath>bin\WP81\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WP81|x86'">
+    <OutputPath>bin\x86\WP81\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WP81|ARM'">
+    <OutputPath>bin\ARM\WP81\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AppConstants.cs" />
+    <Compile Include="Core\AppAccessDeniedException.cs" />
+    <Compile Include="Core\ArrayExtensions.cs" />
+    <Compile Include="Core\AuthorizationRequiredException.cs" />
+    <Compile Include="Core\CachedConversationOld.cs" />
+    <Compile Include="Core\Collections\Audio\AudioAlbumsCollection.cs" />
+    <Compile Include="Core\Collections\Audio\AudiosCollection.cs" />
+    <Compile Include="Core\Collections\Audio\PopularAudiosCollection.cs" />
+    <Compile Include="Core\Collections\Audio\RecommendedAudiosCollection.cs" />
+    <Compile Include="Core\Collections\DialogsCollection.cs" />
+    <Compile Include="Core\Collections\DialogsCollectionOld.cs" />
+    <Compile Include="Core\Collections\Friends\FriendsCollection.cs" />
+    <Compile Include="Core\Collections\Friends\FriendsListCollection.cs" />
+    <Compile Include="Core\Collections\Friends\FriendsOnlineCollection.cs" />
+    <Compile Include="Core\Collections\Group\EventsCollection.cs" />
+    <Compile Include="Core\Collections\Group\GroupsCollection.cs" />
+    <Compile Include="Core\Collections\Group\GroupsManageCollection.cs" />
+    <Compile Include="Core\Collections\IStateProviderCollection.cs" />
+    <Compile Include="Core\Collections\ISupportUpDownIncrementalLoading.cs" />
+    <Compile Include="Core\Collections\MessagesCollection.cs" />
+    <Compile Include="Core\Collections\NewsfeedCollection.cs" />
+    <Compile Include="Core\Collections\NotificationsCollection.cs" />
+    <Compile Include="Core\Collections\Photo\PhotoAlbumsCollection.cs" />
+    <Compile Include="Core\Collections\StateChangedEventArgs.cs" />
+    <Compile Include="Core\Collections\StateSupportCollection.cs" />
+    <Compile Include="Core\Collections\TestUpDownCollection.cs" />
+    <Compile Include="Core\Collections\Video\VideoAlbumsCollection.cs" />
+    <Compile Include="Core\Collections\Video\VideoAlbumViewCollection.cs" />
+    <Compile Include="Core\Collections\Video\VideosCollection.cs" />
+    <Compile Include="Core\Collections\WallCollection.cs" />
+    <Compile Include="Core\Core.cs" />
+    <Compile Include="Core\FileSize.cs" />
+    <Compile Include="Core\Json\JsonConversationsConverter.cs" />
+    <Compile Include="Core\Json\MessagesCollectionConverter.cs" />
+    <Compile Include="Core\Json\NotificationActionObjectConverter.cs" />
+    <Compile Include="Core\Json\VKNotificationsGetResponseConverter.cs" />
+    <Compile Include="Core\Messages\CacheConversationException.cs" />
+    <Compile Include="Core\Messages\CacheDialogsException.cs" />
+    <Compile Include="Core\Messages\Chat.cs" />
+    <Compile Include="Core\Messages\ClearCacheException.cs" />
+    <Compile Include="Core\Messages\ConversationNotFoundInCacheException.cs" />
+    <Compile Include="Core\Messages\Dialog.cs" />
+    <Compile Include="Core\Messages\IChat.cs" />
+    <Compile Include="Core\Messages\IConversation.cs" />
+    <Compile Include="Core\Messages\IDialog.cs" />
+    <Compile Include="Core\InvalidScopeEventArgs.cs" />
+    <Compile Include="Core\IThumbnailSupport.cs" />
+    <Compile Include="Core\Json\LFImageSizeConverter.cs" />
+    <Compile Include="Core\Json\SecondsToTimeSpanConverter.cs" />
+    <Compile Include="Core\Json\UnixtimeToDateTimeConverter.cs" />
+    <Compile Include="Core\Json\VKChatMessageActionTypeConverter.cs" />
+    <Compile Include="Core\LongPollStoppedEventArgs.cs" />
+    <Compile Include="Core\Messages\NoDialogsInCacheException.cs" />
+    <Compile Include="Core\Xaml\NotificationTemplateSelector.cs" />
+    <Compile Include="Enums\App\ConversationType.cs" />
+    <Compile Include="Enums\App\EmojiType.cs" />
+    <Compile Include="Enums\App\PopupMessageType.cs" />
+    <Compile Include="Enums\Message\VKSentMessageType.cs" />
+    <Compile Include="Enums\Notifications\ActionObjectType.cs" />
+    <Compile Include="Enums\Notifications\VKNotificationType.cs" />
+    <Compile Include="Model\Message\VKMessageEqualityComparer.cs" />
+    <Compile Include="Enums\App\VKSaverCommandType.cs" />
+    <Compile Include="Model\Notifications\IActionObjectContainer.cs" />
+    <Compile Include="Model\Notifications\INotificationActionObject.cs" />
+    <Compile Include="Model\Notifications\INotificationFeedback.cs" />
+    <Compile Include="Model\Notifications\INotificationParent.cs" />
+    <Compile Include="Model\Notifications\INotificationReply.cs" />
+    <Compile Include="Model\Notifications\IVKNotification.cs" />
+    <Compile Include="Model\Notifications\VKCommentPostNotification.cs" />
+    <Compile Include="Model\Notifications\VKCommentVideoNotification.cs" />
+    <Compile Include="Model\Notifications\VKFollowNotification.cs" />
+    <Compile Include="Model\Notifications\VKFriendAcceptedNotification.cs" />
+    <Compile Include="Model\Notifications\VKLikeCommentNotification.cs" />
+    <Compile Include="Model\Notifications\VKLikePhotoNotification.cs" />
+    <Compile Include="Model\Notifications\VKLikePostNotification.cs" />
+    <Compile Include="Model\Notifications\VKLikeVideoNotification.cs" />
+    <Compile Include="Model\Notifications\VKMentionCommentPhotoNotification.cs" />
+    <Compile Include="Model\Notifications\VKMentionCommentsNotification.cs" />
+    <Compile Include="Model\Notifications\VKMentionCommentVideoNotification.cs" />
+    <Compile Include="Model\Notifications\VKMentionNotification.cs" />
+    <Compile Include="Model\Notifications\VKNotificationGroup.cs" />
+    <Compile Include="Model\Notifications\VKNotificationActionObjectsContainer.cs" />
+    <Compile Include="Model\Notifications\VKNotificationBase.cs" />
+    <Compile Include="Model\Notifications\VKNotificationComment.cs" />
+    <Compile Include="Model\Notifications\VKNotificationCommentFeedback.cs" />
+    <Compile Include="Model\Notifications\VKCommentPhotoNotification.cs" />
+    <Compile Include="Model\Notifications\VKNotificationFeedback.cs" />
+    <Compile Include="Model\Notifications\VKNotificationPhoto.cs" />
+    <Compile Include="Model\Notifications\VKNotificationPost.cs" />
+    <Compile Include="Model\Notifications\VKNotificationPostFeedback.cs" />
+    <Compile Include="Model\Notifications\VKNotificationReply.cs" />
+    <Compile Include="Model\Notifications\VKNotificationVideo.cs" />
+    <Compile Include="Model\Notifications\VKReplyCommentNotification.cs" />
+    <Compile Include="Model\Notifications\VKWallNotification.cs" />
+    <Compile Include="Model\Notifications\VKWallPublishNotification.cs" />
+    <Compile Include="Model\Profile\IVKProfileShort.cs" />
+    <Compile Include="Model\Notifications\VKNotificationProfile.cs" />
+    <Compile Include="Model\Promo\OneVKPromo.cs" />
+    <Compile Include="Request\Message\GetChatsUsersRequest.cs" />
+    <Compile Include="Request\UniversalVKRequest.cs" />
+    <Compile Include="Response\Notifications\VKNotificationsGetResponse.cs" />
+    <Compile Include="Service\Common\DebugLogService.cs" />
+    <Compile Include="Service\Common\ILogService.cs" />
+    <Compile Include="Service\IPromoService.cs" />
+    <Compile Include="Service\Messages\AppMessagesService.cs" />
+    <Compile Include="Service\Messages\ConversatonsService.cs" />
+    <Compile Include="Service\Messages\DialogsCacheService.cs" />
+    <Compile Include="Service\Messages\IAppMessagesService.cs" />
+    <Compile Include="Service\Messages\IConversationsService.cs" />
+    <Compile Include="Service\Messages\IDialogsCacheService.cs" />
+    <Compile Include="Service\Messages\IMessagesCacheService.cs" />
+    <Compile Include="Service\Messages\IMessagesUsersService.cs" />
+    <Compile Include="Service\Messages\MessagesCacheService.cs" />
+    <Compile Include="Service\MessagesCacheServiceOld.cs" />
+    <Compile Include="Core\MessagesCounterChangedEventArgs.cs" />
+    <Compile Include="Core\MessagesReceivedEventArgs.cs" />
+    <Compile Include="Core\Player\AudioTrack.cs" />
+    <Compile Include="Core\Player\IAudioTrack.cs" />
+    <Compile Include="Core\PopupMessage.cs" />
+    <Compile Include="Core\Rectangle.cs" />
+    <Compile Include="Core\Transfer\IDownloadSupport.cs" />
+    <Compile Include="Core\UserIsTypingEventArgs.cs" />
+    <Compile Include="Core\Xaml\BaseSocActionButton.cs" />
+    <Compile Include="Core\Xaml\Data\DataContextProxy.cs" />
+    <Compile Include="Core\Xaml\Data\MultipleViewModelConverter.cs" />
+    <Compile Include="Core\Xaml\Data\TimeSpanToStringConverter.cs" />
+    <Compile Include="Core\Xaml\DialogsTemplateSelector.cs" />
+    <Compile Include="Core\Xaml\ListItemTemplateSelector.cs" />
+    <Compile Include="Core\Xaml\MediaItemTemplateSelector.cs" />
+    <Compile Include="Core\Xaml\MediaPresenterItemContainerStyleSelector.cs" />
+    <Compile Include="Core\Xaml\MessageTemplateSelector.cs" />
+    <Compile Include="Core\Xaml\SizeProvider.cs" />
+    <Compile Include="Enums\Account\VKCountersTypes.cs" />
+    <Compile Include="Enums\Account\VKSubscribeTypes.cs" />
+    <Compile Include="Enums\App\AppViews.cs" />
+    <Compile Include="Enums\App\ContentState.cs" />
+    <Compile Include="Core\LongPollStopReason.cs" />
+    <Compile Include="Enums\App\FileContentType.cs" />
+    <Compile Include="Enums\App\PlayerState.cs" />
+    <Compile Include="Enums\Audio\LFArtistOnTour.cs" />
+    <Compile Include="Enums\Audio\LFStreamable.cs" />
+    <Compile Include="Enums\Audio\VKAudioGenre.cs" />
+    <Compile Include="Enums\Audio\VKReorderType.cs" />
+    <Compile Include="Enums\App\NavigationType.cs" />
+    <Compile Include="Enums\Common\LFErrors.cs" />
+    <Compile Include="Enums\Common\LFImageSize.cs" />
+    <Compile Include="Enums\Common\VKAddFriend.cs" />
+    <Compile Include="Enums\Common\VKAttachmentType.cs" />
+    <Compile Include="Enums\Common\VKBoolean.cs" />
+    <Compile Include="Enums\Common\VKCommentAttachmentType.cs" />
+    <Compile Include="Enums\Common\VKErrors.cs" />
+    <Compile Include="Enums\Common\VKLikesFilter.cs" />
+    <Compile Include="Enums\Common\VKLikesTargetType.cs" />
+    <Compile Include="Enums\Common\VKMessageAttachmentType.cs" />
+    <Compile Include="Enums\Common\VKPrivacyType.cs" />
+    <Compile Include="Enums\Gifts\VKGiftsPrivacy.cs" />
+    <Compile Include="Enums\Group\VKGroupFields.cs" />
+    <Compile Include="Enums\Group\VKGroupRole.cs" />
+    <Compile Include="Enums\LongPoll\VKMessageFlags.cs" />
+    <Compile Include="Enums\LongPoll\VKLongPollErrors.cs" />
+    <Compile Include="Enums\LongPoll\VKLongPollUpdateType.cs" />
+    <Compile Include="Enums\Newsfeed\VKNewsfeedCommentsFilters.cs" />
+    <Compile Include="Enums\Newsfeed\VKNewsfeedFilters.cs" />
+    <Compile Include="Enums\Newsfeed\VKNewsfeedItemType.cs" />
+    <Compile Include="Enums\Common\VKLoginStates.cs" />
+    <Compile Include="Enums\Common\VKOperationIsSuccess.cs" />
+    <Compile Include="Enums\Common\VKPlatform.cs" />
+    <Compile Include="Enums\Common\VKReason.cs" />
+    <Compile Include="Enums\Common\VKScopeList.cs" />
+    <Compile Include="Enums\Common\VKMediaSearchSortMode.cs" />
+    <Compile Include="Enums\Common\VKSortByDate.cs" />
+    <Compile Include="Enums\Group\VKGroupsFilter.cs" />
+    <Compile Include="Enums\Group\VKGroupFuture.cs" />
+    <Compile Include="Enums\Group\VKGroupIsClosed.cs" />
+    <Compile Include="Enums\Group\VKGroupShure.cs" />
+    <Compile Include="Enums\Group\VKSearchGroupSort.cs" />
+    <Compile Include="Enums\Group\VKUserIsAdmin.cs" />
+    <Compile Include="Enums\Message\VKMessageFilters.cs" />
+    <Compile Include="Enums\Message\VKMessageType.cs" />
+    <Compile Include="Enums\Newsfeed\VKNewsfeedType.cs" />
+    <Compile Include="Enums\Photo\VKAlbumNeedSystem.cs" />
+    <Compile Include="Enums\Common\VKAlbumPrivacy.cs" />
+    <Compile Include="Enums\Photo\VKPhotoFeedType.cs" />
+    <Compile Include="Enums\Photo\VKPhotoSearchRadius.cs" />
+    <Compile Include="Enums\Photo\VKPhotoSortDateLikes.cs" />
+    <Compile Include="Enums\Profile\VKAlcohol.cs" />
+    <Compile Include="Enums\Profile\VKFriendsOrder.cs" />
+    <Compile Include="Enums\Profile\VKLifeMain.cs" />
+    <Compile Include="Enums\Profile\VKOccupationType.cs" />
+    <Compile Include="Enums\Profile\VKPeopleMain.cs" />
+    <Compile Include="Enums\Profile\VKPolitical.cs" />
+    <Compile Include="Enums\Profile\VKRelation.cs" />
+    <Compile Include="Enums\Profile\VKSmoking.cs" />
+    <Compile Include="Enums\Profile\VKUserBlacklisted.cs" />
+    <Compile Include="Enums\Common\VKIsDeactivated.cs" />
+    <Compile Include="Enums\Profile\VKUserFields.cs" />
+    <Compile Include="Enums\Profile\VKUserHasMobile.cs" />
+    <Compile Include="Enums\Profile\VKUserNameCase.cs" />
+    <Compile Include="Enums\Profile\VKUserSex.cs" />
+    <Compile Include="Enums\Common\VKIsVerified.cs" />
+    <Compile Include="Enums\Video\VKSearchVideoLength.cs" />
+    <Compile Include="Enums\Video\VKVideoRepeat.cs" />
+    <Compile Include="Enums\Video\VKSearchVideoType.cs" />
+    <Compile Include="Enums\Wall\VKAttachedPostType.cs" />
+    <Compile Include="Enums\Wall\VKPostSourcePlatform.cs" />
+    <Compile Include="Enums\Wall\VKPostSourceType.cs" />
+    <Compile Include="Enums\Wall\VKWallPostFilter.cs" />
+    <Compile Include="Helpers\CoreHelper.cs" />
+    <Compile Include="Helpers\DataValidationHelper.cs" />
+    <Compile Include="Helpers\DesignDataHelper.cs" />
+    <Compile Include="Helpers\FileHelper.cs" />
+    <Compile Include="Helpers\ImagesHelper.cs" />
+    <Compile Include="Helpers\JsonSerializationHelper.cs" />
+    <Compile Include="Helpers\LFHelper.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\ThumbnailsLayoutHelper.cs" />
+    <Compile Include="Helpers\NotificationsHelper.cs" />
+    <Compile Include="Helpers\ServiceHelper.cs" />
+    <Compile Include="LFMethodsConstants.cs" />
+    <Compile Include="Model\Audio\LFAlbumBase.cs" />
+    <Compile Include="Model\Audio\LFArtistBase.cs" />
+    <Compile Include="Model\Audio\LFArtistExtended.cs" />
+    <Compile Include="Model\Audio\LFAudioBase.cs" />
+    <Compile Include="Model\Audio\LFAudioExtended.cs" />
+    <Compile Include="Model\Audio\LFMediaElement.cs" />
+    <Compile Include="Model\Audio\LFSimilarArtist.cs" />
+    <Compile Include="Model\Audio\LFTrackInfo.cs" />
+    <Compile Include="Model\Common\LFAditionalData.cs" />
+    <Compile Include="Model\Common\LFImage.cs" />
+    <Compile Include="Model\Common\LFStats.cs" />
+    <Compile Include="Model\Common\LFTag.cs" />
+    <Compile Include="Model\Common\LFTags.cs" />
+    <Compile Include="Model\Common\OneCounter.cs" />
+    <Compile Include="Model\Common\VKCity.cs" />
+    <Compile Include="Model\Common\VKCountersBase.cs" />
+    <Compile Include="Model\Common\VKCountry.cs" />
+    <Compile Include="Model\Common\VKProfileCounters.cs" />
+    <Compile Include="Model\Common\VKSticker.cs" />
+    <Compile Include="Model\Group\VKGroupShort.cs" />
+    <Compile Include="Core\ThumbnailSize.cs" />
+    <Compile Include="Model\LongPoll\MessagesCounterInfo.cs" />
+    <Compile Include="Model\LongPoll\UserIsTypingInfo.cs" />
+    <Compile Include="Model\Message\VKChatMessageActionType.cs" />
+    <Compile Include="Model\Photo\VKPhotoSizes.cs" />
+    <Compile Include="Model\Profile\VKProfileBaseExtended.cs" />
+    <Compile Include="Model\Profile\VKProfileChat.cs" />
+    <Compile Include="Model\Profile\VKProfileShort.cs" />
+    <Compile Include="Model\Wall\BaseVKPost.cs" />
+    <Compile Include="Model\Wall\VKAttachedPost.cs" />
+    <Compile Include="Request\Account\GetCountersRequest.cs" />
+    <Compile Include="Request\Execute\ExecuteGetOnlineFriendsRequest.cs" />
+    <Compile Include="Request\Execute\ExecuteGetProfileInfoRequest.cs" />
+    <Compile Include="Request\Groups\BaseGroupsLinkRequest.cs" />
+    <Compile Include="Request\Groups\GetGroupsByIDRequest.cs" />
+    <Compile Include="Request\Groups\GroupsAddLinkRequest.cs" />
+    <Compile Include="Request\Groups\GroupsApproveRequest.cs" />
+    <Compile Include="Request\Groups\GroupsDeleteLinkRequest.cs" />
+    <Compile Include="Request\Groups\GroupsEditLinkRequest.cs" />
+    <Compile Include="Request\Groups\GroupsEditManagerRequest.cs" />
+    <Compile Include="Request\Groups\GroupsInviteRequest.cs" />
+    <Compile Include="Request\Groups\GroupsRemoveUserRequest.cs" />
+    <Compile Include="Request\Groups\GroupsReorderLinkRequest.cs" />
+    <Compile Include="Request\ILFRequest.cs" />
+    <Compile Include="Request\LFRequests\Artist\ArtistGetInfoRequest.cs" />
+    <Compile Include="Request\LFRequests\Artist\ArtistGetSimilarRequest.cs" />
+    <Compile Include="Request\LFRequests\Artist\ArtistGetTopAlbumsRequest.cs" />
+    <Compile Include="Request\LFRequests\Artist\ArtistGetTopTracksRequest.cs" />
+    <Compile Include="Request\LFRequests\BaseArtistRequest.cs" />
+    <Compile Include="Request\LFRequests\BaseItemsRequest.cs" />
+    <Compile Include="Request\LFRequests\BaseLFRequest.cs" />
+    <Compile Include="Request\LFRequests\ItemsArtistRequest.cs" />
+    <Compile Include="Request\LFRequests\Track\TrackGetInfoRequest.cs" />
+    <Compile Include="Request\Likes\GetLikesListExtendedRequest.cs" />
+    <Compile Include="Request\Likes\GetLikesListRequest.cs" />
+    <Compile Include="Request\Newsfeed\SearchNewsfeedExtendedRequest.cs" />
+    <Compile Include="Request\Newsfeed\SearchNewsfeedRequest.cs" />
+    <Compile Include="Request\Photos\EditPhotoAlbumRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotoAlbumsCount.cs" />
+    <Compile Include="Request\Photos\GetPhotoAlbumsRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotoMessagesUploadServerRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotoOwnerUploadServer.cs" />
+    <Compile Include="Request\Photos\GetPhotosChatUploadServer.cs" />
+    <Compile Include="Request\Photos\GetPhotosUploadServer.cs" />
+    <Compile Include="Request\Photos\GetPhotosWallUploadServerRequest.cs" />
+    <Compile Include="Request\Photos\ReportPhotoCommentRequest.cs" />
+    <Compile Include="Request\Photos\ReportPhotoRequest.cs" />
+    <Compile Include="Request\Photos\SaveMessagesPhotoRequest.cs" />
+    <Compile Include="Request\Photos\SaveOwnerPhotoRequest.cs" />
+    <Compile Include="Request\Photos\SaveWallPhotoRequest.cs" />
+    <Compile Include="Request\Photos\SearchPhotosRequest.cs" />
+    <Compile Include="Request\Status\BaseStatusRequest.cs" />
+    <Compile Include="Request\Status\StatusGetRequest.cs" />
+    <Compile Include="Request\Status\StatusSetRequest.cs" />
+    <Compile Include="Request\Users\GetUsersExtendedRequest.cs" />
+    <Compile Include="Request\Users\GetUsersRequest.cs" />
+    <Compile Include="Request\Wall\BaseGetWallCommentsRequest.cs" />
+    <Compile Include="Request\Wall\GetWallCommentsExtendedRequest.cs" />
+    <Compile Include="Request\Wall\GetWallCommentsRequest.cs" />
+    <Compile Include="Request\Wall\GetWallExtendedRequest.cs" />
+    <Compile Include="Request\Wall\GetWallRequest.cs" />
+    <Compile Include="Response\Account\VKAccountGetCountersResponse.cs" />
+    <Compile Include="Response\Bot\BotChatResponse.cs" />
+    <Compile Include="Response\Bot\BotInitResponse.cs" />
+    <Compile Include="Response\Bot\BotResponse.cs" />
+    <Compile Include="Model\Comment\VKCommentAttachment.cs" />
+    <Compile Include="Model\Common\VKFriendsList.cs" />
+    <Compile Include="Model\Common\VKPrivacy.cs" />
+    <Compile Include="Model\Doc\VKDocument.cs" />
+    <Compile Include="Model\Gifts\VKGift.cs" />
+    <Compile Include="Model\Gifts\VKGiftItem.cs" />
+    <Compile Include="Model\IVKItemOwner.cs" />
+    <Compile Include="Model\IVKLikeTarget.cs" />
+    <Compile Include="Model\LongPoll\MessageDeletedInfo.cs" />
+    <Compile Include="Model\LongPoll\MessageFlagsInfo.cs" />
+    <Compile Include="Model\LongPoll\MessageInfo.cs" />
+    <Compile Include="Model\LongPoll\VKLongPollUpdate.cs" />
+    <Compile Include="Model\Message\VKDialogMessage.cs" />
+    <Compile Include="Model\Message\VKMessageAttachment.cs" />
+    <Compile Include="Model\Message\VKProfileExtendedWithInvitedBy.cs" />
+    <Compile Include="Model\Newsfeed\VKNewsfeedList.cs" />
+    <Compile Include="Model\Newsfeed\VKNewsfeedListExtended.cs" />
+    <Compile Include="Model\Newsfeed\VKNewsfeedMention.cs" />
+    <Compile Include="Model\Newsfeed\VKNewsfeedPost.cs" />
+    <Compile Include="Enums\Newsfeed\VKNewsfeedPostType.cs" />
+    <Compile Include="Model\Polls\VKPoll.cs" />
+    <Compile Include="Model\Polls\VKPollAnswers.cs" />
+    <Compile Include="Model\Wall\VKWallPost.cs" />
+    <Compile Include="Model\Wall\VKPostSource.cs" />
+    <Compile Include="Enums\Wall\VKPostType.cs" />
+    <Compile Include="Model\Audio\VKAudio.cs" />
+    <Compile Include="Model\Audio\VKAudioAlbum.cs" />
+    <Compile Include="Model\Audio\VKAudioLyrics.cs" />
+    <Compile Include="Model\Common\VKComments.cs" />
+    <Compile Include="Model\Common\VKReposts.cs" />
+    <Compile Include="Model\Message\VKDialog.cs" />
+    <Compile Include="Model\Photo\VKPhotoWithTag.cs" />
+    <Compile Include="Request\Account\RegisterDeviceRequest.cs" />
+    <Compile Include="Request\Audio\AddAudioAlbumRequest.cs" />
+    <Compile Include="Request\Audio\AddAudioRequest.cs" />
+    <Compile Include="Request\Audio\DeleteAudioAlbumRequest.cs" />
+    <Compile Include="Request\Audio\DeleteAudioRequest.cs" />
+    <Compile Include="Request\Audio\EditAudioAlbumRequest.cs" />
+    <Compile Include="Request\Audio\EditAudioRequest.cs" />
+    <Compile Include="Request\Audio\GetAudioAlbumsRequest.cs" />
+    <Compile Include="Request\Audio\GetAudioLyricsRequest.cs" />
+    <Compile Include="Request\Audio\GetAudioRecommendationsRequest.cs" />
+    <Compile Include="Request\Audio\GetAudiosByIDRequest.cs" />
+    <Compile Include="Request\Audio\GetAudiosCountRequest.cs" />
+    <Compile Include="Request\Audio\GetAudiosRequest.cs" />
+    <Compile Include="Request\Audio\GetAudioUploadServerRequest.cs" />
+    <Compile Include="Request\Audio\GetPopularAudiosRequest.cs" />
+    <Compile Include="Request\Audio\MoveAudiosToAlbumRequest.cs" />
+    <Compile Include="Request\Audio\ReorderAudiosRequest.cs" />
+    <Compile Include="Request\Audio\RestoreAudioRequest.cs" />
+    <Compile Include="Request\Audio\SaveAudioRequest.cs" />
+    <Compile Include="Request\Audio\SearchAudiosRequest.cs" />
+    <Compile Include="Request\Audio\SetAudioBroadcastRequest.cs" />
+    <Compile Include="Request\BaseCountedRequest.cs" />
+    <Compile Include="Request\BaseRequest.cs" />
+    <Compile Include="Request\BaseVKCountedRequest.cs" />
+    <Compile Include="Request\CaptchaForceRequest.cs" />
+    <Compile Include="Request\BaseVKRequest.cs" />
+    <Compile Include="Request\Doc\AddDocRequest.cs" />
+    <Compile Include="Request\Doc\DeleteDocRequest.cs" />
+    <Compile Include="Request\Doc\GetDocsByIDRequest.cs" />
+    <Compile Include="Request\Doc\GetDocsRequest.cs" />
+    <Compile Include="Request\Doc\GetDocsUploadServerRequest.cs" />
+    <Compile Include="Request\Doc\GetDocsWallUploadServerRequest.cs" />
+    <Compile Include="Request\Doc\SaveDocRequest.cs" />
+    <Compile Include="Request\Execute\ExecuteGetDialogsRequest.cs" />
+    <Compile Include="Request\Friends\AddFriendRequest.cs" />
+    <Compile Include="Request\Friends\AddFriendsListRequest.cs" />
+    <Compile Include="Request\Friends\BaseGetProfilesRequest.cs" />
+    <Compile Include="Request\Friends\DeleteFriendRequest.cs" />
+    <Compile Include="Request\Friends\DeleteFriendsListRequest.cs" />
+    <Compile Include="Request\Friends\EditFriendRequest.cs" />
+    <Compile Include="Request\Friends\EditFriendsListRequest.cs" />
+    <Compile Include="Request\Friends\GetFriendsListsRequest.cs" />
+    <Compile Include="Request\Friends\GetFriendsRequest.cs" />
+    <Compile Include="Request\Friends\GetOnlineFriendsRequest.cs" />
+    <Compile Include="Request\Friends\GetMutualFriendsRequest.cs" />
+    <Compile Include="Request\Friends\GetRecentFriendsRequest.cs" />
+    <Compile Include="Request\Friends\SearchFriendsRequest.cs" />
+    <Compile Include="Request\Gifts\GetGiftsRequest.cs" />
+    <Compile Include="Request\Groups\BaseGroupsGetRequest.cs" />
+    <Compile Include="Request\Groups\GroupsGetExtendedRequest.cs" />
+    <Compile Include="Request\Groups\GroupsGetRequest.cs" />
+    <Compile Include="Request\IVKRequest.cs" />
+    <Compile Include="Request\IRequest.cs" />
+    <Compile Include="Request\IVKRequestOld.cs" />
+    <Compile Include="Request\Likes\AddLikeRequest.cs" />
+    <Compile Include="Request\Likes\BaseLikeRequest.cs" />
+    <Compile Include="Request\Likes\DeleteLikeRequest.cs" />
+    <Compile Include="Request\Likes\GetIsLikedRequest.cs" />
+    <Compile Include="Request\Likes\BaseGetLikesListRequest.cs" />
+    <Compile Include="Request\Message\BaseChatUserRequest.cs" />
+    <Compile Include="Request\Message\BaseGetChatRequest.cs" />
+    <Compile Include="Request\Message\CreateChatRequest.cs" />
+    <Compile Include="Request\Message\DeleteChatPhotoRequest.cs" />
+    <Compile Include="Request\Message\DeleteDialogRequest.cs" />
+    <Compile Include="Request\Message\DeleteMessagesRequest.cs" />
+    <Compile Include="Request\Message\EditChatRequest.cs" />
+    <Compile Include="Request\Message\GetByIDRequest.cs" />
+    <Compile Include="Request\Message\GetChatRequest.cs" />
+    <Compile Include="Request\Message\GetChatUsersRequest.cs" />
+    <Compile Include="Request\Message\GetDialogsRequest.cs" />
+    <Compile Include="Request\Message\GetHistoryRequest.cs" />
+    <Compile Include="Request\Message\GetLastActivityRequest.cs" />
+    <Compile Include="Request\Message\GetLongPollServerRequest.cs" />
+    <Compile Include="Request\Message\GetMessagesRequest.cs" />
+    <Compile Include="Request\Message\AddChatUserRequest.cs" />
+    <Compile Include="Request\Message\MarkAsImportantRequest.cs" />
+    <Compile Include="Request\Message\MarkAsReadRequest.cs" />
+    <Compile Include="Request\Message\RemoveChatUserRequest.cs" />
+    <Compile Include="Request\Message\RestoreMessageRequest.cs" />
+    <Compile Include="Request\Message\SearchDialogsRequest.cs" />
+    <Compile Include="Request\Message\SearchMessagesRequest.cs" />
+    <Compile Include="Request\Message\SendMessageRequest.cs" />
+    <Compile Include="Request\Message\SetActivityRequest.cs" />
+    <Compile Include="Request\Message\SetChatPhotoRequest.cs" />
+    <Compile Include="Request\Newsfeed\AddNewsfeedBanRequest.cs" />
+    <Compile Include="Request\Newsfeed\BaseNewsfeedFeedGetRequest.cs" />
+    <Compile Include="Request\Newsfeed\BaseNewsfeedGetRequest.cs" />
+    <Compile Include="Request\Newsfeed\DeleteNewsfeedBanRequest.cs" />
+    <Compile Include="Request\Newsfeed\DeleteNewsfeedListRequest.cs" />
+    <Compile Include="Request\Newsfeed\ExtendedNewsfeedBaseGetRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedBannedExtendedRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedBannedBaseRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedBannedRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedCommentsRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedListsBaseRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedListsExtendedRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedListsRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedMentionsRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetNewsfeedSuggestedSourcesRequest.cs" />
+    <Compile Include="Request\Newsfeed\GetRecommendedNewsfeedRequest.cs" />
+    <Compile Include="Request\Newsfeed\IgnoreNewsfeedItemRequest.cs" />
+    <Compile Include="Request\Newsfeed\SaveNewsfeedListRequest.cs" />
+    <Compile Include="Request\Newsfeed\BaseSearchNewsfeedRequest.cs" />
+    <Compile Include="Request\Newsfeed\UnignoreNewsfeedItemRequest.cs" />
+    <Compile Include="Request\Newsfeed\UnsubscribeNewsfeedRequest.cs" />
+    <Compile Include="Request\Photos\BaseGetPhotosByIDRequest.cs" />
+    <Compile Include="Request\Photos\BaseGetPhotosRequest.cs" />
+    <Compile Include="Request\Photos\CreateAlbumPhotosRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotosByIDExtendedRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotosByIDRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotosExtendedRequest.cs" />
+    <Compile Include="Request\Photos\GetPhotosRequest.cs" />
+    <Compile Include="Request\Polls\AddVoteRequest.cs" />
+    <Compile Include="Request\Polls\BasePollRequest.cs" />
+    <Compile Include="Request\Polls\CreatePollRequest.cs" />
+    <Compile Include="Request\Polls\DeleteVoteRequest.cs" />
+    <Compile Include="Request\Polls\EditPollRequest.cs" />
+    <Compile Include="Request\Polls\GetPollByIDRequest.cs" />
+    <Compile Include="Request\Polls\GetVotersRequest.cs" />
+    <Compile Include="Request\Video\VideoAddAlbumRequest.cs" />
+    <Compile Include="Request\Video\VideoAddRequest.cs" />
+    <Compile Include="Request\Video\VideoAddToAlbumRequest.cs" />
+    <Compile Include="Request\Video\VideoCreateCommentRequest.cs" />
+    <Compile Include="Request\Video\VideoDeleteAlbumRequest.cs" />
+    <Compile Include="Request\Video\VideoDeleteCommentRequest.cs" />
+    <Compile Include="Request\Video\VideoDeleteRequest.cs" />
+    <Compile Include="Request\Video\VideoEditAlbumRequest.cs" />
+    <Compile Include="Request\Video\VideoEditCommentRequest.cs" />
+    <Compile Include="Request\Video\VideoEditRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumsByVideoBaseRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumsByVideoExtendedRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumsByVideoRequest.cs" />
+    <Compile Include="Request\Video\VideoGetNewTagsRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumByIDRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumsBaseRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumsExtendedRequest.cs" />
+    <Compile Include="Request\Video\VideoGetAlbumsRequest.cs" />
+    <Compile Include="Request\Video\VideoGetCommentsBaseRequest.cs" />
+    <Compile Include="Request\Video\VideoGetCommentsExtendedRequest.cs" />
+    <Compile Include="Request\Video\VideoGetCommentsRequest.cs" />
+    <Compile Include="Request\Video\VideoGetExtendedRequest.cs" />
+    <Compile Include="Request\Video\VideoGetRequest.cs" />
+    <Compile Include="Request\Users\BaseGetUsersRequest.cs" />
+    <Compile Include="Request\Video\VideoGetBaseRequest.cs" />
+    <Compile Include="Request\Video\VideoGetTagsRequest.cs" />
+    <Compile Include="Request\Video\VideoGetUserVideosBaseRequest.cs" />
+    <Compile Include="Request\Video\VideoGetUserVideosExtendedRequest.cs" />
+    <Compile Include="Request\Video\VideoGetUserVideosRequest.cs" />
+    <Compile Include="Request\Video\VideoPutTagRequest.cs" />
+    <Compile Include="Request\Video\VideoRemoveFromAlbumRequest.cs" />
+    <Compile Include="Request\Video\VideoRemoveTagRequest.cs" />
+    <Compile Include="Request\Video\VideoReorderAlbumsRequest.cs" />
+    <Compile Include="Request\Video\VideoReportCommentRequest.cs" />
+    <Compile Include="Request\Video\VideoReportRequest.cs" />
+    <Compile Include="Request\Video\VideoRestoreCommentRequest.cs" />
+    <Compile Include="Request\Video\VideoRestoreRequest.cs" />
+    <Compile Include="Request\Video\VideoSaveRequest.cs" />
+    <Compile Include="Request\Video\VideoSearchBaseRequest.cs" />
+    <Compile Include="Request\Video\VideoSearchExtendedRequest.cs" />
+    <Compile Include="Request\Video\VideoSearchRequest.cs" />
+    <Compile Include="Request\VKExecuteRequest.cs" />
+    <Compile Include="Request\Wall\DeleteWallRequest.cs" />
+    <Compile Include="Request\Wall\GetByIdWallRequest.cs" />
+    <Compile Include="Request\Wall\BaseGetWallRequest.cs" />
+    <Compile Include="Request\Wall\PostWallRequest.cs" />
+    <Compile Include="Request\Wall\RepostWallRequest.cs" />
+    <Compile Include="Response\Audio\VKAudioRestoreObject.cs" />
+    <Compile Include="Response\Comment\VKCommentExtendedObject.cs" />
+    <Compile Include="Model\Common\VKUploadServerBase.cs" />
+    <Compile Include="Model\Comment\VKComment.cs" />
+    <Compile Include="Model\Common\VKAccessToken.cs" />
+    <Compile Include="Model\Common\IVKUploadServer.cs" />
+    <Compile Include="Model\Common\VKAttachment.cs" />
+    <Compile Include="Model\Common\VKContact.cs" />
+    <Compile Include="Model\Common\VKCount.cs" />
+    <Compile Include="Model\Common\VKGroupCounters.cs" />
+    <Compile Include="Model\Common\VKGeo.cs" />
+    <Compile Include="Model\Common\VKLikes.cs" />
+    <Compile Include="Model\Common\VKLink.cs" />
+    <Compile Include="Model\Common\VKPlace.cs" />
+    <Compile Include="Model\Common\VKSchool.cs" />
+    <Compile Include="Model\Common\VKTag.cs" />
+    <Compile Include="Model\Common\VKUniversity.cs" />
+    <Compile Include="Model\Group\IVKGroupBase.cs" />
+    <Compile Include="Model\Group\VKGroupBase.cs" />
+    <Compile Include="Model\Group\VKGroupExtended.cs" />
+    <Compile Include="Model\IVKObject.cs" />
+    <Compile Include="Model\Message\VKChat.cs" />
+    <Compile Include="Model\Message\VKMessage.cs" />
+    <Compile Include="Model\Photo\IVKPhoto.cs" />
+    <Compile Include="Model\Photo\IVKPhotoBase.cs" />
+    <Compile Include="Model\Photo\VKPhoto.cs" />
+    <Compile Include="Model\Photo\VKPhotoAlbum.cs" />
+    <Compile Include="Model\Photo\VKPhotoExtended.cs" />
+    <Compile Include="Model\Photo\VKPhotoTag.cs" />
+    <Compile Include="Model\Photo\VKPhotoUploadServer.cs" />
+    <Compile Include="Model\Photo\VKPostedAppPhoto.cs" />
+    <Compile Include="Model\Photo\VKPostedPhoto.cs" />
+    <Compile Include="Model\Profile\IVKProfileBase.cs" />
+    <Compile Include="Model\Profile\VKLastSeen.cs" />
+    <Compile Include="Model\Profile\VKOccupation.cs" />
+    <Compile Include="Model\Profile\VKPersonalInfo.cs" />
+    <Compile Include="Model\Profile\VKProfileBase.cs" />
+    <Compile Include="Model\Profile\VKProfileExtended.cs" />
+    <Compile Include="Model\Profile\VKUserContacts.cs" />
+    <Compile Include="Model\Profile\VKUserEducation.cs" />
+    <Compile Include="Model\Video\VKVideoAlbum.cs" />
+    <Compile Include="Model\Video\VKVideoAlbumExtended.cs" />
+    <Compile Include="Model\Video\VKVideoUploadServer.cs" />
+    <Compile Include="Model\Video\VKVideoTagged.cs" />
+    <Compile Include="Response\Execute\ExecuteGetDialogsResponse.cs" />
+    <Compile Include="Response\Execute\ExecuteGetProfileInfoResponse.cs" />
+    <Compile Include="Response\Friends\VKCommonFriendsObject.cs" />
+    <Compile Include="Response\Friends\VKDeleteFriendObject.cs" />
+    <Compile Include="Response\Friends\VKGetOnlineFriendsObject.cs" />
+    <Compile Include="Response\LastFm\ISupportValidation.cs" />
+    <Compile Include="Response\LastFm\LFAlbumsObject.cs" />
+    <Compile Include="Response\LastFm\LFArtistInfoResponse.cs" />
+    <Compile Include="Response\LastFm\LFArtistsObject.cs" />
+    <Compile Include="Response\LastFm\LFChartArtistsResponse.cs" />
+    <Compile Include="Response\LastFm\LFChartTracksResponse.cs" />
+    <Compile Include="Response\LastFm\LFSimilarArtistsObject.cs" />
+    <Compile Include="Response\LastFm\LFSimilarArtistsResponse.cs" />
+    <Compile Include="Response\LastFm\LFTopAlbumsResponse.cs" />
+    <Compile Include="Response\LastFm\LFTopTracksResponse.cs" />
+    <Compile Include="Response\LastFm\LFTrackInfoResponse.cs" />
+    <Compile Include="Response\LastFm\LFTracksObject.cs" />
+    <Compile Include="Response\LFResponse.cs" />
+    <Compile Include="Response\Likes\VKGetLikesListResponse.cs" />
+    <Compile Include="Response\Likes\VKGetLikesListExtendedResponse.cs" />
+    <Compile Include="Response\Likes\VKIsLikedObject.cs" />
+    <Compile Include="Response\Likes\VKLikesResponse.cs" />
+    <Compile Include="Response\Login\VKLoginResponse.cs" />
+    <Compile Include="Response\Message\VKChatPhotoObject.cs" />
+    <Compile Include="Response\Message\VKGetChatObject.cs" />
+    <Compile Include="Response\Message\VKGetDialogsObject.cs" />
+    <Compile Include="Response\Message\VKGetLastActivityObject.cs" />
+    <Compile Include="Response\Message\VKGetMessagesHistoryObject.cs" />
+    <Compile Include="Response\Message\VKLongPollServerData.cs" />
+    <Compile Include="Response\Newsfeed\VKNewsfeedGetBannedExtendedObject.cs" />
+    <Compile Include="Response\Newsfeed\VKNewsfeedGetBannedObject.cs" />
+    <Compile Include="Response\Newsfeed\VKNewsfeedGetObject.cs" />
+    <Compile Include="Response\Newsfeed\VKNewsfeedSearchExtendedObject.cs" />
+    <Compile Include="Response\Newsfeed\VKNewsfeedSearchObject.cs" />
+    <Compile Include="Response\Photo\VKSaveMessagesPhotoObject.cs" />
+    <Compile Include="Response\Photo\VKSaveOwnerPhotoObject.cs" />
+    <Compile Include="Response\Polls\VKGetVotersObject.cs" />
+    <Compile Include="Response\Status\VKGetStatusResponse.cs" />
+    <Compile Include="Response\Video\VKVideoAddAlbumObject.cs" />
+    <Compile Include="Response\Video\VKVideoExtendedItemsObject.cs" />
+    <Compile Include="Response\VKCaptchaRequest.cs" />
+    <Compile Include="Response\VKCaptchaResponse.cs" />
+    <Compile Include="Response\VKError.cs" />
+    <Compile Include="Response\Audio\VKAudioAddAlbumObject.cs" />
+    <Compile Include="Model\Video\IVKVideoBase.cs" />
+    <Compile Include="Model\Video\VKVideoBase.cs" />
+    <Compile Include="Model\Video\VKVideoExtended.cs" />
+    <Compile Include="Response\VKCountedItemsObject.cs" />
+    <Compile Include="Response\VKBaseItemsObject.cs" />
+    <Compile Include="Response\VKLongPollResponse.cs" />
+    <Compile Include="Response\VKResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\SettingsHelper.cs" />
+    <Compile Include="Response\Wall\GetWallCommentsExtendedObject.cs" />
+    <Compile Include="Response\Wall\GetWallExtendedObject.cs" />
+    <Compile Include="Service\CoreService.cs" />
+    <Compile Include="Service\DatabaseService.cs" />
+    <Compile Include="Service\IPlayerService.cs" />
+    <Compile Include="Service\ISuspensionService.cs" />
+    <Compile Include="Service\MessagesService.cs" />
+    <Compile Include="Service\Messages\MessagesUserService.cs" />
+    <Compile Include="Service\PromoService.cs" />
+    <Compile Include="Service\SettingsService.cs" />
+    <Compile Include="Helpers\VKHelper.cs" />
+    <Compile Include="Service\VKDocumentsService.cs" />
+    <Compile Include="Service\VKFriendsService.cs" />
+    <Compile Include="Service\VKLoginService.cs" />
+    <Compile Include="Service\VKLongPollService.cs" />
+    <Compile Include="Service\VKOldPhotosService.cs" />
+    <Compile Include="Service\VKUserV1Service.cs" />
+    <Compile Include="Service\XboxMusicService.cs" />
+    <Compile Include="ViewModel\AllPromosViewModel.cs" />
+    <Compile Include="ViewModel\AttachmentsManagerViewModel.cs" />
+    <Compile Include="ViewModel\AudiosViewModel.cs" />
+    <Compile Include="ViewModel\BaseConversationViewModel.cs" />
+    <Compile Include="ViewModel\BaseKeyedViewModel.cs" />
+    <Compile Include="ViewModel\BaseKeyedViewModelOld.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\BotViewModel.cs" />
+    <Compile Include="ViewModel\ChangeStatusViewModel.cs" />
+    <Compile Include="ViewModel\ChatSettingsViewModel.cs" />
+    <Compile Include="ViewModel\ChatViewModel.cs" />
+    <Compile Include="ViewModel\ChoiceFriendsViewModel.cs" />
+    <Compile Include="ViewModel\DialogViewModel.cs" />
+    <Compile Include="ViewModel\FriendsViewModel.cs" />
+    <Compile Include="ViewModel\GroupInfoViewModel.cs" />
+    <Compile Include="ViewModel\GroupsViewModel.cs" />
+    <Compile Include="ViewModel\IContentViewModel.cs" />
+    <Compile Include="ViewModel\IConversationViewModel.cs" />
+    <Compile Include="ViewModel\IDataViewModelOld.cs" />
+    <Compile Include="ViewModel\IKeyedViewModel.cs" />
+    <Compile Include="ViewModel\ImageViewModel.cs" />
+    <Compile Include="ViewModel\KeyedViewModelLocator.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MessagesViewModel.cs" />
+    <Compile Include="ViewModel\Messages\AddAttachmentsMessage.cs" />
+    <Compile Include="ViewModel\Messages\AddFriendsToChatMessage.cs" />
+    <Compile Include="ViewModel\Messages\NavigateToPageMessage.cs" />
+    <Compile Include="ViewModel\Messages\PlayTrackMessage.cs" />
+    <Compile Include="ViewModel\Messages\UpdatePromosMessage.cs" />
+    <Compile Include="ViewModel\NewPostViewModel.cs" />
+    <Compile Include="ViewModel\NewsViewModel.cs" />
+    <Compile Include="ViewModel\NotificationsViewModel.cs" />
+    <Compile Include="ViewModel\PhotosViewModel.cs" />
+    <Compile Include="ViewModel\PlayerViewModel.cs" />
+    <Compile Include="ViewModel\PostViewModel.cs" />
+    <Compile Include="ViewModel\MultipleLocator.cs" />
+    <Compile Include="ViewModel\ProfileViewModel.cs" />
+    <Compile Include="ViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\Settings\NotificationsSettingsViewModel.cs" />
+    <Compile Include="ViewModel\Settings\CommonSettingsViewModel.cs" />
+    <Compile Include="ViewModel\SidebarViewModel.cs" />
+    <Compile Include="ViewModel\VideoAlbumViewModel.cs" />
+    <Compile Include="ViewModel\VideoInfoViewModel.cs" />
+    <Compile Include="ViewModel\VideosViewModel.cs" />
+    <Compile Include="VKMethodsConstants.cs" />
+    <Compile Include="ViewModel\Messages\LoginMessage.cs" />
+    <Compile Include="ViewModel\SinglelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Request\Friends\FriendsRequests.dgml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Request\RequestsGraph.dgml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight">
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras">
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\portable-net45+wp8+wpa81+netcore45+monoandroid1+xamarin.ios10\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VKSaver.Commands.SDK">
+      <HintPath>..\Libs\VKSaver.Commands.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="XboxMusicService, Version=1.0.5542.27830, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XboxMusicSDK.1.7\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XboxMusicService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <TargetPlatform Include="Windows, Version=8.1" />
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NotificationsExtensions\NotificationsExtensions.csproj">
+      <Project>{6e87464b-b064-40ca-8161-7c18c337adff}</Project>
+      <Name>NotificationsExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,48 @@
+﻿<Page x:Name="Page"
+    x:Class="OneVK.Views.PhotosView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:OneVK.Core.Xaml.Data"
+    xmlns:controls="using:OneVK.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    controls:ChromeFrame.IsVisible="Visible"
+    controls:ChromeFrame.Title="Фотографии"
+    d:DataContext="{Binding PhotosDesignTimeVM, Source={StaticResource Locator}}">
+
+    <Page.Resources>
+        <data:DataContextProxy x:Key="DataContextProxy" DataContext="{Binding DataContext, ElementName=Page}"/>
+        
+        <DataTemplate x:Key="PhotoAlbum">
+            <Grid Width="150" Height="150" Margin="0,0,10,10">
+                <Grid.Background>
+                    <ImageBrush ImageSource="{Binding Thumbnail}" Stretch="UniformToFill"/>
+                </Grid.Background>
+                
+                <Grid Height="Auto">
+                    <TextBlock/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid>
+        <GridView ItemsSource="{Binding Albums}"
+                  DataFetchSize="3" IncrementalLoadingThreshold="5"
+                  SelectionMode="None"
+                  IsSwipeEnabled="False" IsZoomedInView="True"
+                  ItemTemplate="{StaticResource PhotoAlbum}"
+                  Style="{StaticResource TransitionGridViewStyle}">
+            <GridView.FooterTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="20,5,20,55">
+                        <controls:StateBlockOld State="{Binding Albums.State}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.FooterTemplate>
+        </GridView>
+    </Grid>
+</Page>

@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VKSaver.Commands.SDK</name>
+    </assembly>
+    <members>
+        <member name="T:VKSaver.Commands.SDK.FileContentType">
+            <summary>
+            Тип содержимого файла.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.FileContentType.Other">
+            <summary>
+            Любой тип содержимого. Загружается в папку "Документы".
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.FileContentType.Music">
+            <summary>
+            Аудиофайл. Загружается в папку "Музыка".
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.FileContentType.Video">
+            <summary>
+            Видеофайл. Загружается в папку "Видео".
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.FileContentType.Image">
+            <summary>
+            Изображение. Загружается в папку "Изображения".
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.FileHelper">
+            <summary>
+            Представляет помощник работы с файлами.
+            </summary>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.FileHelper.GetLocalFileFromName(System.String)">
+            <summary>
+            Возвращает файл по его имени или null, если файл отсутствует.
+            </summary>
+            <param name="fileName">Имя файла, включая расширение.</param>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.FileHelper.CreateLocalFile(System.String)">
+            <summary>
+            Создает указанный файл в локальной папке приложения и возвращает его.
+            Возвращает null при ошибке.
+            </summary>
+            <param name="fileName">Имя файла, включая расширение.</param>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.FileHelper.WriteTextToFile(Windows.Storage.IStorageFile,System.String)">
+            <summary>
+            Записывает указанный текст в файл и возвращает успешность операции.
+            </summary>
+            <param name="file">Файл для записи.</param>
+            <param name="textToWrite">Текст для записи.</param>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.FileHelper.ReadTextFromFile(Windows.Storage.IStorageFile)">
+            <summary>
+            Считывает текст из переданного файла.
+            </summary>
+            <param name="file">Файл для считывания.</param>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.FileHelper.GetFileStreamForRead(System.Uri)">
+            <summary>
+            Возвращает поток для чтения из файла.
+            </summary>
+            <param name="path">Путь к файлу.</param>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.FileHelper.GetFileMemoryStream(System.Uri)">
+            <summary>
+            Возвращает поток файла, считанного в память.
+            </summary>
+            <param name="path">Путь к файлу.</param>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.JsonSerializationHelper">
+            <summary>
+            Помощник сериализации в Json-строку.
+            </summary>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.JsonSerializationHelper.SerializeToJson``1(``0)">
+            <summary>
+            Сериализует указанный объект в Json-строку.
+            </summary>
+            <param name="obj">Объект для сериализации.</param>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.JsonSerializationHelper.DeserializeFromJson``1(System.String)">
+            <summary>
+            Десериализует Json-строку в объект указанного типа.
+            </summary>
+            <param name="json">Json-строка для десериализации.</param>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.IVKSaverCommand">
+            <summary>
+            Представляет команду для выполнения приложением ВКачай.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.IVKSaverCommand.Type">
+            <summary>
+            Тип команды для ВКачай.
+            </summary>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.IVKSaverCommand.TryExecute">
+            <summary>
+            Выполнить команду.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverAudioTrack">
+            <summary>
+            Представляет собой аудио трек ВКачай
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverAudioTrack.Title">
+            <summary>
+            Возвращает или задает заголовок аудиозаписи.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverAudioTrack.Artist">
+            <summary>
+            Возвращает или задает исполнителя аудиозаписи.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverAudioTrack.Source">
+            <summary>
+            Возвращает или задает ссылку на файл.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverAudioTrack.VKLyricsID">
+            <summary>
+            Возвращает или задает идентификатор текста аудиозаписи ВКонтакте.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverAudioTrack.LyricsText">
+            <summary>
+            Возвращает или задает текст аудиозаписи.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverPlayVideoCommand">
+            <summary>
+            Представляет команду для проигрывания видеозаписи.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverPlayVideoCommand.Type">
+            <summary>
+            Возвращает тип команды ВКачай.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverPlayVideoCommand.Source">
+            <summary>
+            Возвращает или задает ссылку на файл видеозаписи.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverOpenVKVideoCommand">
+            <summary>
+            Представляет команду для открытия видеозаписи ВКонтакте.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverOpenVKVideoCommand.Type">
+            <summary>
+            Возвращает тип команды ВКачай.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverOpenVKVideoCommand.OwnerID">
+            <summary>
+            Возвращает или задет идентификатор владельца видеозаписи 
+            (отрицательное для групп и положитльное для пользователей).
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverOpenVKVideoCommand.VideoID">
+            <summary>
+            Возвращает или задает идентификатор видеозаписи.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverOpenVKVideoCommand.AccessKey">
+            <summary>
+            Возвращает или задает ключ доступа для видеозаписей, закрытых настройками 
+            приватности, но достуными в текущем коентексте.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverOpenVKVideoCommand.AccessToken">
+            <summary>
+            Ключ авторизации текущего пользователя.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverPlayAudiosCommand">
+            <summary>
+            Представляет команду для воспроизведения списка треков ВКонтакте.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverPlayAudiosCommand.Type">
+            <summary>
+            Возвращает тип команды ВКонтакте.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverPlayAudiosCommand.TrackID">
+            <summary>
+            Возвращает или задает позицию трека в переданном плейлисте, 
+            который должен быть воспроизведен.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverPlayAudiosCommand.Tracks">
+            <summary>
+            Возвращает или задает список треков для воспроизведения.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverSDK">
+            <summary>
+            Представляет методы для получения команд ВКачай из файла и выполнения списка команд. 
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverSDK.VKSAVER_START_APP_COMMAND_FILE_EXTENSION">
+            <summary>
+            Расширение файла команды запуска приложения.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverSDK.VKSAVER_PLAY_AUDIOS_COMMAND_FILE_EXTENSION">
+            <summary>
+            Рашсирение файла команды проигрывания аудиозаписей.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverSDK.VKSAVER_OPEN_VK_VIDEO_COMMAND_FILE_EXTENSION">
+            <summary>
+            Расширение файла команды открытия видеозаписи ВКонтакте.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverSDK.VKSAVER_PLAY_VIDEO_COMMAND_FILE_EXTENSION">
+            <summary>
+            Расширение файла команды проигрывания видеозаписи.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverSDK.VKSAVER_DOWNLOAD_FILES_COMMAND_FILE_EXTENSION">
+            <summary>
+            Расширение файла команды загрузки файлов.
+            </summary>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.VKSaverSDK.GetCommandsAsync(Windows.Storage.IStorageFile)">
+            <summary>
+            Возвращает список команд ВКачай, записанных в указанный файл.
+            </summary>
+            <param name="file">Файл, в котором записаны команды для выполнения.</param>
+            <exception cref="T:System.ArgumentException"/>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.VKSaverSDK.ExecuteCommandsAsync(System.Collections.Generic.IList{VKSaver.Commands.SDK.IVKSaverCommand})">
+            <summary>
+            Выполняет переданные команды ВКачай и возвращает значение, удалось ли это сделать.
+            Команды должны быть одного типа.
+            </summary>
+            <param name="commands">Коллекция команд ВКачай.</param>
+            <exception cref="T:System.ArgumentException"/>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.VKSaverSDK.IsFileTypeSupported(Windows.Storage.IStorageFile)">
+            <summary>
+            Возвращает значение, поддерживается ли тип файла.
+            </summary>
+            <param name="file">Файл, который требуется проверить.</param>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverCommand">
+            <summary>
+            Представляет команду для выполнения приложением ВКачай.
+            Это абстрактный класс.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverCommand.Type">
+            <summary>
+            Возвращает тип команды.
+            </summary>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.VKSaverCommand.TryExecute">
+            <summary>
+            Выполнить команду.
+            </summary>
+        </member>
+        <member name="M:VKSaver.Commands.SDK.VKSaverCommand.GetExtensionFromType(VKSaver.Commands.SDK.VKSaverCommandType)">
+            <summary>
+            Возвращает расширение файла по типу команды.
+            </summary>
+            <param name="type">Тип команды.</param>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverCommandType">
+            <summary>
+            Представляет перечисление типов команд для ВКачай.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverCommandType.StartApp">
+            <summary>
+            Открыть приложение.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverCommandType.DownloadFiles">
+            <summary>
+            Загрузить файлы.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverCommandType.PlayVideo">
+            <summary>
+            Выполняет проигрывание переднной видеозаписи.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverCommandType.OpenVKVideo">
+            <summary>
+            Открывает страницу видеозаписи ВКонтакте.
+            </summary>
+        </member>
+        <member name="F:VKSaver.Commands.SDK.VKSaverCommandType.PlayAudios">
+            <summary>
+            Выполняет воспроизведение переданых треков.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverDownload">
+            <summary>
+            Представляет объект загрузки, совместимой с ВКачай.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverDownload.ContentType">
+            <summary>
+            Тип содержимого файла.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverDownload.Extension">
+            <summary>
+            Расширение файла.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverDownload.FileName">
+            <summary>
+            Имя результирующего файла.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverDownload.Source">
+            <summary>
+            Ссылка на файл.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverDownloadCommand">
+            <summary>
+            Представляет команду для загрузки файлов через ВКачай.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverDownloadCommand.Type">
+            <summary>
+            Возвращает тип команды.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverDownloadCommand.Downloads">
+            <summary>
+            Возвращает список загрузок.
+            </summary>
+        </member>
+        <member name="T:VKSaver.Commands.SDK.VKSaverStartAppCommand">
+            <summary>
+            Представляет команду для запуска приложения ВКачай.
+            </summary>
+        </member>
+        <member name="P:VKSaver.Commands.SDK.VKSaverStartAppCommand.Type">
+            <summary>
+            Возвращает тип команды.
+            </summary>
+        </member>
+    </members>
+</doc>

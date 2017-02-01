@@ -1,0 +1,250 @@
+﻿<mvvm:VisualStateAwarePage
+    x:Class="OneVK.Views.GroupSettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="using:Microsoft.Practices.Prism.StoreApps"
+    xmlns:c="using:OneVK.Controls"
+    xmlns:conv="using:OneVK.Converters"
+    mc:Ignorable="d"
+    Style="{StaticResource TransitionDownPage}"
+    Background="{ThemeResource ListPageBackgroundBrush}"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    c:ChromeFrame.IsVisible="Hided"
+    c:ChromeFrame.Title="Настройки сообщества"
+    c:ChromeFrame.CommandBarIsVisible="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+
+    <mvvm:VisualStateAwarePage.Resources>
+        <conv:VKStateModuleToIndexConverter x:Key="StateToIndexConverter"/>
+    </mvvm:VisualStateAwarePage.Resources>
+
+    <c:ChromeFrame.CommandBar>
+        <c:OneCommandBar>
+            <c:OneCommandBar.PrimaryCommands>
+                <c:OneCommandBarElementsCollection>
+                    <c:OneCommandBarButton Label="Сохранить" Command="{Binding SaveSettings, Mode=OneTime}">
+                        <c:OneCommandBarButton.Icon>
+                            <FontIcon Glyph="&#xE74E;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                        </c:OneCommandBarButton.Icon>
+                    </c:OneCommandBarButton>
+                </c:OneCommandBarElementsCollection>
+            </c:OneCommandBar.PrimaryCommands>
+        </c:OneCommandBar>
+    </c:ChromeFrame.CommandBar>
+    
+    <Grid>
+        <Pivot Style="{StaticResource PivotStyle}" SelectedIndex="{Binding CurrentPivotIndex, Mode=TwoWay}">
+            <PivotItem Header="Информация" Style="{StaticResource PivotItemStyle}">
+                <ScrollViewer Margin="0,-120,0,0">
+                    <StackPanel Margin="0,0,0,40" Style="{StaticResource TransitionStackPanelStyle}">
+                        <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                            Margin="0,130,0,0">
+                            <StackPanel>
+                                <TextBlock Text="Основное" Style="{StaticResource ContentHeaderTextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Название сообщества" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <TextBox Text="{Binding Settings.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Pivot.SlideInAnimationGroup="GroupTwo"/>
+
+                                <TextBlock Text="Адрес страницы" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <TextBox Text="{Binding Settings.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Pivot.SlideInAnimationGroup="GroupTwo"/>
+
+                                <TextBlock Text="Описание сообщества" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <TextBox Text="{Binding Settings.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                         AcceptsReturn="True" InputScope="Default" MaxHeight="206"
+                                         Pivot.SlideInAnimationGroup="GroupTwo"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                                Margin="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="Подробные данные" Style="{StaticResource ContentHeaderTextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Тематика сообщества" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}" 
+                                          ItemsSource="{Binding Settings.AvailableSubjects}"
+                                          SelectedIndex="{Binding CurrentSubjectIndex, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Веб-сайт" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <TextBox Text="{Binding Settings.Site, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         InputScope="Url" Pivot.SlideInAnimationGroup="GroupTwo"/>
+
+                                <TextBlock Text="Электронный адрес (email)" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <TextBox Text="{Binding Settings.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         InputScope="EmailSmtpAddress" Pivot.SlideInAnimationGroup="GroupTwo"/>
+
+                                <TextBlock Text="Номер телефона" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <TextBox Text="{Binding Settings.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         InputScope="TelephoneNumber" Pivot.SlideInAnimationGroup="GroupTwo"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Модули" Style="{StaticResource PivotItemStyle}">
+                <ScrollViewer Margin="0,-120,0,0">
+                    <StackPanel Margin="0,0,0,40" Style="{StaticResource TransitionStackPanelStyle}">
+                        <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                                Margin="0,130,0,0">
+                            <StackPanel>
+                                <TextBlock Text="Тип сообщества" Style="{StaticResource ContentHeaderTextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Access, Converter={StaticResource StateToIndexConverter}, ConverterParameter=a, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Открытое"/>
+                                    <ComboBoxItem Content="Закрытое"/>
+                                    <ComboBoxItem Content="Частное"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+                        
+                        <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                                Margin="0,10,0,0">
+                            <StackPanel>
+                                <TextBlock Text="Управление модулями" Style="{StaticResource ContentHeaderTextStyle}" 
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Стена" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Wall, Converter={StaticResource StateToIndexConverter}, ConverterParameter=4, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключена"/>
+                                    <ComboBoxItem Content="Открытая"/>
+                                    <ComboBoxItem Content="Ограниченная"/>
+                                    <ComboBoxItem Content="Закрытая"/>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Фотографии" Style="{StaticResource ToggleSwitchLine1TextStyle}"
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Photos, Converter={StaticResource StateToIndexConverter}, ConverterParameter=3, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключены"/>
+                                    <ComboBoxItem Content="Открытые"/>
+                                    <ComboBoxItem Content="Ограниченные"/>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Видеозаписи" Style="{StaticResource ContentHeaderTextStyle}" 
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Videos, Converter={StaticResource StateToIndexConverter}, ConverterParameter=3, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключены"/>
+                                    <ComboBoxItem Content="Открытые"/>
+                                    <ComboBoxItem Content="Ограниченные"/>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Аудиозаписи" Style="{StaticResource ContentHeaderTextStyle}" 
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Audios, Converter={StaticResource StateToIndexConverter}, ConverterParameter=3, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключены"/>
+                                    <ComboBoxItem Content="Открытые"/>
+                                    <ComboBoxItem Content="Ограниченные"/>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Документы" Style="{StaticResource ContentHeaderTextStyle}" 
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Docs, Converter={StaticResource StateToIndexConverter}, ConverterParameter=3, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключены"/>
+                                    <ComboBoxItem Content="Открытые"/>
+                                    <ComboBoxItem Content="Ограниченные"/>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Обсуждения" Style="{StaticResource ContentHeaderTextStyle}" 
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Topics, Converter={StaticResource StateToIndexConverter}, ConverterParameter=3, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключены"/>
+                                    <ComboBoxItem Content="Открытые"/>
+                                    <ComboBoxItem Content="Ограниченные"/>
+                                </ComboBox>
+                                <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                                <TextBlock Text="Материалы" Style="{StaticResource ContentHeaderTextStyle}" 
+                                           Pivot.SlideInAnimationGroup="GroupOne"/>
+                                <ComboBox Style="{StaticResource ComboBoxStyle}"
+                                          SelectedIndex="{Binding Settings.Wiki, Converter={StaticResource StateToIndexConverter}, ConverterParameter=3, Mode=TwoWay}"
+                                          Pivot.SlideInAnimationGroup="GroupTwo">
+                                    <ComboBoxItem Content="Выключены"/>
+                                    <ComboBoxItem Content="Открытые"/>
+                                    <ComboBoxItem Content="Ограниченные"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem Header="Участники" Style="{StaticResource PivotItemStyle}"/>
+            <PivotItem Header="Черный список" Style="{StaticResource PivotItemStyle}"/>
+            <PivotItem Header="Руководители" Style="{StaticResource PivotItemStyle}"/>
+        </Pivot>
+        <Border Background="{ThemeResource TopBarOpacityBackgroundBrush}"
+                VerticalAlignment="Top" Height="85" Padding="18,0">
+            <Grid Style="{StaticResource TransitionGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Height="60" Width="60" CornerRadius="32"
+                    Background="{ThemeResource ImageBackgroundBrush}">
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Group.Photo100}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,3,0,0" 
+                            Style="{StaticResource TransitionStackPanelStyle}">
+                    <TextBlock Text="{Binding Group.Name}" Style="{StaticResource ChromeFrameTitleTextStyle}"/>
+                    <TextBlock Text="Управление сообществом" Style="{StaticResource ChromeFrameTitleTextStyle}" 
+                               FontSize="18.667" Margin="0,-3,0,0"/>
+                </StackPanel>                
+            </Grid>
+        </Border>
+        <c:FullscreenControl IsVisible="{Binding IsLoading}">
+            <StackPanel VerticalAlignment="Center" Style="{StaticResource TransitionStackPanelStyle}">
+                <ProgressRing Style="{StaticResource WaveProgressRingStyle}" Width="120" Height="50" IsActive="True"/>
+                <TextBlock Text="{Binding LoadingText}" Style="{StaticResource ProgressTextStyle}"/>
+            </StackPanel>
+        </c:FullscreenControl>
+    </Grid>
+</mvvm:VisualStateAwarePage>

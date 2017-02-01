@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="OneVK.Views.AttachmentsManagerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:behaviors="using:OneVK.Behaviors"
+    xmlns:i="using:Microsoft.Xaml.Interactivity" 
+    xmlns:c="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:xaml="using:OneVK.Core.Xaml"
+    xmlns:converters="using:OneVK.Converters"
+    mc:Ignorable="d"
+    Background="{ThemeResource PageBackgroundBrush}"
+    DataContext="{Binding AttachmentsManagerVM, Source={StaticResource Locator}}"
+    controls:ChromeFrame.Title="Вложения"
+    controls:ChromeFrame.IsVisible="Tool">        
+
+    <Grid>
+        <TextBlock Text="Здесь очень пусто..." Style="{StaticResource StateBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+
+    <controls:ChromeFrame.CommandBar>
+        <controls:OneCommandBar>
+            <controls:OneCommandBar.PrimaryCommands>
+                <controls:OneCommandBarButton Label="Аудио">
+                    <controls:OneCommandBarButton.Icon>
+                        <FontIcon Glyph="&#xEC4F;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                    </controls:OneCommandBarButton.Icon>
+                </controls:OneCommandBarButton>
+                <controls:OneCommandBarButton Label="Видео">
+                    <controls:OneCommandBarButton.Icon>
+                        <FontIcon Glyph="&#xE714;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                    </controls:OneCommandBarButton.Icon>
+                </controls:OneCommandBarButton>
+                <controls:OneCommandBarButton Label="Фото">
+                    <controls:OneCommandBarButton.Icon>
+                        <FontIcon Glyph="&#xE114;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                    </controls:OneCommandBarButton.Icon>
+                </controls:OneCommandBarButton>
+                <controls:OneCommandBarButton Label="Документ">
+                    <controls:OneCommandBarButton.Icon>
+                        <FontIcon Glyph="&#xE7C3;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                    </controls:OneCommandBarButton.Icon>
+                </controls:OneCommandBarButton>
+                <controls:OneCommandBarButton Label="Принять" Command="{Binding}">
+                    <controls:OneCommandBarButton.Icon>
+                        <FontIcon Glyph="&#xE10B;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                    </controls:OneCommandBarButton.Icon>
+                </controls:OneCommandBarButton>
+            </controls:OneCommandBar.PrimaryCommands>
+        </controls:OneCommandBar>
+    </controls:ChromeFrame.CommandBar>
+</Page>

@@ -1,0 +1,38 @@
+﻿<UserControl
+    x:Name="Control"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="OneVK.Controls.PlayerBackground"
+    mc:Ignorable="d"
+    IsHitTestVisible="False">
+    <UserControl.Resources>
+        <Storyboard x:Name="AnimateOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="OldImage">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="AnimateIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="NewImage">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.8"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid>
+        <Rectangle x:Name="OldImage" Opacity="0" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <CompositeTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="NewImage" Opacity="0.8" RenderTransformOrigin="0,0">
+            <Rectangle.RenderTransform>
+                <CompositeTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="ColorSubstrate" Opacity="0.7" Fill="Black"/>
+    </Grid>
+</UserControl>

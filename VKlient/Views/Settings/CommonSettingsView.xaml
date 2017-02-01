@@ -1,0 +1,199 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:conv="using:OneVK.Converters"
+    x:Class="OneVK.Views.CommonSettigsView"
+    mc:Ignorable="d"
+    Background="{ThemeResource ListPageBackgroundBrush}"
+    DataContext="{Binding CommonSettingsVM, Source={StaticResource Locator}}"
+    controls:ChromeFrame.Title="Общие"
+    controls:ChromeFrame.IsVisible="Tool">
+    
+    <ScrollViewer>
+        <StackPanel Margin="0,95,0,10" Style="{StaticResource TransitionStackPanelStyle}">
+            <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}">
+                <StackPanel>
+                    <TextBlock Text="Приложение" Style="{StaticResource ContentHeaderTextStyle}"/>
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Режим невидимости" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" IsOn="{Binding StayOfflineMode, Mode=TwoWay}" IsEnabled="False" Style="{StaticResource ToggleSwitchStyle}"/>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="При включении ваш онлайн статус будет скрыт." Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Рекламные акции" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" IsOn="{Binding EnablePromo, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="При включении вы будете в курсе вссех проводимых нами акций." 
+                                   Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Emoji-символы" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ComboBox Style="{StaticResource ComboBoxStyle}" SelectedIndex="{Binding EmojiTypeIndex, Mode=TwoWay}" 
+                                  Grid.Row="1" Margin="-2,0">
+                            <ComboBoxItem Content="Twitter Emoji"/>
+                            <ComboBoxItem Content="Apple Emoji"/>
+                            <ComboBoxItem Content="Microsoft Segoe Emoji"/>
+                        </ComboBox>                        
+                        <TextBlock Grid.Row="2" Text="Этот набор Emoji-символов (смайликов) будет использоваться в приложении" 
+                                   Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Margin="0,10,0,0" Style="{StaticResource TransitionBorder}">
+                <StackPanel>
+                    <TextBlock Text="Фото и видео" Style="{StaticResource ContentHeaderTextStyle}"/>
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+                    
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Режим экономии трафика" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" IsOn="{Binding EconomyMode, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="При включении изображения будут загружаться в более низком качестве." Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Сжимать отправляемые изображения" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" IsEnabled="False"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Сохранять данные о местоположении" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" IsEnabled="False"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Сохранять обработанные изображения" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}" IsEnabled="False"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Margin="0,10,0,0" Style="{StaticResource TransitionBorder}">
+                <StackPanel>
+                    <TextBlock Text="Музыка" Style="{StaticResource ContentHeaderTextStyle}"/>
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Кэшировать аудиозаписи" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch IsOn="{Binding EnableMusicCache, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Кэшировать изображения исполнителей" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}"
+                                      IsOn="{Binding EnableCacheArtistsImages, Mode=TwoWay}"/>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="При включении OneVK будет загружать и кэшировать фотографии исполнителей." Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Загружать изображения только через Wi-Fi" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                        <ToggleSwitch Grid.Column="1" Style="{StaticResource ToggleSwitchStyle}"
+                                      IsEnabled="{Binding IsCacheImagesFromWiFiToggleSwitchAvailable}"
+                                      IsOn="{Binding EnableCacheArtistsImagesOnlyFromWiFi, Mode=TwoWay}"/>
+                        <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="При включении изображения исполнителей будут загружаться только через Wi-Fi." Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                    <Button Content="Очистить кэш изображений" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Очистить кэш аудиозаписей" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Очистить кэш сообщений" Style="{StaticResource ButtonStyle}"
+                            Command="{Binding ClearMessagesCacheCommand}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>    
+</Page>

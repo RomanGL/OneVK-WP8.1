@@ -1,0 +1,2429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4CC4A1E-0B26-4532-8FEF-3E044C215D95}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OneVK</RootNamespace>
+    <AssemblyName>OneVK</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>12.0.51020.0</ExpressionBlendVersion>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <AppxBundle>Never</AppxBundle>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_PHONE_APP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\IncrementalUpDownLoadingBehavior.cs" />
+    <Compile Include="Behaviors\PivotSelectedIndexBehavior.cs" />
+    <Compile Include="Behaviors\PlayTrackAction.cs" />
+    <Compile Include="Behaviors\ScrollOffsetBehavior.cs" />
+    <Compile Include="Behaviors\ShowAttachedFlyoutAction.cs" />
+    <Compile Include="Controls\AttachmentsPresenter.cs" />
+    <Compile Include="Controls\AudiosPresenter.cs" />
+    <Compile Include="Controls\Carousel.cs" />
+    <Compile Include="Controls\ChatBubble.cs" />
+    <Compile Include="Controls\ChatBubbleTextBox.cs" />
+    <Compile Include="Controls\ChromeFrame.cs" />
+    <Compile Include="Controls\ChromeFrame\NavMenuItem.cs" />
+    <Compile Include="Controls\ChromeFrame\NavMenuListView.cs" />
+    <Compile Include="Controls\CommentsButton.cs" />
+    <Compile Include="Controls\Common\ChatBubbleDirection.cs" />
+    <Compile Include="Controls\Common\IOneCommandBar.cs" />
+    <Compile Include="Controls\Common\StoryboardServices.cs" />
+    <Compile Include="Controls\ContentOneCommandBar.cs" />
+    <Compile Include="Controls\ConversationAvatar.cs" />
+    <Compile Include="Controls\FullscreenControl.cs" />
+    <Compile Include="Controls\ImageViewer\ImageViewer.cs" />
+    <Compile Include="Controls\MenuListItem.cs" />
+    <Compile Include="Controls\MessageStateControl.cs" />
+    <Compile Include="Controls\OneCommandBar.cs" />
+    <Compile Include="Controls\OneCommandBarElementsCollection.cs" />
+    <Compile Include="Controls\Common\IOneCommandBarElement.cs" />
+    <Compile Include="Controls\Common\MenuIconType.cs" />
+    <Compile Include="Controls\ContentContainer.cs" />
+    <Compile Include="Controls\EnterCaptcha.xaml.cs">
+      <DependentUpon>EnterCaptcha.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LikeButton.cs" />
+    <Compile Include="Controls\ListItemsPresenter.cs" />
+    <Compile Include="Controls\MenuButton.xaml.cs">
+      <DependentUpon>MenuButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MediaItemsPresenter.cs" />
+    <Compile Include="Controls\BaseOneCommandBar.cs" />
+    <Compile Include="Controls\OneCommandBarButton.cs" />
+    <Compile Include="Controls\OneTopBarButton.cs" />
+    <Compile Include="Controls\PlayerBackground.xaml.cs" />
+    <Compile Include="Controls\AppNotificationControl.cs" />
+    <Compile Include="Controls\PostItem.cs" />
+    <Compile Include="Controls\PromoMenuItem.cs" />
+    <Compile Include="Controls\RepostButton.cs" />
+    <Compile Include="Controls\StateBlock.cs" />
+    <Compile Include="Controls\StateBlockOld.cs" />
+    <Compile Include="Controls\RichTextBlockExtensions.cs" />
+    <Compile Include="Controls\ThumbnailControl.cs" />
+    <Compile Include="Controls\UserChatAvatar.cs" />
+    <Compile Include="Controls\Wall\PostContent.cs" />
+    <Compile Include="Controls\Wall\PostPresenter.cs" />
+    <Compile Include="Converters\AppVersionConverter.cs" />
+    <Compile Include="Converters\BooleanToChatBubbleDirectionConverter.cs" />
+    <Compile Include="Converters\BrushDimmingConverter.cs" />
+    <Compile Include="Converters\ChatUsersCountConverter.cs" />
+    <Compile Include="Converters\ContentStateToVisibilityConverter.cs" />
+    <Compile Include="Converters\EmojiTypeToStringConverter.cs" />
+    <Compile Include="Converters\MessageTypeToVisibilityConverter.cs" />
+    <Compile Include="Converters\NotificationPostTextConverter.cs" />
+    <Compile Include="Converters\NotificationsTextConverter.cs" />
+    <Compile Include="Converters\NullToBoolConverter.cs" />
+    <Compile Include="Converters\ObjectToStringConverter.cs" />
+    <Compile Include="Converters\NullToInvisibleConverter.cs" />
+    <Compile Include="Converters\ReverseBooleanConverter.cs" />
+    <Compile Include="Converters\SkipNumberUsersConverter.cs" />
+    <Compile Include="Converters\SystemActionMessageToStringConverter.cs" />
+    <Compile Include="Converters\TypingUsersToStringConverter.cs" />
+    <Compile Include="Converters\UsersListToVisibilityConverter.cs" />
+    <Compile Include="Converters\VideosCountConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\CounterVisibilityConverter.cs" />
+    <Compile Include="Converters\DimmingColorBrushConverter.cs" />
+    <Compile Include="Converters\GroupMembersConverter.cs" />
+    <Compile Include="Converters\ImageHeightConverter.cs" />
+    <Compile Include="Converters\ImageWidthConverter.cs" />
+    <Compile Include="Converters\IncrementNumberConverter.cs" />
+    <Compile Include="Converters\ItemClickEventArgsToClickedItemConverter.cs" />
+    <Compile Include="Converters\MessagesTimeConverter.cs" />
+    <Compile Include="Converters\RelativeTimeConverter.cs" />
+    <Compile Include="Converters\ScreenWidthConverter.cs" />
+    <Compile Include="Converters\ViewsCountConverter.cs" />
+    <Compile Include="Converters\VKStateModuleToIndexConverter.cs" />
+    <Compile Include="Core\Services\DeviceVibrationService.cs" />
+    <Compile Include="Helpers\ChromeFrameHelper.cs" />
+    <Compile Include="Helpers\DataContextProxy.cs" />
+    <Compile Include="Helpers\ListViewExtensions.cs" />
+    <Compile Include="Helpers\VisualTreeHelperExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\PlayerService.cs" />
+    <Compile Include="Service\SuspensionService.cs" />
+    <Compile Include="Views\AccessDeniedView.xaml.cs">
+      <DependentUpon>AccessDeniedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Album\PhotoAlbumsView.xaml.cs">
+      <DependentUpon>PhotoAlbumsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AudiosView.xaml.cs">
+      <DependentUpon>AudiosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllPromosView.xaml.cs">
+      <DependentUpon>AllPromosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Common\AttachmentsManagerView.xaml.cs">
+      <DependentUpon>AttachmentsManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Groups\GroupDescriptionView.xaml.cs">
+      <DependentUpon>GroupDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Groups\GroupSettingsView.xaml.cs">
+      <DependentUpon>GroupSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Groups\GroupView.xaml.cs">
+      <DependentUpon>GroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Newsfeed\NewsfeedView.xaml.cs">
+      <DependentUpon>NewsfeedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PromoView.xaml.cs">
+      <DependentUpon>PromoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FeedbackView.xaml.cs">
+      <DependentUpon>FeedbackView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlankPage1.xaml.cs">
+      <DependentUpon>BlankPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BotView.xaml.cs">
+      <DependentUpon>BotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangeStatusView.xaml.cs">
+      <DependentUpon>ChangeStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Common\ChoiceFriendsView.xaml.cs">
+      <DependentUpon>ChoiceFriendsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorView.xaml.cs">
+      <DependentUpon>ErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FriendsView.xaml.cs">
+      <DependentUpon>FriendsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Groups\GroupInfoView.xaml.cs">
+      <DependentUpon>GroupInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Groups\GroupsView.xaml.cs">
+      <DependentUpon>GroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImageView.xaml.cs">
+      <DependentUpon>ImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessagesView.xaml.cs">
+      <DependentUpon>MessagesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Messages\ChatSettingsView.xaml.cs">
+      <DependentUpon>ChatSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Messages\ConversationView.xaml.cs">
+      <DependentUpon>ConversationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewPostView.xaml.cs">
+      <DependentUpon>NewPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsView.xaml.cs">
+      <DependentUpon>NewsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PhotosView.xaml.cs">
+      <DependentUpon>PhotosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayerView.xaml.cs">
+      <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PostView.xaml.cs">
+      <DependentUpon>PostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\CommonSettingsView.xaml.cs">
+      <DependentUpon>CommonSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\NotificationsSettingsView.xaml.cs">
+      <DependentUpon>NotificationsSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\TestView.xaml.cs">
+      <DependentUpon>TestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestPageOld.xaml.cs">
+      <DependentUpon>TestPageOld.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VideoAlbumView.xaml.cs">
+      <DependentUpon>VideoAlbumView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VideoInfoView.xaml.cs">
+      <DependentUpon>VideoInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VideosView.xaml.cs">
+      <DependentUpon>VideosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AccessDenied.png" />
+    <Content Include="Assets\AppBar\appbar.refresh.png" />
+    <Content Include="Assets\AppleEmoji\0023-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0030-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0031-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0032-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0033-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0034-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0035-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0036-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0037-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0038-20e3.png" />
+    <Content Include="Assets\AppleEmoji\0039-20e3.png" />
+    <Content Include="Assets\AppleEmoji\00a9.png" />
+    <Content Include="Assets\AppleEmoji\00ae.png" />
+    <Content Include="Assets\AppleEmoji\1f004.png" />
+    <Content Include="Assets\AppleEmoji\1f0cf.png" />
+    <Content Include="Assets\AppleEmoji\1f170.png" />
+    <Content Include="Assets\AppleEmoji\1f171.png" />
+    <Content Include="Assets\AppleEmoji\1f17e.png" />
+    <Content Include="Assets\AppleEmoji\1f17f.png" />
+    <Content Include="Assets\AppleEmoji\1f18e.png" />
+    <Content Include="Assets\AppleEmoji\1f191.png" />
+    <Content Include="Assets\AppleEmoji\1f192.png" />
+    <Content Include="Assets\AppleEmoji\1f193.png" />
+    <Content Include="Assets\AppleEmoji\1f194.png" />
+    <Content Include="Assets\AppleEmoji\1f195.png" />
+    <Content Include="Assets\AppleEmoji\1f196.png" />
+    <Content Include="Assets\AppleEmoji\1f197.png" />
+    <Content Include="Assets\AppleEmoji\1f198.png" />
+    <Content Include="Assets\AppleEmoji\1f199.png" />
+    <Content Include="Assets\AppleEmoji\1f19a.png" />
+    <Content Include="Assets\AppleEmoji\1f1e8-1f1f3.png" />
+    <Content Include="Assets\AppleEmoji\1f1e9-1f1ea.png" />
+    <Content Include="Assets\AppleEmoji\1f1ea-1f1f8.png" />
+    <Content Include="Assets\AppleEmoji\1f1eb-1f1f7.png" />
+    <Content Include="Assets\AppleEmoji\1f1ec-1f1e7.png" />
+    <Content Include="Assets\AppleEmoji\1f1ee-1f1f9.png" />
+    <Content Include="Assets\AppleEmoji\1f1ef-1f1f5.png" />
+    <Content Include="Assets\AppleEmoji\1f1f0-1f1f7.png" />
+    <Content Include="Assets\AppleEmoji\1f1f7-1f1fa.png" />
+    <Content Include="Assets\AppleEmoji\1f1fa-1f1f8.png" />
+    <Content Include="Assets\AppleEmoji\1f201.png" />
+    <Content Include="Assets\AppleEmoji\1f202.png" />
+    <Content Include="Assets\AppleEmoji\1f21a.png" />
+    <Content Include="Assets\AppleEmoji\1f22f.png" />
+    <Content Include="Assets\AppleEmoji\1f232.png" />
+    <Content Include="Assets\AppleEmoji\1f233.png" />
+    <Content Include="Assets\AppleEmoji\1f234.png" />
+    <Content Include="Assets\AppleEmoji\1f235.png" />
+    <Content Include="Assets\AppleEmoji\1f236.png" />
+    <Content Include="Assets\AppleEmoji\1f237.png" />
+    <Content Include="Assets\AppleEmoji\1f238.png" />
+    <Content Include="Assets\AppleEmoji\1f239.png" />
+    <Content Include="Assets\AppleEmoji\1f23a.png" />
+    <Content Include="Assets\AppleEmoji\1f250.png" />
+    <Content Include="Assets\AppleEmoji\1f251.png" />
+    <Content Include="Assets\AppleEmoji\1f300.png" />
+    <Content Include="Assets\AppleEmoji\1f301.png" />
+    <Content Include="Assets\AppleEmoji\1f302.png" />
+    <Content Include="Assets\AppleEmoji\1f303.png" />
+    <Content Include="Assets\AppleEmoji\1f304.png" />
+    <Content Include="Assets\AppleEmoji\1f305.png" />
+    <Content Include="Assets\AppleEmoji\1f306.png" />
+    <Content Include="Assets\AppleEmoji\1f307.png" />
+    <Content Include="Assets\AppleEmoji\1f308.png" />
+    <Content Include="Assets\AppleEmoji\1f309.png" />
+    <Content Include="Assets\AppleEmoji\1f30a.png" />
+    <Content Include="Assets\AppleEmoji\1f30b.png" />
+    <Content Include="Assets\AppleEmoji\1f30c.png" />
+    <Content Include="Assets\AppleEmoji\1f30d.png" />
+    <Content Include="Assets\AppleEmoji\1f30e.png" />
+    <Content Include="Assets\AppleEmoji\1f30f.png" />
+    <Content Include="Assets\AppleEmoji\1f310.png" />
+    <Content Include="Assets\AppleEmoji\1f311.png" />
+    <Content Include="Assets\AppleEmoji\1f312.png" />
+    <Content Include="Assets\AppleEmoji\1f313.png" />
+    <Content Include="Assets\AppleEmoji\1f314.png" />
+    <Content Include="Assets\AppleEmoji\1f315.png" />
+    <Content Include="Assets\AppleEmoji\1f316.png" />
+    <Content Include="Assets\AppleEmoji\1f317.png" />
+    <Content Include="Assets\AppleEmoji\1f318.png" />
+    <Content Include="Assets\AppleEmoji\1f319.png" />
+    <Content Include="Assets\AppleEmoji\1f31a.png" />
+    <Content Include="Assets\AppleEmoji\1f31b.png" />
+    <Content Include="Assets\AppleEmoji\1f31c.png" />
+    <Content Include="Assets\AppleEmoji\1f31d.png" />
+    <Content Include="Assets\AppleEmoji\1f31e.png" />
+    <Content Include="Assets\AppleEmoji\1f31f.png" />
+    <Content Include="Assets\AppleEmoji\1f320.png" />
+    <Content Include="Assets\AppleEmoji\1f330.png" />
+    <Content Include="Assets\AppleEmoji\1f331.png" />
+    <Content Include="Assets\AppleEmoji\1f332.png" />
+    <Content Include="Assets\AppleEmoji\1f333.png" />
+    <Content Include="Assets\AppleEmoji\1f334.png" />
+    <Content Include="Assets\AppleEmoji\1f335.png" />
+    <Content Include="Assets\AppleEmoji\1f337.png" />
+    <Content Include="Assets\AppleEmoji\1f338.png" />
+    <Content Include="Assets\AppleEmoji\1f339.png" />
+    <Content Include="Assets\AppleEmoji\1f33a.png" />
+    <Content Include="Assets\AppleEmoji\1f33b.png" />
+    <Content Include="Assets\AppleEmoji\1f33c.png" />
+    <Content Include="Assets\AppleEmoji\1f33d.png" />
+    <Content Include="Assets\AppleEmoji\1f33e.png" />
+    <Content Include="Assets\AppleEmoji\1f33f.png" />
+    <Content Include="Assets\AppleEmoji\1f340.png" />
+    <Content Include="Assets\AppleEmoji\1f341.png" />
+    <Content Include="Assets\AppleEmoji\1f342.png" />
+    <Content Include="Assets\AppleEmoji\1f343.png" />
+    <Content Include="Assets\AppleEmoji\1f344.png" />
+    <Content Include="Assets\AppleEmoji\1f345.png" />
+    <Content Include="Assets\AppleEmoji\1f346.png" />
+    <Content Include="Assets\AppleEmoji\1f347.png" />
+    <Content Include="Assets\AppleEmoji\1f348.png" />
+    <Content Include="Assets\AppleEmoji\1f349.png" />
+    <Content Include="Assets\AppleEmoji\1f34a.png" />
+    <Content Include="Assets\AppleEmoji\1f34b.png" />
+    <Content Include="Assets\AppleEmoji\1f34c.png" />
+    <Content Include="Assets\AppleEmoji\1f34d.png" />
+    <Content Include="Assets\AppleEmoji\1f34e.png" />
+    <Content Include="Assets\AppleEmoji\1f34f.png" />
+    <Content Include="Assets\AppleEmoji\1f350.png" />
+    <Content Include="Assets\AppleEmoji\1f351.png" />
+    <Content Include="Assets\AppleEmoji\1f352.png" />
+    <Content Include="Assets\AppleEmoji\1f353.png" />
+    <Content Include="Assets\AppleEmoji\1f354.png" />
+    <Content Include="Assets\AppleEmoji\1f355.png" />
+    <Content Include="Assets\AppleEmoji\1f356.png" />
+    <Content Include="Assets\AppleEmoji\1f357.png" />
+    <Content Include="Assets\AppleEmoji\1f358.png" />
+    <Content Include="Assets\AppleEmoji\1f359.png" />
+    <Content Include="Assets\AppleEmoji\1f35a.png" />
+    <Content Include="Assets\AppleEmoji\1f35b.png" />
+    <Content Include="Assets\AppleEmoji\1f35c.png" />
+    <Content Include="Assets\AppleEmoji\1f35d.png" />
+    <Content Include="Assets\AppleEmoji\1f35e.png" />
+    <Content Include="Assets\AppleEmoji\1f35f.png" />
+    <Content Include="Assets\AppleEmoji\1f360.png" />
+    <Content Include="Assets\AppleEmoji\1f361.png" />
+    <Content Include="Assets\AppleEmoji\1f362.png" />
+    <Content Include="Assets\AppleEmoji\1f363.png" />
+    <Content Include="Assets\AppleEmoji\1f364.png" />
+    <Content Include="Assets\AppleEmoji\1f365.png" />
+    <Content Include="Assets\AppleEmoji\1f366.png" />
+    <Content Include="Assets\AppleEmoji\1f367.png" />
+    <Content Include="Assets\AppleEmoji\1f368.png" />
+    <Content Include="Assets\AppleEmoji\1f369.png" />
+    <Content Include="Assets\AppleEmoji\1f36a.png" />
+    <Content Include="Assets\AppleEmoji\1f36b.png" />
+    <Content Include="Assets\AppleEmoji\1f36c.png" />
+    <Content Include="Assets\AppleEmoji\1f36d.png" />
+    <Content Include="Assets\AppleEmoji\1f36e.png" />
+    <Content Include="Assets\AppleEmoji\1f36f.png" />
+    <Content Include="Assets\AppleEmoji\1f370.png" />
+    <Content Include="Assets\AppleEmoji\1f371.png" />
+    <Content Include="Assets\AppleEmoji\1f372.png" />
+    <Content Include="Assets\AppleEmoji\1f373.png" />
+    <Content Include="Assets\AppleEmoji\1f374.png" />
+    <Content Include="Assets\AppleEmoji\1f375.png" />
+    <Content Include="Assets\AppleEmoji\1f376.png" />
+    <Content Include="Assets\AppleEmoji\1f377.png" />
+    <Content Include="Assets\AppleEmoji\1f378.png" />
+    <Content Include="Assets\AppleEmoji\1f379.png" />
+    <Content Include="Assets\AppleEmoji\1f37a.png" />
+    <Content Include="Assets\AppleEmoji\1f37b.png" />
+    <Content Include="Assets\AppleEmoji\1f37c.png" />
+    <Content Include="Assets\AppleEmoji\1f380.png" />
+    <Content Include="Assets\AppleEmoji\1f381.png" />
+    <Content Include="Assets\AppleEmoji\1f382.png" />
+    <Content Include="Assets\AppleEmoji\1f383.png" />
+    <Content Include="Assets\AppleEmoji\1f384.png" />
+    <Content Include="Assets\AppleEmoji\1f385.png" />
+    <Content Include="Assets\AppleEmoji\1f386.png" />
+    <Content Include="Assets\AppleEmoji\1f387.png" />
+    <Content Include="Assets\AppleEmoji\1f388.png" />
+    <Content Include="Assets\AppleEmoji\1f389.png" />
+    <Content Include="Assets\AppleEmoji\1f38a.png" />
+    <Content Include="Assets\AppleEmoji\1f38b.png" />
+    <Content Include="Assets\AppleEmoji\1f38c.png" />
+    <Content Include="Assets\AppleEmoji\1f38d.png" />
+    <Content Include="Assets\AppleEmoji\1f38e.png" />
+    <Content Include="Assets\AppleEmoji\1f38f.png" />
+    <Content Include="Assets\AppleEmoji\1f390.png" />
+    <Content Include="Assets\AppleEmoji\1f391.png" />
+    <Content Include="Assets\AppleEmoji\1f392.png" />
+    <Content Include="Assets\AppleEmoji\1f393.png" />
+    <Content Include="Assets\AppleEmoji\1f3a0.png" />
+    <Content Include="Assets\AppleEmoji\1f3a1.png" />
+    <Content Include="Assets\AppleEmoji\1f3a2.png" />
+    <Content Include="Assets\AppleEmoji\1f3a3.png" />
+    <Content Include="Assets\AppleEmoji\1f3a4.png" />
+    <Content Include="Assets\AppleEmoji\1f3a5.png" />
+    <Content Include="Assets\AppleEmoji\1f3a6.png" />
+    <Content Include="Assets\AppleEmoji\1f3a7.png" />
+    <Content Include="Assets\AppleEmoji\1f3a8.png" />
+    <Content Include="Assets\AppleEmoji\1f3a9.png" />
+    <Content Include="Assets\AppleEmoji\1f3aa.png" />
+    <Content Include="Assets\AppleEmoji\1f3ab.png" />
+    <Content Include="Assets\AppleEmoji\1f3ac.png" />
+    <Content Include="Assets\AppleEmoji\1f3ad.png" />
+    <Content Include="Assets\AppleEmoji\1f3ae.png" />
+    <Content Include="Assets\AppleEmoji\1f3af.png" />
+    <Content Include="Assets\AppleEmoji\1f3b0.png" />
+    <Content Include="Assets\AppleEmoji\1f3b1.png" />
+    <Content Include="Assets\AppleEmoji\1f3b2.png" />
+    <Content Include="Assets\AppleEmoji\1f3b3.png" />
+    <Content Include="Assets\AppleEmoji\1f3b4.png" />
+    <Content Include="Assets\AppleEmoji\1f3b5.png" />
+    <Content Include="Assets\AppleEmoji\1f3b6.png" />
+    <Content Include="Assets\AppleEmoji\1f3b7.png" />
+    <Content Include="Assets\AppleEmoji\1f3b8.png" />
+    <Content Include="Assets\AppleEmoji\1f3b9.png" />
+    <Content Include="Assets\AppleEmoji\1f3ba.png" />
+    <Content Include="Assets\AppleEmoji\1f3bb.png" />
+    <Content Include="Assets\AppleEmoji\1f3bc.png" />
+    <Content Include="Assets\AppleEmoji\1f3bd.png" />
+    <Content Include="Assets\AppleEmoji\1f3be.png" />
+    <Content Include="Assets\AppleEmoji\1f3bf.png" />
+    <Content Include="Assets\AppleEmoji\1f3c0.png" />
+    <Content Include="Assets\AppleEmoji\1f3c1.png" />
+    <Content Include="Assets\AppleEmoji\1f3c2.png" />
+    <Content Include="Assets\AppleEmoji\1f3c3.png" />
+    <Content Include="Assets\AppleEmoji\1f3c4.png" />
+    <Content Include="Assets\AppleEmoji\1f3c6.png" />
+    <Content Include="Assets\AppleEmoji\1f3c7.png" />
+    <Content Include="Assets\AppleEmoji\1f3c8.png" />
+    <Content Include="Assets\AppleEmoji\1f3c9.png" />
+    <Content Include="Assets\AppleEmoji\1f3ca.png" />
+    <Content Include="Assets\AppleEmoji\1f3e0.png" />
+    <Content Include="Assets\AppleEmoji\1f3e1.png" />
+    <Content Include="Assets\AppleEmoji\1f3e2.png" />
+    <Content Include="Assets\AppleEmoji\1f3e3.png" />
+    <Content Include="Assets\AppleEmoji\1f3e4.png" />
+    <Content Include="Assets\AppleEmoji\1f3e5.png" />
+    <Content Include="Assets\AppleEmoji\1f3e6.png" />
+    <Content Include="Assets\AppleEmoji\1f3e7.png" />
+    <Content Include="Assets\AppleEmoji\1f3e8.png" />
+    <Content Include="Assets\AppleEmoji\1f3e9.png" />
+    <Content Include="Assets\AppleEmoji\1f3ea.png" />
+    <Content Include="Assets\AppleEmoji\1f3eb.png" />
+    <Content Include="Assets\AppleEmoji\1f3ec.png" />
+    <Content Include="Assets\AppleEmoji\1f3ed.png" />
+    <Content Include="Assets\AppleEmoji\1f3ee.png" />
+    <Content Include="Assets\AppleEmoji\1f3ef.png" />
+    <Content Include="Assets\AppleEmoji\1f3f0.png" />
+    <Content Include="Assets\AppleEmoji\1f400.png" />
+    <Content Include="Assets\AppleEmoji\1f401.png" />
+    <Content Include="Assets\AppleEmoji\1f402.png" />
+    <Content Include="Assets\AppleEmoji\1f403.png" />
+    <Content Include="Assets\AppleEmoji\1f404.png" />
+    <Content Include="Assets\AppleEmoji\1f405.png" />
+    <Content Include="Assets\AppleEmoji\1f406.png" />
+    <Content Include="Assets\AppleEmoji\1f407.png" />
+    <Content Include="Assets\AppleEmoji\1f408.png" />
+    <Content Include="Assets\AppleEmoji\1f409.png" />
+    <Content Include="Assets\AppleEmoji\1f40a.png" />
+    <Content Include="Assets\AppleEmoji\1f40b.png" />
+    <Content Include="Assets\AppleEmoji\1f40c.png" />
+    <Content Include="Assets\AppleEmoji\1f40d.png" />
+    <Content Include="Assets\AppleEmoji\1f40e.png" />
+    <Content Include="Assets\AppleEmoji\1f40f.png" />
+    <Content Include="Assets\AppleEmoji\1f410.png" />
+    <Content Include="Assets\AppleEmoji\1f411.png" />
+    <Content Include="Assets\AppleEmoji\1f412.png" />
+    <Content Include="Assets\AppleEmoji\1f413.png" />
+    <Content Include="Assets\AppleEmoji\1f414.png" />
+    <Content Include="Assets\AppleEmoji\1f415.png" />
+    <Content Include="Assets\AppleEmoji\1f416.png" />
+    <Content Include="Assets\AppleEmoji\1f417.png" />
+    <Content Include="Assets\AppleEmoji\1f418.png" />
+    <Content Include="Assets\AppleEmoji\1f419.png" />
+    <Content Include="Assets\AppleEmoji\1f41a.png" />
+    <Content Include="Assets\AppleEmoji\1f41b.png" />
+    <Content Include="Assets\AppleEmoji\1f41c.png" />
+    <Content Include="Assets\AppleEmoji\1f41d.png" />
+    <Content Include="Assets\AppleEmoji\1f41e.png" />
+    <Content Include="Assets\AppleEmoji\1f41f.png" />
+    <Content Include="Assets\AppleEmoji\1f420.png" />
+    <Content Include="Assets\AppleEmoji\1f421.png" />
+    <Content Include="Assets\AppleEmoji\1f422.png" />
+    <Content Include="Assets\AppleEmoji\1f423.png" />
+    <Content Include="Assets\AppleEmoji\1f424.png" />
+    <Content Include="Assets\AppleEmoji\1f425.png" />
+    <Content Include="Assets\AppleEmoji\1f426.png" />
+    <Content Include="Assets\AppleEmoji\1f427.png" />
+    <Content Include="Assets\AppleEmoji\1f428.png" />
+    <Content Include="Assets\AppleEmoji\1f429.png" />
+    <Content Include="Assets\AppleEmoji\1f42a.png" />
+    <Content Include="Assets\AppleEmoji\1f42b.png" />
+    <Content Include="Assets\AppleEmoji\1f42c.png" />
+    <Content Include="Assets\AppleEmoji\1f42d.png" />
+    <Content Include="Assets\AppleEmoji\1f42e.png" />
+    <Content Include="Assets\AppleEmoji\1f42f.png" />
+    <Content Include="Assets\AppleEmoji\1f430.png" />
+    <Content Include="Assets\AppleEmoji\1f431.png" />
+    <Content Include="Assets\AppleEmoji\1f432.png" />
+    <Content Include="Assets\AppleEmoji\1f433.png" />
+    <Content Include="Assets\AppleEmoji\1f434.png" />
+    <Content Include="Assets\AppleEmoji\1f435.png" />
+    <Content Include="Assets\AppleEmoji\1f436.png" />
+    <Content Include="Assets\AppleEmoji\1f437.png" />
+    <Content Include="Assets\AppleEmoji\1f438.png" />
+    <Content Include="Assets\AppleEmoji\1f439.png" />
+    <Content Include="Assets\AppleEmoji\1f43a.png" />
+    <Content Include="Assets\AppleEmoji\1f43b.png" />
+    <Content Include="Assets\AppleEmoji\1f43c.png" />
+    <Content Include="Assets\AppleEmoji\1f43d.png" />
+    <Content Include="Assets\AppleEmoji\1f43e.png" />
+    <Content Include="Assets\AppleEmoji\1f440.png" />
+    <Content Include="Assets\AppleEmoji\1f442.png" />
+    <Content Include="Assets\AppleEmoji\1f443.png" />
+    <Content Include="Assets\AppleEmoji\1f444.png" />
+    <Content Include="Assets\AppleEmoji\1f445.png" />
+    <Content Include="Assets\AppleEmoji\1f446.png" />
+    <Content Include="Assets\AppleEmoji\1f447.png" />
+    <Content Include="Assets\AppleEmoji\1f448.png" />
+    <Content Include="Assets\AppleEmoji\1f449.png" />
+    <Content Include="Assets\AppleEmoji\1f44a.png" />
+    <Content Include="Assets\AppleEmoji\1f44b.png" />
+    <Content Include="Assets\AppleEmoji\1f44c.png" />
+    <Content Include="Assets\AppleEmoji\1f44d.png" />
+    <Content Include="Assets\AppleEmoji\1f44e.png" />
+    <Content Include="Assets\AppleEmoji\1f44f.png" />
+    <Content Include="Assets\AppleEmoji\1f450.png" />
+    <Content Include="Assets\AppleEmoji\1f451.png" />
+    <Content Include="Assets\AppleEmoji\1f452.png" />
+    <Content Include="Assets\AppleEmoji\1f453.png" />
+    <Content Include="Assets\AppleEmoji\1f454.png" />
+    <Content Include="Assets\AppleEmoji\1f455.png" />
+    <Content Include="Assets\AppleEmoji\1f456.png" />
+    <Content Include="Assets\AppleEmoji\1f457.png" />
+    <Content Include="Assets\AppleEmoji\1f458.png" />
+    <Content Include="Assets\AppleEmoji\1f459.png" />
+    <Content Include="Assets\AppleEmoji\1f45a.png" />
+    <Content Include="Assets\AppleEmoji\1f45b.png" />
+    <Content Include="Assets\AppleEmoji\1f45c.png" />
+    <Content Include="Assets\AppleEmoji\1f45d.png" />
+    <Content Include="Assets\AppleEmoji\1f45e.png" />
+    <Content Include="Assets\AppleEmoji\1f45f.png" />
+    <Content Include="Assets\AppleEmoji\1f460.png" />
+    <Content Include="Assets\AppleEmoji\1f461.png" />
+    <Content Include="Assets\AppleEmoji\1f462.png" />
+    <Content Include="Assets\AppleEmoji\1f463.png" />
+    <Content Include="Assets\AppleEmoji\1f464.png" />
+    <Content Include="Assets\AppleEmoji\1f465.png" />
+    <Content Include="Assets\AppleEmoji\1f466.png" />
+    <Content Include="Assets\AppleEmoji\1f467.png" />
+    <Content Include="Assets\AppleEmoji\1f468.png" />
+    <Content Include="Assets\AppleEmoji\1f469.png" />
+    <Content Include="Assets\AppleEmoji\1f46a.png" />
+    <Content Include="Assets\AppleEmoji\1f46b.png" />
+    <Content Include="Assets\AppleEmoji\1f46c.png" />
+    <Content Include="Assets\AppleEmoji\1f46d.png" />
+    <Content Include="Assets\AppleEmoji\1f46e.png" />
+    <Content Include="Assets\AppleEmoji\1f46f.png" />
+    <Content Include="Assets\AppleEmoji\1f470.png" />
+    <Content Include="Assets\AppleEmoji\1f471.png" />
+    <Content Include="Assets\AppleEmoji\1f472.png" />
+    <Content Include="Assets\AppleEmoji\1f473.png" />
+    <Content Include="Assets\AppleEmoji\1f474.png" />
+    <Content Include="Assets\AppleEmoji\1f475.png" />
+    <Content Include="Assets\AppleEmoji\1f476.png" />
+    <Content Include="Assets\AppleEmoji\1f477.png" />
+    <Content Include="Assets\AppleEmoji\1f478.png" />
+    <Content Include="Assets\AppleEmoji\1f479.png" />
+    <Content Include="Assets\AppleEmoji\1f47a.png" />
+    <Content Include="Assets\AppleEmoji\1f47b.png" />
+    <Content Include="Assets\AppleEmoji\1f47c.png" />
+    <Content Include="Assets\AppleEmoji\1f47d.png" />
+    <Content Include="Assets\AppleEmoji\1f47e.png" />
+    <Content Include="Assets\AppleEmoji\1f47f.png" />
+    <Content Include="Assets\AppleEmoji\1f480.png" />
+    <Content Include="Assets\AppleEmoji\1f481.png" />
+    <Content Include="Assets\AppleEmoji\1f482.png" />
+    <Content Include="Assets\AppleEmoji\1f483.png" />
+    <Content Include="Assets\AppleEmoji\1f484.png" />
+    <Content Include="Assets\AppleEmoji\1f485.png" />
+    <Content Include="Assets\AppleEmoji\1f486.png" />
+    <Content Include="Assets\AppleEmoji\1f487.png" />
+    <Content Include="Assets\AppleEmoji\1f488.png" />
+    <Content Include="Assets\AppleEmoji\1f489.png" />
+    <Content Include="Assets\AppleEmoji\1f48a.png" />
+    <Content Include="Assets\AppleEmoji\1f48b.png" />
+    <Content Include="Assets\AppleEmoji\1f48c.png" />
+    <Content Include="Assets\AppleEmoji\1f48d.png" />
+    <Content Include="Assets\AppleEmoji\1f48e.png" />
+    <Content Include="Assets\AppleEmoji\1f48f.png" />
+    <Content Include="Assets\AppleEmoji\1f490.png" />
+    <Content Include="Assets\AppleEmoji\1f491.png" />
+    <Content Include="Assets\AppleEmoji\1f492.png" />
+    <Content Include="Assets\AppleEmoji\1f493.png" />
+    <Content Include="Assets\AppleEmoji\1f494.png" />
+    <Content Include="Assets\AppleEmoji\1f495.png" />
+    <Content Include="Assets\AppleEmoji\1f496.png" />
+    <Content Include="Assets\AppleEmoji\1f497.png" />
+    <Content Include="Assets\AppleEmoji\1f498.png" />
+    <Content Include="Assets\AppleEmoji\1f499.png" />
+    <Content Include="Assets\AppleEmoji\1f49a.png" />
+    <Content Include="Assets\AppleEmoji\1f49b.png" />
+    <Content Include="Assets\AppleEmoji\1f49c.png" />
+    <Content Include="Assets\AppleEmoji\1f49d.png" />
+    <Content Include="Assets\AppleEmoji\1f49e.png" />
+    <Content Include="Assets\AppleEmoji\1f49f.png" />
+    <Content Include="Assets\AppleEmoji\1f4a0.png" />
+    <Content Include="Assets\AppleEmoji\1f4a1.png" />
+    <Content Include="Assets\AppleEmoji\1f4a2.png" />
+    <Content Include="Assets\AppleEmoji\1f4a3.png" />
+    <Content Include="Assets\AppleEmoji\1f4a4.png" />
+    <Content Include="Assets\AppleEmoji\1f4a5.png" />
+    <Content Include="Assets\AppleEmoji\1f4a6.png" />
+    <Content Include="Assets\AppleEmoji\1f4a7.png" />
+    <Content Include="Assets\AppleEmoji\1f4a8.png" />
+    <Content Include="Assets\AppleEmoji\1f4a9.png" />
+    <Content Include="Assets\AppleEmoji\1f4aa.png" />
+    <Content Include="Assets\AppleEmoji\1f4ab.png" />
+    <Content Include="Assets\AppleEmoji\1f4ac.png" />
+    <Content Include="Assets\AppleEmoji\1f4ad.png" />
+    <Content Include="Assets\AppleEmoji\1f4ae.png" />
+    <Content Include="Assets\AppleEmoji\1f4af.png" />
+    <Content Include="Assets\AppleEmoji\1f4b0.png" />
+    <Content Include="Assets\AppleEmoji\1f4b1.png" />
+    <Content Include="Assets\AppleEmoji\1f4b2.png" />
+    <Content Include="Assets\AppleEmoji\1f4b3.png" />
+    <Content Include="Assets\AppleEmoji\1f4b4.png" />
+    <Content Include="Assets\AppleEmoji\1f4b5.png" />
+    <Content Include="Assets\AppleEmoji\1f4b6.png" />
+    <Content Include="Assets\AppleEmoji\1f4b7.png" />
+    <Content Include="Assets\AppleEmoji\1f4b8.png" />
+    <Content Include="Assets\AppleEmoji\1f4b9.png" />
+    <Content Include="Assets\AppleEmoji\1f4ba.png" />
+    <Content Include="Assets\AppleEmoji\1f4bb.png" />
+    <Content Include="Assets\AppleEmoji\1f4bc.png" />
+    <Content Include="Assets\AppleEmoji\1f4bd.png" />
+    <Content Include="Assets\AppleEmoji\1f4be.png" />
+    <Content Include="Assets\AppleEmoji\1f4bf.png" />
+    <Content Include="Assets\AppleEmoji\1f4c0.png" />
+    <Content Include="Assets\AppleEmoji\1f4c1.png" />
+    <Content Include="Assets\AppleEmoji\1f4c2.png" />
+    <Content Include="Assets\AppleEmoji\1f4c3.png" />
+    <Content Include="Assets\AppleEmoji\1f4c4.png" />
+    <Content Include="Assets\AppleEmoji\1f4c5.png" />
+    <Content Include="Assets\AppleEmoji\1f4c6.png" />
+    <Content Include="Assets\AppleEmoji\1f4c7.png" />
+    <Content Include="Assets\AppleEmoji\1f4c8.png" />
+    <Content Include="Assets\AppleEmoji\1f4c9.png" />
+    <Content Include="Assets\AppleEmoji\1f4ca.png" />
+    <Content Include="Assets\AppleEmoji\1f4cb.png" />
+    <Content Include="Assets\AppleEmoji\1f4cc.png" />
+    <Content Include="Assets\AppleEmoji\1f4cd.png" />
+    <Content Include="Assets\AppleEmoji\1f4ce.png" />
+    <Content Include="Assets\AppleEmoji\1f4cf.png" />
+    <Content Include="Assets\AppleEmoji\1f4d0.png" />
+    <Content Include="Assets\AppleEmoji\1f4d1.png" />
+    <Content Include="Assets\AppleEmoji\1f4d2.png" />
+    <Content Include="Assets\AppleEmoji\1f4d3.png" />
+    <Content Include="Assets\AppleEmoji\1f4d4.png" />
+    <Content Include="Assets\AppleEmoji\1f4d5.png" />
+    <Content Include="Assets\AppleEmoji\1f4d6.png" />
+    <Content Include="Assets\AppleEmoji\1f4d7.png" />
+    <Content Include="Assets\AppleEmoji\1f4d8.png" />
+    <Content Include="Assets\AppleEmoji\1f4d9.png" />
+    <Content Include="Assets\AppleEmoji\1f4da.png" />
+    <Content Include="Assets\AppleEmoji\1f4db.png" />
+    <Content Include="Assets\AppleEmoji\1f4dc.png" />
+    <Content Include="Assets\AppleEmoji\1f4dd.png" />
+    <Content Include="Assets\AppleEmoji\1f4de.png" />
+    <Content Include="Assets\AppleEmoji\1f4df.png" />
+    <Content Include="Assets\AppleEmoji\1f4e0.png" />
+    <Content Include="Assets\AppleEmoji\1f4e1.png" />
+    <Content Include="Assets\AppleEmoji\1f4e2.png" />
+    <Content Include="Assets\AppleEmoji\1f4e3.png" />
+    <Content Include="Assets\AppleEmoji\1f4e4.png" />
+    <Content Include="Assets\AppleEmoji\1f4e5.png" />
+    <Content Include="Assets\AppleEmoji\1f4e6.png" />
+    <Content Include="Assets\AppleEmoji\1f4e7.png" />
+    <Content Include="Assets\AppleEmoji\1f4e8.png" />
+    <Content Include="Assets\AppleEmoji\1f4e9.png" />
+    <Content Include="Assets\AppleEmoji\1f4ea.png" />
+    <Content Include="Assets\AppleEmoji\1f4eb.png" />
+    <Content Include="Assets\AppleEmoji\1f4ec.png" />
+    <Content Include="Assets\AppleEmoji\1f4ed.png" />
+    <Content Include="Assets\AppleEmoji\1f4ee.png" />
+    <Content Include="Assets\AppleEmoji\1f4ef.png" />
+    <Content Include="Assets\AppleEmoji\1f4f0.png" />
+    <Content Include="Assets\AppleEmoji\1f4f1.png" />
+    <Content Include="Assets\AppleEmoji\1f4f2.png" />
+    <Content Include="Assets\AppleEmoji\1f4f3.png" />
+    <Content Include="Assets\AppleEmoji\1f4f4.png" />
+    <Content Include="Assets\AppleEmoji\1f4f5.png" />
+    <Content Include="Assets\AppleEmoji\1f4f6.png" />
+    <Content Include="Assets\AppleEmoji\1f4f7.png" />
+    <Content Include="Assets\AppleEmoji\1f4f9.png" />
+    <Content Include="Assets\AppleEmoji\1f4fa.png" />
+    <Content Include="Assets\AppleEmoji\1f4fb.png" />
+    <Content Include="Assets\AppleEmoji\1f4fc.png" />
+    <Content Include="Assets\AppleEmoji\1f500.png" />
+    <Content Include="Assets\AppleEmoji\1f501.png" />
+    <Content Include="Assets\AppleEmoji\1f502.png" />
+    <Content Include="Assets\AppleEmoji\1f503.png" />
+    <Content Include="Assets\AppleEmoji\1f504.png" />
+    <Content Include="Assets\AppleEmoji\1f505.png" />
+    <Content Include="Assets\AppleEmoji\1f506.png" />
+    <Content Include="Assets\AppleEmoji\1f507.png" />
+    <Content Include="Assets\AppleEmoji\1f508.png" />
+    <Content Include="Assets\AppleEmoji\1f509.png" />
+    <Content Include="Assets\AppleEmoji\1f50a.png" />
+    <Content Include="Assets\AppleEmoji\1f50b.png" />
+    <Content Include="Assets\AppleEmoji\1f50c.png" />
+    <Content Include="Assets\AppleEmoji\1f50d.png" />
+    <Content Include="Assets\AppleEmoji\1f50e.png" />
+    <Content Include="Assets\AppleEmoji\1f50f.png" />
+    <Content Include="Assets\AppleEmoji\1f510.png" />
+    <Content Include="Assets\AppleEmoji\1f511.png" />
+    <Content Include="Assets\AppleEmoji\1f512.png" />
+    <Content Include="Assets\AppleEmoji\1f513.png" />
+    <Content Include="Assets\AppleEmoji\1f514.png" />
+    <Content Include="Assets\AppleEmoji\1f515.png" />
+    <Content Include="Assets\AppleEmoji\1f516.png" />
+    <Content Include="Assets\AppleEmoji\1f517.png" />
+    <Content Include="Assets\AppleEmoji\1f518.png" />
+    <Content Include="Assets\AppleEmoji\1f519.png" />
+    <Content Include="Assets\AppleEmoji\1f51a.png" />
+    <Content Include="Assets\AppleEmoji\1f51b.png" />
+    <Content Include="Assets\AppleEmoji\1f51c.png" />
+    <Content Include="Assets\AppleEmoji\1f51d.png" />
+    <Content Include="Assets\AppleEmoji\1f51e.png" />
+    <Content Include="Assets\AppleEmoji\1f51f.png" />
+    <Content Include="Assets\AppleEmoji\1f520.png" />
+    <Content Include="Assets\AppleEmoji\1f521.png" />
+    <Content Include="Assets\AppleEmoji\1f522.png" />
+    <Content Include="Assets\AppleEmoji\1f523.png" />
+    <Content Include="Assets\AppleEmoji\1f524.png" />
+    <Content Include="Assets\AppleEmoji\1f525.png" />
+    <Content Include="Assets\AppleEmoji\1f526.png" />
+    <Content Include="Assets\AppleEmoji\1f527.png" />
+    <Content Include="Assets\AppleEmoji\1f528.png" />
+    <Content Include="Assets\AppleEmoji\1f529.png" />
+    <Content Include="Assets\AppleEmoji\1f52a.png" />
+    <Content Include="Assets\AppleEmoji\1f52b.png" />
+    <Content Include="Assets\AppleEmoji\1f52c.png" />
+    <Content Include="Assets\AppleEmoji\1f52d.png" />
+    <Content Include="Assets\AppleEmoji\1f52e.png" />
+    <Content Include="Assets\AppleEmoji\1f52f.png" />
+    <Content Include="Assets\AppleEmoji\1f530.png" />
+    <Content Include="Assets\AppleEmoji\1f531.png" />
+    <Content Include="Assets\AppleEmoji\1f532.png" />
+    <Content Include="Assets\AppleEmoji\1f533.png" />
+    <Content Include="Assets\AppleEmoji\1f534.png" />
+    <Content Include="Assets\AppleEmoji\1f535.png" />
+    <Content Include="Assets\AppleEmoji\1f536.png" />
+    <Content Include="Assets\AppleEmoji\1f537.png" />
+    <Content Include="Assets\AppleEmoji\1f538.png" />
+    <Content Include="Assets\AppleEmoji\1f539.png" />
+    <Content Include="Assets\AppleEmoji\1f53a.png" />
+    <Content Include="Assets\AppleEmoji\1f53b.png" />
+    <Content Include="Assets\AppleEmoji\1f53c.png" />
+    <Content Include="Assets\AppleEmoji\1f53d.png" />
+    <Content Include="Assets\AppleEmoji\1f550.png" />
+    <Content Include="Assets\AppleEmoji\1f551.png" />
+    <Content Include="Assets\AppleEmoji\1f552.png" />
+    <Content Include="Assets\AppleEmoji\1f553.png" />
+    <Content Include="Assets\AppleEmoji\1f554.png" />
+    <Content Include="Assets\AppleEmoji\1f555.png" />
+    <Content Include="Assets\AppleEmoji\1f556.png" />
+    <Content Include="Assets\AppleEmoji\1f557.png" />
+    <Content Include="Assets\AppleEmoji\1f558.png" />
+    <Content Include="Assets\AppleEmoji\1f559.png" />
+    <Content Include="Assets\AppleEmoji\1f55a.png" />
+    <Content Include="Assets\AppleEmoji\1f55b.png" />
+    <Content Include="Assets\AppleEmoji\1f55c.png" />
+    <Content Include="Assets\AppleEmoji\1f55d.png" />
+    <Content Include="Assets\AppleEmoji\1f55e.png" />
+    <Content Include="Assets\AppleEmoji\1f55f.png" />
+    <Content Include="Assets\AppleEmoji\1f560.png" />
+    <Content Include="Assets\AppleEmoji\1f561.png" />
+    <Content Include="Assets\AppleEmoji\1f562.png" />
+    <Content Include="Assets\AppleEmoji\1f563.png" />
+    <Content Include="Assets\AppleEmoji\1f564.png" />
+    <Content Include="Assets\AppleEmoji\1f565.png" />
+    <Content Include="Assets\AppleEmoji\1f566.png" />
+    <Content Include="Assets\AppleEmoji\1f567.png" />
+    <Content Include="Assets\AppleEmoji\1f5fb.png" />
+    <Content Include="Assets\AppleEmoji\1f5fc.png" />
+    <Content Include="Assets\AppleEmoji\1f5fd.png" />
+    <Content Include="Assets\AppleEmoji\1f5fe.png" />
+    <Content Include="Assets\AppleEmoji\1f5ff.png" />
+    <Content Include="Assets\AppleEmoji\1f600.png" />
+    <Content Include="Assets\AppleEmoji\1f601.png" />
+    <Content Include="Assets\AppleEmoji\1f602.png" />
+    <Content Include="Assets\AppleEmoji\1f603.png" />
+    <Content Include="Assets\AppleEmoji\1f604.png" />
+    <Content Include="Assets\AppleEmoji\1f605.png" />
+    <Content Include="Assets\AppleEmoji\1f606.png" />
+    <Content Include="Assets\AppleEmoji\1f607.png" />
+    <Content Include="Assets\AppleEmoji\1f608.png" />
+    <Content Include="Assets\AppleEmoji\1f609.png" />
+    <Content Include="Assets\AppleEmoji\1f60a.png" />
+    <Content Include="Assets\AppleEmoji\1f60b.png" />
+    <Content Include="Assets\AppleEmoji\1f60c.png" />
+    <Content Include="Assets\AppleEmoji\1f60d.png" />
+    <Content Include="Assets\AppleEmoji\1f60e.png" />
+    <Content Include="Assets\AppleEmoji\1f60f.png" />
+    <Content Include="Assets\AppleEmoji\1f610.png" />
+    <Content Include="Assets\AppleEmoji\1f611.png" />
+    <Content Include="Assets\AppleEmoji\1f612.png" />
+    <Content Include="Assets\AppleEmoji\1f613.png" />
+    <Content Include="Assets\AppleEmoji\1f614.png" />
+    <Content Include="Assets\AppleEmoji\1f615.png" />
+    <Content Include="Assets\AppleEmoji\1f616.png" />
+    <Content Include="Assets\AppleEmoji\1f617.png" />
+    <Content Include="Assets\AppleEmoji\1f618.png" />
+    <Content Include="Assets\AppleEmoji\1f619.png" />
+    <Content Include="Assets\AppleEmoji\1f61a.png" />
+    <Content Include="Assets\AppleEmoji\1f61b.png" />
+    <Content Include="Assets\AppleEmoji\1f61c.png" />
+    <Content Include="Assets\AppleEmoji\1f61d.png" />
+    <Content Include="Assets\AppleEmoji\1f61e.png" />
+    <Content Include="Assets\AppleEmoji\1f61f.png" />
+    <Content Include="Assets\AppleEmoji\1f620.png" />
+    <Content Include="Assets\AppleEmoji\1f621.png" />
+    <Content Include="Assets\AppleEmoji\1f622.png" />
+    <Content Include="Assets\AppleEmoji\1f623.png" />
+    <Content Include="Assets\AppleEmoji\1f624.png" />
+    <Content Include="Assets\AppleEmoji\1f625.png" />
+    <Content Include="Assets\AppleEmoji\1f626.png" />
+    <Content Include="Assets\AppleEmoji\1f627.png" />
+    <Content Include="Assets\AppleEmoji\1f628.png" />
+    <Content Include="Assets\AppleEmoji\1f629.png" />
+    <Content Include="Assets\AppleEmoji\1f62a.png" />
+    <Content Include="Assets\AppleEmoji\1f62b.png" />
+    <Content Include="Assets\AppleEmoji\1f62c.png" />
+    <Content Include="Assets\AppleEmoji\1f62d.png" />
+    <Content Include="Assets\AppleEmoji\1f62e.png" />
+    <Content Include="Assets\AppleEmoji\1f62f.png" />
+    <Content Include="Assets\AppleEmoji\1f630.png" />
+    <Content Include="Assets\AppleEmoji\1f631.png" />
+    <Content Include="Assets\AppleEmoji\1f632.png" />
+    <Content Include="Assets\AppleEmoji\1f633.png" />
+    <Content Include="Assets\AppleEmoji\1f634.png" />
+    <Content Include="Assets\AppleEmoji\1f635.png" />
+    <Content Include="Assets\AppleEmoji\1f636.png" />
+    <Content Include="Assets\AppleEmoji\1f637.png" />
+    <Content Include="Assets\AppleEmoji\1f638.png" />
+    <Content Include="Assets\AppleEmoji\1f639.png" />
+    <Content Include="Assets\AppleEmoji\1f63a.png" />
+    <Content Include="Assets\AppleEmoji\1f63b.png" />
+    <Content Include="Assets\AppleEmoji\1f63c.png" />
+    <Content Include="Assets\AppleEmoji\1f63d.png" />
+    <Content Include="Assets\AppleEmoji\1f63e.png" />
+    <Content Include="Assets\AppleEmoji\1f63f.png" />
+    <Content Include="Assets\AppleEmoji\1f640.png" />
+    <Content Include="Assets\AppleEmoji\1f645.png" />
+    <Content Include="Assets\AppleEmoji\1f646.png" />
+    <Content Include="Assets\AppleEmoji\1f647.png" />
+    <Content Include="Assets\AppleEmoji\1f648.png" />
+    <Content Include="Assets\AppleEmoji\1f649.png" />
+    <Content Include="Assets\AppleEmoji\1f64a.png" />
+    <Content Include="Assets\AppleEmoji\1f64b.png" />
+    <Content Include="Assets\AppleEmoji\1f64c.png" />
+    <Content Include="Assets\AppleEmoji\1f64d.png" />
+    <Content Include="Assets\AppleEmoji\1f64e.png" />
+    <Content Include="Assets\AppleEmoji\1f64f.png" />
+    <Content Include="Assets\AppleEmoji\1f680.png" />
+    <Content Include="Assets\AppleEmoji\1f681.png" />
+    <Content Include="Assets\AppleEmoji\1f682.png" />
+    <Content Include="Assets\AppleEmoji\1f683.png" />
+    <Content Include="Assets\AppleEmoji\1f684.png" />
+    <Content Include="Assets\AppleEmoji\1f685.png" />
+    <Content Include="Assets\AppleEmoji\1f686.png" />
+    <Content Include="Assets\AppleEmoji\1f687.png" />
+    <Content Include="Assets\AppleEmoji\1f688.png" />
+    <Content Include="Assets\AppleEmoji\1f689.png" />
+    <Content Include="Assets\AppleEmoji\1f68a.png" />
+    <Content Include="Assets\AppleEmoji\1f68b.png" />
+    <Content Include="Assets\AppleEmoji\1f68c.png" />
+    <Content Include="Assets\AppleEmoji\1f68d.png" />
+    <Content Include="Assets\AppleEmoji\1f68e.png" />
+    <Content Include="Assets\AppleEmoji\1f68f.png" />
+    <Content Include="Assets\AppleEmoji\1f690.png" />
+    <Content Include="Assets\AppleEmoji\1f691.png" />
+    <Content Include="Assets\AppleEmoji\1f692.png" />
+    <Content Include="Assets\AppleEmoji\1f693.png" />
+    <Content Include="Assets\AppleEmoji\1f694.png" />
+    <Content Include="Assets\AppleEmoji\1f695.png" />
+    <Content Include="Assets\AppleEmoji\1f696.png" />
+    <Content Include="Assets\AppleEmoji\1f697.png" />
+    <Content Include="Assets\AppleEmoji\1f698.png" />
+    <Content Include="Assets\AppleEmoji\1f699.png" />
+    <Content Include="Assets\AppleEmoji\1f69a.png" />
+    <Content Include="Assets\AppleEmoji\1f69b.png" />
+    <Content Include="Assets\AppleEmoji\1f69c.png" />
+    <Content Include="Assets\AppleEmoji\1f69d.png" />
+    <Content Include="Assets\AppleEmoji\1f69e.png" />
+    <Content Include="Assets\AppleEmoji\1f69f.png" />
+    <Content Include="Assets\AppleEmoji\1f6a0.png" />
+    <Content Include="Assets\AppleEmoji\1f6a1.png" />
+    <Content Include="Assets\AppleEmoji\1f6a2.png" />
+    <Content Include="Assets\AppleEmoji\1f6a3.png" />
+    <Content Include="Assets\AppleEmoji\1f6a4.png" />
+    <Content Include="Assets\AppleEmoji\1f6a5.png" />
+    <Content Include="Assets\AppleEmoji\1f6a6.png" />
+    <Content Include="Assets\AppleEmoji\1f6a7.png" />
+    <Content Include="Assets\AppleEmoji\1f6a8.png" />
+    <Content Include="Assets\AppleEmoji\1f6a9.png" />
+    <Content Include="Assets\AppleEmoji\1f6aa.png" />
+    <Content Include="Assets\AppleEmoji\1f6ab.png" />
+    <Content Include="Assets\AppleEmoji\1f6ac.png" />
+    <Content Include="Assets\AppleEmoji\1f6ad.png" />
+    <Content Include="Assets\AppleEmoji\1f6ae.png" />
+    <Content Include="Assets\AppleEmoji\1f6af.png" />
+    <Content Include="Assets\AppleEmoji\1f6b0.png" />
+    <Content Include="Assets\AppleEmoji\1f6b1.png" />
+    <Content Include="Assets\AppleEmoji\1f6b2.png" />
+    <Content Include="Assets\AppleEmoji\1f6b3.png" />
+    <Content Include="Assets\AppleEmoji\1f6b4.png" />
+    <Content Include="Assets\AppleEmoji\1f6b5.png" />
+    <Content Include="Assets\AppleEmoji\1f6b6.png" />
+    <Content Include="Assets\AppleEmoji\1f6b7.png" />
+    <Content Include="Assets\AppleEmoji\1f6b8.png" />
+    <Content Include="Assets\AppleEmoji\1f6b9.png" />
+    <Content Include="Assets\AppleEmoji\1f6ba.png" />
+    <Content Include="Assets\AppleEmoji\1f6bb.png" />
+    <Content Include="Assets\AppleEmoji\1f6bc.png" />
+    <Content Include="Assets\AppleEmoji\1f6bd.png" />
+    <Content Include="Assets\AppleEmoji\1f6be.png" />
+    <Content Include="Assets\AppleEmoji\1f6bf.png" />
+    <Content Include="Assets\AppleEmoji\1f6c0.png" />
+    <Content Include="Assets\AppleEmoji\1f6c1.png" />
+    <Content Include="Assets\AppleEmoji\1f6c2.png" />
+    <Content Include="Assets\AppleEmoji\1f6c3.png" />
+    <Content Include="Assets\AppleEmoji\1f6c4.png" />
+    <Content Include="Assets\AppleEmoji\1f6c5.png" />
+    <Content Include="Assets\AppleEmoji\203c.png" />
+    <Content Include="Assets\AppleEmoji\2049.png" />
+    <Content Include="Assets\AppleEmoji\2122.png" />
+    <Content Include="Assets\AppleEmoji\2139.png" />
+    <Content Include="Assets\AppleEmoji\2194.png" />
+    <Content Include="Assets\AppleEmoji\2195.png" />
+    <Content Include="Assets\AppleEmoji\2196.png" />
+    <Content Include="Assets\AppleEmoji\2197.png" />
+    <Content Include="Assets\AppleEmoji\2198.png" />
+    <Content Include="Assets\AppleEmoji\2199.png" />
+    <Content Include="Assets\AppleEmoji\21a9.png" />
+    <Content Include="Assets\AppleEmoji\21aa.png" />
+    <Content Include="Assets\AppleEmoji\231a.png" />
+    <Content Include="Assets\AppleEmoji\231b.png" />
+    <Content Include="Assets\AppleEmoji\23e9.png" />
+    <Content Include="Assets\AppleEmoji\23ea.png" />
+    <Content Include="Assets\AppleEmoji\23eb.png" />
+    <Content Include="Assets\AppleEmoji\23ec.png" />
+    <Content Include="Assets\AppleEmoji\23f0.png" />
+    <Content Include="Assets\AppleEmoji\23f3.png" />
+    <Content Include="Assets\AppleEmoji\24c2.png" />
+    <Content Include="Assets\AppleEmoji\25aa.png" />
+    <Content Include="Assets\AppleEmoji\25ab.png" />
+    <Content Include="Assets\AppleEmoji\25b6.png" />
+    <Content Include="Assets\AppleEmoji\25c0.png" />
+    <Content Include="Assets\AppleEmoji\25fb.png" />
+    <Content Include="Assets\AppleEmoji\25fc.png" />
+    <Content Include="Assets\AppleEmoji\25fd.png" />
+    <Content Include="Assets\AppleEmoji\25fe.png" />
+    <Content Include="Assets\AppleEmoji\2600.png" />
+    <Content Include="Assets\AppleEmoji\2601.png" />
+    <Content Include="Assets\AppleEmoji\260e.png" />
+    <Content Include="Assets\AppleEmoji\2611.png" />
+    <Content Include="Assets\AppleEmoji\2614.png" />
+    <Content Include="Assets\AppleEmoji\2615.png" />
+    <Content Include="Assets\AppleEmoji\261d.png" />
+    <Content Include="Assets\AppleEmoji\263a.png" />
+    <Content Include="Assets\AppleEmoji\2648.png" />
+    <Content Include="Assets\AppleEmoji\2649.png" />
+    <Content Include="Assets\AppleEmoji\264a.png" />
+    <Content Include="Assets\AppleEmoji\264b.png" />
+    <Content Include="Assets\AppleEmoji\264c.png" />
+    <Content Include="Assets\AppleEmoji\264d.png" />
+    <Content Include="Assets\AppleEmoji\264e.png" />
+    <Content Include="Assets\AppleEmoji\264f.png" />
+    <Content Include="Assets\AppleEmoji\2650.png" />
+    <Content Include="Assets\AppleEmoji\2651.png" />
+    <Content Include="Assets\AppleEmoji\2652.png" />
+    <Content Include="Assets\AppleEmoji\2653.png" />
+    <Content Include="Assets\AppleEmoji\2660.png" />
+    <Content Include="Assets\AppleEmoji\2663.png" />
+    <Content Include="Assets\AppleEmoji\2665.png" />
+    <Content Include="Assets\AppleEmoji\2666.png" />
+    <Content Include="Assets\AppleEmoji\2668.png" />
+    <Content Include="Assets\AppleEmoji\267b.png" />
+    <Content Include="Assets\AppleEmoji\267f.png" />
+    <Content Include="Assets\AppleEmoji\2693.png" />
+    <Content Include="Assets\AppleEmoji\26a0.png" />
+    <Content Include="Assets\AppleEmoji\26a1.png" />
+    <Content Include="Assets\AppleEmoji\26aa.png" />
+    <Content Include="Assets\AppleEmoji\26ab.png" />
+    <Content Include="Assets\AppleEmoji\26bd.png" />
+    <Content Include="Assets\AppleEmoji\26be.png" />
+    <Content Include="Assets\AppleEmoji\26c4.png" />
+    <Content Include="Assets\AppleEmoji\26c5.png" />
+    <Content Include="Assets\AppleEmoji\26ce.png" />
+    <Content Include="Assets\AppleEmoji\26d4.png" />
+    <Content Include="Assets\AppleEmoji\26ea.png" />
+    <Content Include="Assets\AppleEmoji\26f2.png" />
+    <Content Include="Assets\AppleEmoji\26f3.png" />
+    <Content Include="Assets\AppleEmoji\26f5.png" />
+    <Content Include="Assets\AppleEmoji\26fa.png" />
+    <Content Include="Assets\AppleEmoji\26fd.png" />
+    <Content Include="Assets\AppleEmoji\2702.png" />
+    <Content Include="Assets\AppleEmoji\2705.png" />
+    <Content Include="Assets\AppleEmoji\2708.png" />
+    <Content Include="Assets\AppleEmoji\2709.png" />
+    <Content Include="Assets\AppleEmoji\270a.png" />
+    <Content Include="Assets\AppleEmoji\270b.png" />
+    <Content Include="Assets\AppleEmoji\270c.png" />
+    <Content Include="Assets\AppleEmoji\270f.png" />
+    <Content Include="Assets\AppleEmoji\2712.png" />
+    <Content Include="Assets\AppleEmoji\2714.png" />
+    <Content Include="Assets\AppleEmoji\2716.png" />
+    <Content Include="Assets\AppleEmoji\2728.png" />
+    <Content Include="Assets\AppleEmoji\2733.png" />
+    <Content Include="Assets\AppleEmoji\2734.png" />
+    <Content Include="Assets\AppleEmoji\2744.png" />
+    <Content Include="Assets\AppleEmoji\2747.png" />
+    <Content Include="Assets\AppleEmoji\274c.png" />
+    <Content Include="Assets\AppleEmoji\274e.png" />
+    <Content Include="Assets\AppleEmoji\2753.png" />
+    <Content Include="Assets\AppleEmoji\2754.png" />
+    <Content Include="Assets\AppleEmoji\2755.png" />
+    <Content Include="Assets\AppleEmoji\2757.png" />
+    <Content Include="Assets\AppleEmoji\2764.png" />
+    <Content Include="Assets\AppleEmoji\2795.png" />
+    <Content Include="Assets\AppleEmoji\2796.png" />
+    <Content Include="Assets\AppleEmoji\2797.png" />
+    <Content Include="Assets\AppleEmoji\27a1.png" />
+    <Content Include="Assets\AppleEmoji\27b0.png" />
+    <Content Include="Assets\AppleEmoji\27bf.png" />
+    <Content Include="Assets\AppleEmoji\2934.png" />
+    <Content Include="Assets\AppleEmoji\2935.png" />
+    <Content Include="Assets\AppleEmoji\2b05.png" />
+    <Content Include="Assets\AppleEmoji\2b06.png" />
+    <Content Include="Assets\AppleEmoji\2b07.png" />
+    <Content Include="Assets\AppleEmoji\2b1b.png" />
+    <Content Include="Assets\AppleEmoji\2b1c.png" />
+    <Content Include="Assets\AppleEmoji\2b50.png" />
+    <Content Include="Assets\AppleEmoji\2b55.png" />
+    <Content Include="Assets\AppleEmoji\3030.png" />
+    <Content Include="Assets\AppleEmoji\303d.png" />
+    <Content Include="Assets\AppleEmoji\3297.png" />
+    <Content Include="Assets\AppleEmoji\3299.png" />
+    <Content Include="Assets\BadgeIcon.png" />
+    <Content Include="Assets\BotStickerDark.png" />
+    <Content Include="Assets\BotStickerLight.png" />
+    <Content Include="Assets\ExceptionDark.png" />
+    <Content Include="Assets\ExceptionLight.png" />
+    <Content Include="Assets\GlassBackgroundDark.png" />
+    <Content Include="Assets\GlassBackgroundLight.png" />
+    <Content Include="Assets\LockScreenLogo.scale-240.png" />
+    <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\Messages\Read.png" />
+    <Content Include="Assets\Messages\Sending.png" />
+    <Content Include="Assets\Messages\Unread.png" />
+    <Content Include="Assets\Popups\Default.png" />
+    <Content Include="Assets\Popups\Error.png" />
+    <Content Include="Assets\Popups\Info.png" />
+    <Content Include="Assets\Popups\Warning.png" />
+    <Content Include="Assets\Sounds\Error.wav" />
+    <Content Include="Assets\Sounds\Default.wav" />
+    <Content Include="Assets\Sounds\Info.wav" />
+    <Content Include="Assets\Sounds\Warning.wav" />
+    <Content Include="Assets\Square44x44Logo.scale-240.png" />
+    <Content Include="Assets\Square50x50StoreLogo.scale-240.png" />
+    <Content Include="Assets\Square71x71Logo.scale-240.png" />
+    <Content Include="Assets\TwitterEmoji\1f004.png" />
+    <Content Include="Assets\TwitterEmoji\1f0cf.png" />
+    <Content Include="Assets\TwitterEmoji\1f170.png" />
+    <Content Include="Assets\TwitterEmoji\1f171.png" />
+    <Content Include="Assets\TwitterEmoji\1f17e.png" />
+    <Content Include="Assets\TwitterEmoji\1f17f.png" />
+    <Content Include="Assets\TwitterEmoji\1f18e.png" />
+    <Content Include="Assets\TwitterEmoji\1f191.png" />
+    <Content Include="Assets\TwitterEmoji\1f192.png" />
+    <Content Include="Assets\TwitterEmoji\1f193.png" />
+    <Content Include="Assets\TwitterEmoji\1f194.png" />
+    <Content Include="Assets\TwitterEmoji\1f195.png" />
+    <Content Include="Assets\TwitterEmoji\1f196.png" />
+    <Content Include="Assets\TwitterEmoji\1f197.png" />
+    <Content Include="Assets\TwitterEmoji\1f198.png" />
+    <Content Include="Assets\TwitterEmoji\1f199.png" />
+    <Content Include="Assets\TwitterEmoji\1f19a.png" />
+    <Content Include="Assets\TwitterEmoji\1f1e6.png" />
+    <Content Include="Assets\TwitterEmoji\1f1e7.png" />
+    <Content Include="Assets\TwitterEmoji\1f1e8-1f1f3.png" />
+    <Content Include="Assets\TwitterEmoji\1f1e8.png" />
+    <Content Include="Assets\TwitterEmoji\1f1e9-1f1ea.png" />
+    <Content Include="Assets\TwitterEmoji\1f1e9.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ea-1f1f8.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ea.png" />
+    <Content Include="Assets\TwitterEmoji\1f1eb-1f1f7.png" />
+    <Content Include="Assets\TwitterEmoji\1f1eb.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ec-1f1e7.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ec.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ed.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ee-1f1f9.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ee.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ef-1f1f5.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ef.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f0-1f1f7.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f0.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f1.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f2.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f3.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f4.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f5.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f6.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f7-1f1fa.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f7.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f8.png" />
+    <Content Include="Assets\TwitterEmoji\1f1f9.png" />
+    <Content Include="Assets\TwitterEmoji\1f1fa-1f1f8.png" />
+    <Content Include="Assets\TwitterEmoji\1f1fa.png" />
+    <Content Include="Assets\TwitterEmoji\1f1fb.png" />
+    <Content Include="Assets\TwitterEmoji\1f1fc.png" />
+    <Content Include="Assets\TwitterEmoji\1f1fd.png" />
+    <Content Include="Assets\TwitterEmoji\1f1fe.png" />
+    <Content Include="Assets\TwitterEmoji\1f1ff.png" />
+    <Content Include="Assets\TwitterEmoji\1f201.png" />
+    <Content Include="Assets\TwitterEmoji\1f202.png" />
+    <Content Include="Assets\TwitterEmoji\1f21a.png" />
+    <Content Include="Assets\TwitterEmoji\1f22f.png" />
+    <Content Include="Assets\TwitterEmoji\1f232.png" />
+    <Content Include="Assets\TwitterEmoji\1f233.png" />
+    <Content Include="Assets\TwitterEmoji\1f234.png" />
+    <Content Include="Assets\TwitterEmoji\1f235.png" />
+    <Content Include="Assets\TwitterEmoji\1f236.png" />
+    <Content Include="Assets\TwitterEmoji\1f237.png" />
+    <Content Include="Assets\TwitterEmoji\1f238.png" />
+    <Content Include="Assets\TwitterEmoji\1f239.png" />
+    <Content Include="Assets\TwitterEmoji\1f23a.png" />
+    <Content Include="Assets\TwitterEmoji\1f250.png" />
+    <Content Include="Assets\TwitterEmoji\1f251.png" />
+    <Content Include="Assets\TwitterEmoji\1f300.png" />
+    <Content Include="Assets\TwitterEmoji\1f301.png" />
+    <Content Include="Assets\TwitterEmoji\1f302.png" />
+    <Content Include="Assets\TwitterEmoji\1f303.png" />
+    <Content Include="Assets\TwitterEmoji\1f304.png" />
+    <Content Include="Assets\TwitterEmoji\1f305.png" />
+    <Content Include="Assets\TwitterEmoji\1f306.png" />
+    <Content Include="Assets\TwitterEmoji\1f307.png" />
+    <Content Include="Assets\TwitterEmoji\1f308.png" />
+    <Content Include="Assets\TwitterEmoji\1f309.png" />
+    <Content Include="Assets\TwitterEmoji\1f30a.png" />
+    <Content Include="Assets\TwitterEmoji\1f30b.png" />
+    <Content Include="Assets\TwitterEmoji\1f30c.png" />
+    <Content Include="Assets\TwitterEmoji\1f30d.png" />
+    <Content Include="Assets\TwitterEmoji\1f30e.png" />
+    <Content Include="Assets\TwitterEmoji\1f30f.png" />
+    <Content Include="Assets\TwitterEmoji\1f310.png" />
+    <Content Include="Assets\TwitterEmoji\1f311.png" />
+    <Content Include="Assets\TwitterEmoji\1f312.png" />
+    <Content Include="Assets\TwitterEmoji\1f313.png" />
+    <Content Include="Assets\TwitterEmoji\1f314.png" />
+    <Content Include="Assets\TwitterEmoji\1f315.png" />
+    <Content Include="Assets\TwitterEmoji\1f316.png" />
+    <Content Include="Assets\TwitterEmoji\1f317.png" />
+    <Content Include="Assets\TwitterEmoji\1f318.png" />
+    <Content Include="Assets\TwitterEmoji\1f319.png" />
+    <Content Include="Assets\TwitterEmoji\1f31a.png" />
+    <Content Include="Assets\TwitterEmoji\1f31b.png" />
+    <Content Include="Assets\TwitterEmoji\1f31c.png" />
+    <Content Include="Assets\TwitterEmoji\1f31d.png" />
+    <Content Include="Assets\TwitterEmoji\1f31e.png" />
+    <Content Include="Assets\TwitterEmoji\1f31f.png" />
+    <Content Include="Assets\TwitterEmoji\1f320.png" />
+    <Content Include="Assets\TwitterEmoji\1f330.png" />
+    <Content Include="Assets\TwitterEmoji\1f331.png" />
+    <Content Include="Assets\TwitterEmoji\1f332.png" />
+    <Content Include="Assets\TwitterEmoji\1f333.png" />
+    <Content Include="Assets\TwitterEmoji\1f334.png" />
+    <Content Include="Assets\TwitterEmoji\1f335.png" />
+    <Content Include="Assets\TwitterEmoji\1f337.png" />
+    <Content Include="Assets\TwitterEmoji\1f338.png" />
+    <Content Include="Assets\TwitterEmoji\1f339.png" />
+    <Content Include="Assets\TwitterEmoji\1f33a.png" />
+    <Content Include="Assets\TwitterEmoji\1f33b.png" />
+    <Content Include="Assets\TwitterEmoji\1f33c.png" />
+    <Content Include="Assets\TwitterEmoji\1f33d.png" />
+    <Content Include="Assets\TwitterEmoji\1f33e.png" />
+    <Content Include="Assets\TwitterEmoji\1f33f.png" />
+    <Content Include="Assets\TwitterEmoji\1f340.png" />
+    <Content Include="Assets\TwitterEmoji\1f341.png" />
+    <Content Include="Assets\TwitterEmoji\1f342.png" />
+    <Content Include="Assets\TwitterEmoji\1f343.png" />
+    <Content Include="Assets\TwitterEmoji\1f344.png" />
+    <Content Include="Assets\TwitterEmoji\1f345.png" />
+    <Content Include="Assets\TwitterEmoji\1f346.png" />
+    <Content Include="Assets\TwitterEmoji\1f347.png" />
+    <Content Include="Assets\TwitterEmoji\1f348.png" />
+    <Content Include="Assets\TwitterEmoji\1f349.png" />
+    <Content Include="Assets\TwitterEmoji\1f34a.png" />
+    <Content Include="Assets\TwitterEmoji\1f34b.png" />
+    <Content Include="Assets\TwitterEmoji\1f34c.png" />
+    <Content Include="Assets\TwitterEmoji\1f34d.png" />
+    <Content Include="Assets\TwitterEmoji\1f34e.png" />
+    <Content Include="Assets\TwitterEmoji\1f34f.png" />
+    <Content Include="Assets\TwitterEmoji\1f350.png" />
+    <Content Include="Assets\TwitterEmoji\1f351.png" />
+    <Content Include="Assets\TwitterEmoji\1f352.png" />
+    <Content Include="Assets\TwitterEmoji\1f353.png" />
+    <Content Include="Assets\TwitterEmoji\1f354.png" />
+    <Content Include="Assets\TwitterEmoji\1f355.png" />
+    <Content Include="Assets\TwitterEmoji\1f356.png" />
+    <Content Include="Assets\TwitterEmoji\1f357.png" />
+    <Content Include="Assets\TwitterEmoji\1f358.png" />
+    <Content Include="Assets\TwitterEmoji\1f359.png" />
+    <Content Include="Assets\TwitterEmoji\1f35a.png" />
+    <Content Include="Assets\TwitterEmoji\1f35b.png" />
+    <Content Include="Assets\TwitterEmoji\1f35c.png" />
+    <Content Include="Assets\TwitterEmoji\1f35d.png" />
+    <Content Include="Assets\TwitterEmoji\1f35e.png" />
+    <Content Include="Assets\TwitterEmoji\1f35f.png" />
+    <Content Include="Assets\TwitterEmoji\1f360.png" />
+    <Content Include="Assets\TwitterEmoji\1f361.png" />
+    <Content Include="Assets\TwitterEmoji\1f362.png" />
+    <Content Include="Assets\TwitterEmoji\1f363.png" />
+    <Content Include="Assets\TwitterEmoji\1f364.png" />
+    <Content Include="Assets\TwitterEmoji\1f365.png" />
+    <Content Include="Assets\TwitterEmoji\1f366.png" />
+    <Content Include="Assets\TwitterEmoji\1f367.png" />
+    <Content Include="Assets\TwitterEmoji\1f368.png" />
+    <Content Include="Assets\TwitterEmoji\1f369.png" />
+    <Content Include="Assets\TwitterEmoji\1f36a.png" />
+    <Content Include="Assets\TwitterEmoji\1f36b.png" />
+    <Content Include="Assets\TwitterEmoji\1f36c.png" />
+    <Content Include="Assets\TwitterEmoji\1f36d.png" />
+    <Content Include="Assets\TwitterEmoji\1f36e.png" />
+    <Content Include="Assets\TwitterEmoji\1f36f.png" />
+    <Content Include="Assets\TwitterEmoji\1f370.png" />
+    <Content Include="Assets\TwitterEmoji\1f371.png" />
+    <Content Include="Assets\TwitterEmoji\1f372.png" />
+    <Content Include="Assets\TwitterEmoji\1f373.png" />
+    <Content Include="Assets\TwitterEmoji\1f374.png" />
+    <Content Include="Assets\TwitterEmoji\1f375.png" />
+    <Content Include="Assets\TwitterEmoji\1f376.png" />
+    <Content Include="Assets\TwitterEmoji\1f377.png" />
+    <Content Include="Assets\TwitterEmoji\1f378.png" />
+    <Content Include="Assets\TwitterEmoji\1f379.png" />
+    <Content Include="Assets\TwitterEmoji\1f37a.png" />
+    <Content Include="Assets\TwitterEmoji\1f37b.png" />
+    <Content Include="Assets\TwitterEmoji\1f37c.png" />
+    <Content Include="Assets\TwitterEmoji\1f380.png" />
+    <Content Include="Assets\TwitterEmoji\1f381.png" />
+    <Content Include="Assets\TwitterEmoji\1f382.png" />
+    <Content Include="Assets\TwitterEmoji\1f383.png" />
+    <Content Include="Assets\TwitterEmoji\1f384.png" />
+    <Content Include="Assets\TwitterEmoji\1f385.png" />
+    <Content Include="Assets\TwitterEmoji\1f386.png" />
+    <Content Include="Assets\TwitterEmoji\1f387.png" />
+    <Content Include="Assets\TwitterEmoji\1f388.png" />
+    <Content Include="Assets\TwitterEmoji\1f389.png" />
+    <Content Include="Assets\TwitterEmoji\1f38a.png" />
+    <Content Include="Assets\TwitterEmoji\1f38b.png" />
+    <Content Include="Assets\TwitterEmoji\1f38c.png" />
+    <Content Include="Assets\TwitterEmoji\1f38d.png" />
+    <Content Include="Assets\TwitterEmoji\1f38e.png" />
+    <Content Include="Assets\TwitterEmoji\1f38f.png" />
+    <Content Include="Assets\TwitterEmoji\1f390.png" />
+    <Content Include="Assets\TwitterEmoji\1f391.png" />
+    <Content Include="Assets\TwitterEmoji\1f392.png" />
+    <Content Include="Assets\TwitterEmoji\1f393.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a0.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a1.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a2.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a3.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a4.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a5.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a6.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a7.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a8.png" />
+    <Content Include="Assets\TwitterEmoji\1f3a9.png" />
+    <Content Include="Assets\TwitterEmoji\1f3aa.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ab.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ac.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ad.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ae.png" />
+    <Content Include="Assets\TwitterEmoji\1f3af.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b0.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b1.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b2.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b3.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b4.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b5.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b6.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b7.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b8.png" />
+    <Content Include="Assets\TwitterEmoji\1f3b9.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ba.png" />
+    <Content Include="Assets\TwitterEmoji\1f3bb.png" />
+    <Content Include="Assets\TwitterEmoji\1f3bc.png" />
+    <Content Include="Assets\TwitterEmoji\1f3bd.png" />
+    <Content Include="Assets\TwitterEmoji\1f3be.png" />
+    <Content Include="Assets\TwitterEmoji\1f3bf.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c0.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c1.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c2.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c3.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c4.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c6.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c7.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c8.png" />
+    <Content Include="Assets\TwitterEmoji\1f3c9.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ca.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e0.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e1.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e2.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e3.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e4.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e5.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e6.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e7.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e8.png" />
+    <Content Include="Assets\TwitterEmoji\1f3e9.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ea.png" />
+    <Content Include="Assets\TwitterEmoji\1f3eb.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ec.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ed.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ee.png" />
+    <Content Include="Assets\TwitterEmoji\1f3ef.png" />
+    <Content Include="Assets\TwitterEmoji\1f3f0.png" />
+    <Content Include="Assets\TwitterEmoji\1f400.png" />
+    <Content Include="Assets\TwitterEmoji\1f401.png" />
+    <Content Include="Assets\TwitterEmoji\1f402.png" />
+    <Content Include="Assets\TwitterEmoji\1f403.png" />
+    <Content Include="Assets\TwitterEmoji\1f404.png" />
+    <Content Include="Assets\TwitterEmoji\1f405.png" />
+    <Content Include="Assets\TwitterEmoji\1f406.png" />
+    <Content Include="Assets\TwitterEmoji\1f407.png" />
+    <Content Include="Assets\TwitterEmoji\1f408.png" />
+    <Content Include="Assets\TwitterEmoji\1f409.png" />
+    <Content Include="Assets\TwitterEmoji\1f40a.png" />
+    <Content Include="Assets\TwitterEmoji\1f40b.png" />
+    <Content Include="Assets\TwitterEmoji\1f40c.png" />
+    <Content Include="Assets\TwitterEmoji\1f40d.png" />
+    <Content Include="Assets\TwitterEmoji\1f40e.png" />
+    <Content Include="Assets\TwitterEmoji\1f40f.png" />
+    <Content Include="Assets\TwitterEmoji\1f410.png" />
+    <Content Include="Assets\TwitterEmoji\1f411.png" />
+    <Content Include="Assets\TwitterEmoji\1f412.png" />
+    <Content Include="Assets\TwitterEmoji\1f413.png" />
+    <Content Include="Assets\TwitterEmoji\1f414.png" />
+    <Content Include="Assets\TwitterEmoji\1f415.png" />
+    <Content Include="Assets\TwitterEmoji\1f416.png" />
+    <Content Include="Assets\TwitterEmoji\1f417.png" />
+    <Content Include="Assets\TwitterEmoji\1f418.png" />
+    <Content Include="Assets\TwitterEmoji\1f419.png" />
+    <Content Include="Assets\TwitterEmoji\1f41a.png" />
+    <Content Include="Assets\TwitterEmoji\1f41b.png" />
+    <Content Include="Assets\TwitterEmoji\1f41c.png" />
+    <Content Include="Assets\TwitterEmoji\1f41d.png" />
+    <Content Include="Assets\TwitterEmoji\1f41e.png" />
+    <Content Include="Assets\TwitterEmoji\1f41f.png" />
+    <Content Include="Assets\TwitterEmoji\1f420.png" />
+    <Content Include="Assets\TwitterEmoji\1f421.png" />
+    <Content Include="Assets\TwitterEmoji\1f422.png" />
+    <Content Include="Assets\TwitterEmoji\1f423.png" />
+    <Content Include="Assets\TwitterEmoji\1f424.png" />
+    <Content Include="Assets\TwitterEmoji\1f425.png" />
+    <Content Include="Assets\TwitterEmoji\1f426.png" />
+    <Content Include="Assets\TwitterEmoji\1f427.png" />
+    <Content Include="Assets\TwitterEmoji\1f428.png" />
+    <Content Include="Assets\TwitterEmoji\1f429.png" />
+    <Content Include="Assets\TwitterEmoji\1f42a.png" />
+    <Content Include="Assets\TwitterEmoji\1f42b.png" />
+    <Content Include="Assets\TwitterEmoji\1f42c.png" />
+    <Content Include="Assets\TwitterEmoji\1f42d.png" />
+    <Content Include="Assets\TwitterEmoji\1f42e.png" />
+    <Content Include="Assets\TwitterEmoji\1f42f.png" />
+    <Content Include="Assets\TwitterEmoji\1f430.png" />
+    <Content Include="Assets\TwitterEmoji\1f431.png" />
+    <Content Include="Assets\TwitterEmoji\1f432.png" />
+    <Content Include="Assets\TwitterEmoji\1f433.png" />
+    <Content Include="Assets\TwitterEmoji\1f434.png" />
+    <Content Include="Assets\TwitterEmoji\1f435.png" />
+    <Content Include="Assets\TwitterEmoji\1f436.png" />
+    <Content Include="Assets\TwitterEmoji\1f437.png" />
+    <Content Include="Assets\TwitterEmoji\1f438.png" />
+    <Content Include="Assets\TwitterEmoji\1f439.png" />
+    <Content Include="Assets\TwitterEmoji\1f43a.png" />
+    <Content Include="Assets\TwitterEmoji\1f43b.png" />
+    <Content Include="Assets\TwitterEmoji\1f43c.png" />
+    <Content Include="Assets\TwitterEmoji\1f43d.png" />
+    <Content Include="Assets\TwitterEmoji\1f43e.png" />
+    <Content Include="Assets\TwitterEmoji\1f440.png" />
+    <Content Include="Assets\TwitterEmoji\1f442.png" />
+    <Content Include="Assets\TwitterEmoji\1f443.png" />
+    <Content Include="Assets\TwitterEmoji\1f444.png" />
+    <Content Include="Assets\TwitterEmoji\1f445.png" />
+    <Content Include="Assets\TwitterEmoji\1f446.png" />
+    <Content Include="Assets\TwitterEmoji\1f447.png" />
+    <Content Include="Assets\TwitterEmoji\1f448.png" />
+    <Content Include="Assets\TwitterEmoji\1f449.png" />
+    <Content Include="Assets\TwitterEmoji\1f44a.png" />
+    <Content Include="Assets\TwitterEmoji\1f44b.png" />
+    <Content Include="Assets\TwitterEmoji\1f44c.png" />
+    <Content Include="Assets\TwitterEmoji\1f44d.png" />
+    <Content Include="Assets\TwitterEmoji\1f44e.png" />
+    <Content Include="Assets\TwitterEmoji\1f44f.png" />
+    <Content Include="Assets\TwitterEmoji\1f450.png" />
+    <Content Include="Assets\TwitterEmoji\1f451.png" />
+    <Content Include="Assets\TwitterEmoji\1f452.png" />
+    <Content Include="Assets\TwitterEmoji\1f453.png" />
+    <Content Include="Assets\TwitterEmoji\1f454.png" />
+    <Content Include="Assets\TwitterEmoji\1f455.png" />
+    <Content Include="Assets\TwitterEmoji\1f456.png" />
+    <Content Include="Assets\TwitterEmoji\1f457.png" />
+    <Content Include="Assets\TwitterEmoji\1f458.png" />
+    <Content Include="Assets\TwitterEmoji\1f459.png" />
+    <Content Include="Assets\TwitterEmoji\1f45a.png" />
+    <Content Include="Assets\TwitterEmoji\1f45b.png" />
+    <Content Include="Assets\TwitterEmoji\1f45c.png" />
+    <Content Include="Assets\TwitterEmoji\1f45d.png" />
+    <Content Include="Assets\TwitterEmoji\1f45e.png" />
+    <Content Include="Assets\TwitterEmoji\1f45f.png" />
+    <Content Include="Assets\TwitterEmoji\1f460.png" />
+    <Content Include="Assets\TwitterEmoji\1f461.png" />
+    <Content Include="Assets\TwitterEmoji\1f462.png" />
+    <Content Include="Assets\TwitterEmoji\1f463.png" />
+    <Content Include="Assets\TwitterEmoji\1f464.png" />
+    <Content Include="Assets\TwitterEmoji\1f465.png" />
+    <Content Include="Assets\TwitterEmoji\1f466.png" />
+    <Content Include="Assets\TwitterEmoji\1f467.png" />
+    <Content Include="Assets\TwitterEmoji\1f468.png" />
+    <Content Include="Assets\TwitterEmoji\1f469.png" />
+    <Content Include="Assets\TwitterEmoji\1f46a.png" />
+    <Content Include="Assets\TwitterEmoji\1f46b.png" />
+    <Content Include="Assets\TwitterEmoji\1f46c.png" />
+    <Content Include="Assets\TwitterEmoji\1f46d.png" />
+    <Content Include="Assets\TwitterEmoji\1f46e.png" />
+    <Content Include="Assets\TwitterEmoji\1f46f.png" />
+    <Content Include="Assets\TwitterEmoji\1f470.png" />
+    <Content Include="Assets\TwitterEmoji\1f471.png" />
+    <Content Include="Assets\TwitterEmoji\1f472.png" />
+    <Content Include="Assets\TwitterEmoji\1f473.png" />
+    <Content Include="Assets\TwitterEmoji\1f474.png" />
+    <Content Include="Assets\TwitterEmoji\1f475.png" />
+    <Content Include="Assets\TwitterEmoji\1f476.png" />
+    <Content Include="Assets\TwitterEmoji\1f477.png" />
+    <Content Include="Assets\TwitterEmoji\1f478.png" />
+    <Content Include="Assets\TwitterEmoji\1f479.png" />
+    <Content Include="Assets\TwitterEmoji\1f47a.png" />
+    <Content Include="Assets\TwitterEmoji\1f47b.png" />
+    <Content Include="Assets\TwitterEmoji\1f47c.png" />
+    <Content Include="Assets\TwitterEmoji\1f47d.png" />
+    <Content Include="Assets\TwitterEmoji\1f47e.png" />
+    <Content Include="Assets\TwitterEmoji\1f47f.png" />
+    <Content Include="Assets\TwitterEmoji\1f480.png" />
+    <Content Include="Assets\TwitterEmoji\1f481.png" />
+    <Content Include="Assets\TwitterEmoji\1f482.png" />
+    <Content Include="Assets\TwitterEmoji\1f483.png" />
+    <Content Include="Assets\TwitterEmoji\1f484.png" />
+    <Content Include="Assets\TwitterEmoji\1f485.png" />
+    <Content Include="Assets\TwitterEmoji\1f486.png" />
+    <Content Include="Assets\TwitterEmoji\1f487.png" />
+    <Content Include="Assets\TwitterEmoji\1f488.png" />
+    <Content Include="Assets\TwitterEmoji\1f489.png" />
+    <Content Include="Assets\TwitterEmoji\1f48a.png" />
+    <Content Include="Assets\TwitterEmoji\1f48b.png" />
+    <Content Include="Assets\TwitterEmoji\1f48c.png" />
+    <Content Include="Assets\TwitterEmoji\1f48d.png" />
+    <Content Include="Assets\TwitterEmoji\1f48e.png" />
+    <Content Include="Assets\TwitterEmoji\1f48f.png" />
+    <Content Include="Assets\TwitterEmoji\1f490.png" />
+    <Content Include="Assets\TwitterEmoji\1f491.png" />
+    <Content Include="Assets\TwitterEmoji\1f492.png" />
+    <Content Include="Assets\TwitterEmoji\1f493.png" />
+    <Content Include="Assets\TwitterEmoji\1f494.png" />
+    <Content Include="Assets\TwitterEmoji\1f495.png" />
+    <Content Include="Assets\TwitterEmoji\1f496.png" />
+    <Content Include="Assets\TwitterEmoji\1f497.png" />
+    <Content Include="Assets\TwitterEmoji\1f498.png" />
+    <Content Include="Assets\TwitterEmoji\1f499.png" />
+    <Content Include="Assets\TwitterEmoji\1f49a.png" />
+    <Content Include="Assets\TwitterEmoji\1f49b.png" />
+    <Content Include="Assets\TwitterEmoji\1f49c.png" />
+    <Content Include="Assets\TwitterEmoji\1f49d.png" />
+    <Content Include="Assets\TwitterEmoji\1f49e.png" />
+    <Content Include="Assets\TwitterEmoji\1f49f.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a0.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a1.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a2.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a3.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a4.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a5.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a6.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a7.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a8.png" />
+    <Content Include="Assets\TwitterEmoji\1f4a9.png" />
+    <Content Include="Assets\TwitterEmoji\1f4aa.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ab.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ac.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ad.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ae.png" />
+    <Content Include="Assets\TwitterEmoji\1f4af.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b0.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b1.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b2.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b3.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b4.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b5.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b6.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b7.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b8.png" />
+    <Content Include="Assets\TwitterEmoji\1f4b9.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ba.png" />
+    <Content Include="Assets\TwitterEmoji\1f4bb.png" />
+    <Content Include="Assets\TwitterEmoji\1f4bc.png" />
+    <Content Include="Assets\TwitterEmoji\1f4bd.png" />
+    <Content Include="Assets\TwitterEmoji\1f4be.png" />
+    <Content Include="Assets\TwitterEmoji\1f4bf.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c0.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c1.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c2.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c3.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c4.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c5.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c6.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c7.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c8.png" />
+    <Content Include="Assets\TwitterEmoji\1f4c9.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ca.png" />
+    <Content Include="Assets\TwitterEmoji\1f4cb.png" />
+    <Content Include="Assets\TwitterEmoji\1f4cc.png" />
+    <Content Include="Assets\TwitterEmoji\1f4cd.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ce.png" />
+    <Content Include="Assets\TwitterEmoji\1f4cf.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d0.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d1.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d2.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d3.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d4.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d5.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d6.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d7.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d8.png" />
+    <Content Include="Assets\TwitterEmoji\1f4d9.png" />
+    <Content Include="Assets\TwitterEmoji\1f4da.png" />
+    <Content Include="Assets\TwitterEmoji\1f4db.png" />
+    <Content Include="Assets\TwitterEmoji\1f4dc.png" />
+    <Content Include="Assets\TwitterEmoji\1f4dd.png" />
+    <Content Include="Assets\TwitterEmoji\1f4de.png" />
+    <Content Include="Assets\TwitterEmoji\1f4df.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e0.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e1.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e2.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e3.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e4.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e5.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e6.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e7.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e8.png" />
+    <Content Include="Assets\TwitterEmoji\1f4e9.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ea.png" />
+    <Content Include="Assets\TwitterEmoji\1f4eb.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ec.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ed.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ee.png" />
+    <Content Include="Assets\TwitterEmoji\1f4ef.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f0.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f1.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f2.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f3.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f4.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f5.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f6.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f7.png" />
+    <Content Include="Assets\TwitterEmoji\1f4f9.png" />
+    <Content Include="Assets\TwitterEmoji\1f4fa.png" />
+    <Content Include="Assets\TwitterEmoji\1f4fb.png" />
+    <Content Include="Assets\TwitterEmoji\1f4fc.png" />
+    <Content Include="Assets\TwitterEmoji\1f500.png" />
+    <Content Include="Assets\TwitterEmoji\1f501.png" />
+    <Content Include="Assets\TwitterEmoji\1f502.png" />
+    <Content Include="Assets\TwitterEmoji\1f503.png" />
+    <Content Include="Assets\TwitterEmoji\1f504.png" />
+    <Content Include="Assets\TwitterEmoji\1f505.png" />
+    <Content Include="Assets\TwitterEmoji\1f506.png" />
+    <Content Include="Assets\TwitterEmoji\1f507.png" />
+    <Content Include="Assets\TwitterEmoji\1f508.png" />
+    <Content Include="Assets\TwitterEmoji\1f509.png" />
+    <Content Include="Assets\TwitterEmoji\1f50a.png" />
+    <Content Include="Assets\TwitterEmoji\1f50b.png" />
+    <Content Include="Assets\TwitterEmoji\1f50c.png" />
+    <Content Include="Assets\TwitterEmoji\1f50d.png" />
+    <Content Include="Assets\TwitterEmoji\1f50e.png" />
+    <Content Include="Assets\TwitterEmoji\1f50f.png" />
+    <Content Include="Assets\TwitterEmoji\1f510.png" />
+    <Content Include="Assets\TwitterEmoji\1f511.png" />
+    <Content Include="Assets\TwitterEmoji\1f512.png" />
+    <Content Include="Assets\TwitterEmoji\1f513.png" />
+    <Content Include="Assets\TwitterEmoji\1f514.png" />
+    <Content Include="Assets\TwitterEmoji\1f515.png" />
+    <Content Include="Assets\TwitterEmoji\1f516.png" />
+    <Content Include="Assets\TwitterEmoji\1f517.png" />
+    <Content Include="Assets\TwitterEmoji\1f518.png" />
+    <Content Include="Assets\TwitterEmoji\1f519.png" />
+    <Content Include="Assets\TwitterEmoji\1f51a.png" />
+    <Content Include="Assets\TwitterEmoji\1f51b.png" />
+    <Content Include="Assets\TwitterEmoji\1f51c.png" />
+    <Content Include="Assets\TwitterEmoji\1f51d.png" />
+    <Content Include="Assets\TwitterEmoji\1f51e.png" />
+    <Content Include="Assets\TwitterEmoji\1f51f.png" />
+    <Content Include="Assets\TwitterEmoji\1f520.png" />
+    <Content Include="Assets\TwitterEmoji\1f521.png" />
+    <Content Include="Assets\TwitterEmoji\1f522.png" />
+    <Content Include="Assets\TwitterEmoji\1f523.png" />
+    <Content Include="Assets\TwitterEmoji\1f524.png" />
+    <Content Include="Assets\TwitterEmoji\1f525.png" />
+    <Content Include="Assets\TwitterEmoji\1f526.png" />
+    <Content Include="Assets\TwitterEmoji\1f527.png" />
+    <Content Include="Assets\TwitterEmoji\1f528.png" />
+    <Content Include="Assets\TwitterEmoji\1f529.png" />
+    <Content Include="Assets\TwitterEmoji\1f52a.png" />
+    <Content Include="Assets\TwitterEmoji\1f52b.png" />
+    <Content Include="Assets\TwitterEmoji\1f52c.png" />
+    <Content Include="Assets\TwitterEmoji\1f52d.png" />
+    <Content Include="Assets\TwitterEmoji\1f52e.png" />
+    <Content Include="Assets\TwitterEmoji\1f52f.png" />
+    <Content Include="Assets\TwitterEmoji\1f530.png" />
+    <Content Include="Assets\TwitterEmoji\1f531.png" />
+    <Content Include="Assets\TwitterEmoji\1f532.png" />
+    <Content Include="Assets\TwitterEmoji\1f533.png" />
+    <Content Include="Assets\TwitterEmoji\1f534.png" />
+    <Content Include="Assets\TwitterEmoji\1f535.png" />
+    <Content Include="Assets\TwitterEmoji\1f536.png" />
+    <Content Include="Assets\TwitterEmoji\1f537.png" />
+    <Content Include="Assets\TwitterEmoji\1f538.png" />
+    <Content Include="Assets\TwitterEmoji\1f539.png" />
+    <Content Include="Assets\TwitterEmoji\1f53a.png" />
+    <Content Include="Assets\TwitterEmoji\1f53b.png" />
+    <Content Include="Assets\TwitterEmoji\1f53c.png" />
+    <Content Include="Assets\TwitterEmoji\1f53d.png" />
+    <Content Include="Assets\TwitterEmoji\1f550.png" />
+    <Content Include="Assets\TwitterEmoji\1f551.png" />
+    <Content Include="Assets\TwitterEmoji\1f552.png" />
+    <Content Include="Assets\TwitterEmoji\1f553.png" />
+    <Content Include="Assets\TwitterEmoji\1f554.png" />
+    <Content Include="Assets\TwitterEmoji\1f555.png" />
+    <Content Include="Assets\TwitterEmoji\1f556.png" />
+    <Content Include="Assets\TwitterEmoji\1f557.png" />
+    <Content Include="Assets\TwitterEmoji\1f558.png" />
+    <Content Include="Assets\TwitterEmoji\1f559.png" />
+    <Content Include="Assets\TwitterEmoji\1f55a.png" />
+    <Content Include="Assets\TwitterEmoji\1f55b.png" />
+    <Content Include="Assets\TwitterEmoji\1f55c.png" />
+    <Content Include="Assets\TwitterEmoji\1f55d.png" />
+    <Content Include="Assets\TwitterEmoji\1f55e.png" />
+    <Content Include="Assets\TwitterEmoji\1f55f.png" />
+    <Content Include="Assets\TwitterEmoji\1f560.png" />
+    <Content Include="Assets\TwitterEmoji\1f561.png" />
+    <Content Include="Assets\TwitterEmoji\1f562.png" />
+    <Content Include="Assets\TwitterEmoji\1f563.png" />
+    <Content Include="Assets\TwitterEmoji\1f564.png" />
+    <Content Include="Assets\TwitterEmoji\1f565.png" />
+    <Content Include="Assets\TwitterEmoji\1f566.png" />
+    <Content Include="Assets\TwitterEmoji\1f567.png" />
+    <Content Include="Assets\TwitterEmoji\1f5fb.png" />
+    <Content Include="Assets\TwitterEmoji\1f5fc.png" />
+    <Content Include="Assets\TwitterEmoji\1f5fd.png" />
+    <Content Include="Assets\TwitterEmoji\1f5fe.png" />
+    <Content Include="Assets\TwitterEmoji\1f5ff.png" />
+    <Content Include="Assets\TwitterEmoji\1f600.png" />
+    <Content Include="Assets\TwitterEmoji\1f601.png" />
+    <Content Include="Assets\TwitterEmoji\1f602.png" />
+    <Content Include="Assets\TwitterEmoji\1f603.png" />
+    <Content Include="Assets\TwitterEmoji\1f604.png" />
+    <Content Include="Assets\TwitterEmoji\1f605.png" />
+    <Content Include="Assets\TwitterEmoji\1f606.png" />
+    <Content Include="Assets\TwitterEmoji\1f607.png" />
+    <Content Include="Assets\TwitterEmoji\1f608.png" />
+    <Content Include="Assets\TwitterEmoji\1f609.png" />
+    <Content Include="Assets\TwitterEmoji\1f60a.png" />
+    <Content Include="Assets\TwitterEmoji\1f60b.png" />
+    <Content Include="Assets\TwitterEmoji\1f60c.png" />
+    <Content Include="Assets\TwitterEmoji\1f60d.png" />
+    <Content Include="Assets\TwitterEmoji\1f60e.png" />
+    <Content Include="Assets\TwitterEmoji\1f60f.png" />
+    <Content Include="Assets\TwitterEmoji\1f610.png" />
+    <Content Include="Assets\TwitterEmoji\1f611.png" />
+    <Content Include="Assets\TwitterEmoji\1f612.png" />
+    <Content Include="Assets\TwitterEmoji\1f613.png" />
+    <Content Include="Assets\TwitterEmoji\1f614.png" />
+    <Content Include="Assets\TwitterEmoji\1f615.png" />
+    <Content Include="Assets\TwitterEmoji\1f616.png" />
+    <Content Include="Assets\TwitterEmoji\1f617.png" />
+    <Content Include="Assets\TwitterEmoji\1f618.png" />
+    <Content Include="Assets\TwitterEmoji\1f619.png" />
+    <Content Include="Assets\TwitterEmoji\1f61a.png" />
+    <Content Include="Assets\TwitterEmoji\1f61b.png" />
+    <Content Include="Assets\TwitterEmoji\1f61c.png" />
+    <Content Include="Assets\TwitterEmoji\1f61d.png" />
+    <Content Include="Assets\TwitterEmoji\1f61e.png" />
+    <Content Include="Assets\TwitterEmoji\1f61f.png" />
+    <Content Include="Assets\TwitterEmoji\1f620.png" />
+    <Content Include="Assets\TwitterEmoji\1f621.png" />
+    <Content Include="Assets\TwitterEmoji\1f622.png" />
+    <Content Include="Assets\TwitterEmoji\1f623.png" />
+    <Content Include="Assets\TwitterEmoji\1f624.png" />
+    <Content Include="Assets\TwitterEmoji\1f625.png" />
+    <Content Include="Assets\TwitterEmoji\1f626.png" />
+    <Content Include="Assets\TwitterEmoji\1f627.png" />
+    <Content Include="Assets\TwitterEmoji\1f628.png" />
+    <Content Include="Assets\TwitterEmoji\1f629.png" />
+    <Content Include="Assets\TwitterEmoji\1f62a.png" />
+    <Content Include="Assets\TwitterEmoji\1f62b.png" />
+    <Content Include="Assets\TwitterEmoji\1f62c.png" />
+    <Content Include="Assets\TwitterEmoji\1f62d.png" />
+    <Content Include="Assets\TwitterEmoji\1f62e.png" />
+    <Content Include="Assets\TwitterEmoji\1f62f.png" />
+    <Content Include="Assets\TwitterEmoji\1f630.png" />
+    <Content Include="Assets\TwitterEmoji\1f631.png" />
+    <Content Include="Assets\TwitterEmoji\1f632.png" />
+    <Content Include="Assets\TwitterEmoji\1f633.png" />
+    <Content Include="Assets\TwitterEmoji\1f634.png" />
+    <Content Include="Assets\TwitterEmoji\1f635.png" />
+    <Content Include="Assets\TwitterEmoji\1f636.png" />
+    <Content Include="Assets\TwitterEmoji\1f637.png" />
+    <Content Include="Assets\TwitterEmoji\1f638.png" />
+    <Content Include="Assets\TwitterEmoji\1f639.png" />
+    <Content Include="Assets\TwitterEmoji\1f63a.png" />
+    <Content Include="Assets\TwitterEmoji\1f63b.png" />
+    <Content Include="Assets\TwitterEmoji\1f63c.png" />
+    <Content Include="Assets\TwitterEmoji\1f63d.png" />
+    <Content Include="Assets\TwitterEmoji\1f63e.png" />
+    <Content Include="Assets\TwitterEmoji\1f63f.png" />
+    <Content Include="Assets\TwitterEmoji\1f640.png" />
+    <Content Include="Assets\TwitterEmoji\1f645.png" />
+    <Content Include="Assets\TwitterEmoji\1f646.png" />
+    <Content Include="Assets\TwitterEmoji\1f647.png" />
+    <Content Include="Assets\TwitterEmoji\1f648.png" />
+    <Content Include="Assets\TwitterEmoji\1f649.png" />
+    <Content Include="Assets\TwitterEmoji\1f64a.png" />
+    <Content Include="Assets\TwitterEmoji\1f64b.png" />
+    <Content Include="Assets\TwitterEmoji\1f64c.png" />
+    <Content Include="Assets\TwitterEmoji\1f64d.png" />
+    <Content Include="Assets\TwitterEmoji\1f64e.png" />
+    <Content Include="Assets\TwitterEmoji\1f64f.png" />
+    <Content Include="Assets\TwitterEmoji\1f680.png" />
+    <Content Include="Assets\TwitterEmoji\1f681.png" />
+    <Content Include="Assets\TwitterEmoji\1f682.png" />
+    <Content Include="Assets\TwitterEmoji\1f683.png" />
+    <Content Include="Assets\TwitterEmoji\1f684.png" />
+    <Content Include="Assets\TwitterEmoji\1f685.png" />
+    <Content Include="Assets\TwitterEmoji\1f686.png" />
+    <Content Include="Assets\TwitterEmoji\1f687.png" />
+    <Content Include="Assets\TwitterEmoji\1f688.png" />
+    <Content Include="Assets\TwitterEmoji\1f689.png" />
+    <Content Include="Assets\TwitterEmoji\1f68a.png" />
+    <Content Include="Assets\TwitterEmoji\1f68b.png" />
+    <Content Include="Assets\TwitterEmoji\1f68c.png" />
+    <Content Include="Assets\TwitterEmoji\1f68d.png" />
+    <Content Include="Assets\TwitterEmoji\1f68e.png" />
+    <Content Include="Assets\TwitterEmoji\1f68f.png" />
+    <Content Include="Assets\TwitterEmoji\1f690.png" />
+    <Content Include="Assets\TwitterEmoji\1f691.png" />
+    <Content Include="Assets\TwitterEmoji\1f692.png" />
+    <Content Include="Assets\TwitterEmoji\1f693.png" />
+    <Content Include="Assets\TwitterEmoji\1f694.png" />
+    <Content Include="Assets\TwitterEmoji\1f695.png" />
+    <Content Include="Assets\TwitterEmoji\1f696.png" />
+    <Content Include="Assets\TwitterEmoji\1f697.png" />
+    <Content Include="Assets\TwitterEmoji\1f698.png" />
+    <Content Include="Assets\TwitterEmoji\1f699.png" />
+    <Content Include="Assets\TwitterEmoji\1f69a.png" />
+    <Content Include="Assets\TwitterEmoji\1f69b.png" />
+    <Content Include="Assets\TwitterEmoji\1f69c.png" />
+    <Content Include="Assets\TwitterEmoji\1f69d.png" />
+    <Content Include="Assets\TwitterEmoji\1f69e.png" />
+    <Content Include="Assets\TwitterEmoji\1f69f.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a0.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a1.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a2.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a3.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a4.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a5.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a6.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a7.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a8.png" />
+    <Content Include="Assets\TwitterEmoji\1f6a9.png" />
+    <Content Include="Assets\TwitterEmoji\1f6aa.png" />
+    <Content Include="Assets\TwitterEmoji\1f6ab.png" />
+    <Content Include="Assets\TwitterEmoji\1f6ac.png" />
+    <Content Include="Assets\TwitterEmoji\1f6ad.png" />
+    <Content Include="Assets\TwitterEmoji\1f6ae.png" />
+    <Content Include="Assets\TwitterEmoji\1f6af.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b0.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b1.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b2.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b3.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b4.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b5.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b6.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b7.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b8.png" />
+    <Content Include="Assets\TwitterEmoji\1f6b9.png" />
+    <Content Include="Assets\TwitterEmoji\1f6ba.png" />
+    <Content Include="Assets\TwitterEmoji\1f6bb.png" />
+    <Content Include="Assets\TwitterEmoji\1f6bc.png" />
+    <Content Include="Assets\TwitterEmoji\1f6bd.png" />
+    <Content Include="Assets\TwitterEmoji\1f6be.png" />
+    <Content Include="Assets\TwitterEmoji\1f6bf.png" />
+    <Content Include="Assets\TwitterEmoji\1f6c0.png" />
+    <Content Include="Assets\TwitterEmoji\1f6c1.png" />
+    <Content Include="Assets\TwitterEmoji\1f6c2.png" />
+    <Content Include="Assets\TwitterEmoji\1f6c3.png" />
+    <Content Include="Assets\TwitterEmoji\1f6c4.png" />
+    <Content Include="Assets\TwitterEmoji\1f6c5.png" />
+    <Content Include="Assets\TwitterEmoji\203c.png" />
+    <Content Include="Assets\TwitterEmoji\2049.png" />
+    <Content Include="Assets\TwitterEmoji\2122.png" />
+    <Content Include="Assets\TwitterEmoji\2139.png" />
+    <Content Include="Assets\TwitterEmoji\2194.png" />
+    <Content Include="Assets\TwitterEmoji\2195.png" />
+    <Content Include="Assets\TwitterEmoji\2196.png" />
+    <Content Include="Assets\TwitterEmoji\2197.png" />
+    <Content Include="Assets\TwitterEmoji\2198.png" />
+    <Content Include="Assets\TwitterEmoji\2199.png" />
+    <Content Include="Assets\TwitterEmoji\21a9.png" />
+    <Content Include="Assets\TwitterEmoji\21aa.png" />
+    <Content Include="Assets\TwitterEmoji\23-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\231a.png" />
+    <Content Include="Assets\TwitterEmoji\231b.png" />
+    <Content Include="Assets\TwitterEmoji\23e9.png" />
+    <Content Include="Assets\TwitterEmoji\23ea.png" />
+    <Content Include="Assets\TwitterEmoji\23eb.png" />
+    <Content Include="Assets\TwitterEmoji\23ec.png" />
+    <Content Include="Assets\TwitterEmoji\23f0.png" />
+    <Content Include="Assets\TwitterEmoji\23f3.png" />
+    <Content Include="Assets\TwitterEmoji\24c2.png" />
+    <Content Include="Assets\TwitterEmoji\25aa.png" />
+    <Content Include="Assets\TwitterEmoji\25ab.png" />
+    <Content Include="Assets\TwitterEmoji\25b6.png" />
+    <Content Include="Assets\TwitterEmoji\25c0.png" />
+    <Content Include="Assets\TwitterEmoji\25fb.png" />
+    <Content Include="Assets\TwitterEmoji\25fc.png" />
+    <Content Include="Assets\TwitterEmoji\25fd.png" />
+    <Content Include="Assets\TwitterEmoji\25fe.png" />
+    <Content Include="Assets\TwitterEmoji\2600.png" />
+    <Content Include="Assets\TwitterEmoji\2601.png" />
+    <Content Include="Assets\TwitterEmoji\260e.png" />
+    <Content Include="Assets\TwitterEmoji\2611.png" />
+    <Content Include="Assets\TwitterEmoji\2614.png" />
+    <Content Include="Assets\TwitterEmoji\2615.png" />
+    <Content Include="Assets\TwitterEmoji\261d.png" />
+    <Content Include="Assets\TwitterEmoji\263a.png" />
+    <Content Include="Assets\TwitterEmoji\2648.png" />
+    <Content Include="Assets\TwitterEmoji\2649.png" />
+    <Content Include="Assets\TwitterEmoji\264a.png" />
+    <Content Include="Assets\TwitterEmoji\264b.png" />
+    <Content Include="Assets\TwitterEmoji\264c.png" />
+    <Content Include="Assets\TwitterEmoji\264d.png" />
+    <Content Include="Assets\TwitterEmoji\264e.png" />
+    <Content Include="Assets\TwitterEmoji\264f.png" />
+    <Content Include="Assets\TwitterEmoji\2650.png" />
+    <Content Include="Assets\TwitterEmoji\2651.png" />
+    <Content Include="Assets\TwitterEmoji\2652.png" />
+    <Content Include="Assets\TwitterEmoji\2653.png" />
+    <Content Include="Assets\TwitterEmoji\2660.png" />
+    <Content Include="Assets\TwitterEmoji\2663.png" />
+    <Content Include="Assets\TwitterEmoji\2665.png" />
+    <Content Include="Assets\TwitterEmoji\2666.png" />
+    <Content Include="Assets\TwitterEmoji\2668.png" />
+    <Content Include="Assets\TwitterEmoji\267b.png" />
+    <Content Include="Assets\TwitterEmoji\267f.png" />
+    <Content Include="Assets\TwitterEmoji\2693.png" />
+    <Content Include="Assets\TwitterEmoji\26a0.png" />
+    <Content Include="Assets\TwitterEmoji\26a1.png" />
+    <Content Include="Assets\TwitterEmoji\26aa.png" />
+    <Content Include="Assets\TwitterEmoji\26ab.png" />
+    <Content Include="Assets\TwitterEmoji\26bd.png" />
+    <Content Include="Assets\TwitterEmoji\26be.png" />
+    <Content Include="Assets\TwitterEmoji\26c4.png" />
+    <Content Include="Assets\TwitterEmoji\26c5.png" />
+    <Content Include="Assets\TwitterEmoji\26ce.png" />
+    <Content Include="Assets\TwitterEmoji\26d4.png" />
+    <Content Include="Assets\TwitterEmoji\26ea.png" />
+    <Content Include="Assets\TwitterEmoji\26f2.png" />
+    <Content Include="Assets\TwitterEmoji\26f3.png" />
+    <Content Include="Assets\TwitterEmoji\26f5.png" />
+    <Content Include="Assets\TwitterEmoji\26fa.png" />
+    <Content Include="Assets\TwitterEmoji\26fd.png" />
+    <Content Include="Assets\TwitterEmoji\2702.png" />
+    <Content Include="Assets\TwitterEmoji\2705.png" />
+    <Content Include="Assets\TwitterEmoji\2708.png" />
+    <Content Include="Assets\TwitterEmoji\2709.png" />
+    <Content Include="Assets\TwitterEmoji\270a.png" />
+    <Content Include="Assets\TwitterEmoji\270b.png" />
+    <Content Include="Assets\TwitterEmoji\270c.png" />
+    <Content Include="Assets\TwitterEmoji\270f.png" />
+    <Content Include="Assets\TwitterEmoji\2712.png" />
+    <Content Include="Assets\TwitterEmoji\2714.png" />
+    <Content Include="Assets\TwitterEmoji\2716.png" />
+    <Content Include="Assets\TwitterEmoji\2728.png" />
+    <Content Include="Assets\TwitterEmoji\2733.png" />
+    <Content Include="Assets\TwitterEmoji\2734.png" />
+    <Content Include="Assets\TwitterEmoji\2744.png" />
+    <Content Include="Assets\TwitterEmoji\2747.png" />
+    <Content Include="Assets\TwitterEmoji\274c.png" />
+    <Content Include="Assets\TwitterEmoji\274e.png" />
+    <Content Include="Assets\TwitterEmoji\2753.png" />
+    <Content Include="Assets\TwitterEmoji\2754.png" />
+    <Content Include="Assets\TwitterEmoji\2755.png" />
+    <Content Include="Assets\TwitterEmoji\2757.png" />
+    <Content Include="Assets\TwitterEmoji\2764.png" />
+    <Content Include="Assets\TwitterEmoji\2795.png" />
+    <Content Include="Assets\TwitterEmoji\2796.png" />
+    <Content Include="Assets\TwitterEmoji\2797.png" />
+    <Content Include="Assets\TwitterEmoji\27a1.png" />
+    <Content Include="Assets\TwitterEmoji\27b0.png" />
+    <Content Include="Assets\TwitterEmoji\27bf.png" />
+    <Content Include="Assets\TwitterEmoji\2934.png" />
+    <Content Include="Assets\TwitterEmoji\2935.png" />
+    <Content Include="Assets\TwitterEmoji\2b05.png" />
+    <Content Include="Assets\TwitterEmoji\2b06.png" />
+    <Content Include="Assets\TwitterEmoji\2b07.png" />
+    <Content Include="Assets\TwitterEmoji\2b1b.png" />
+    <Content Include="Assets\TwitterEmoji\2b1c.png" />
+    <Content Include="Assets\TwitterEmoji\2b50.png" />
+    <Content Include="Assets\TwitterEmoji\2b55.png" />
+    <Content Include="Assets\TwitterEmoji\30-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\3030.png" />
+    <Content Include="Assets\TwitterEmoji\303d.png" />
+    <Content Include="Assets\TwitterEmoji\31-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\32-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\3297.png" />
+    <Content Include="Assets\TwitterEmoji\3299.png" />
+    <Content Include="Assets\TwitterEmoji\33-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\34-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\35-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\36-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\37-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\38-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\39-20e3.png" />
+    <Content Include="Assets\TwitterEmoji\a9.png" />
+    <Content Include="Assets\TwitterEmoji\ae.png" />
+    <Content Include="Assets\TwitterEmoji\e50a.png" />
+    <Content Include="Assets\VKSaverPowered.png" />
+    <Content Include="Assets\WideLogo.scale-240.png" />
+    <Content Include="Assets\BaseIcons.ttf" />
+    <Content Include="Assets\PlayerIcons.ttf" />
+    <Content Include="Assets\segmdl2.ttf" />
+    <Content Include="FodyWeavers.xml" />
+    <None Include="Package.StoreAssociation.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\EnterCaptcha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PlayerBackground.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Wall\Wall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Converters\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+    </Page>
+    <Page Include="Themes\NotificationsTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\Presenters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\ChromeFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\Controls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\LoginControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\Spinkit.Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\ThemeColors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\AccessDeniedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Album\PhotoAlbumsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AudiosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AboutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AllPromosView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Common\AttachmentsManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Groups\GroupDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Groups\GroupSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Groups\GroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Newsfeed\NewsfeedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PromoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FeedbackView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BlankPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BotView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangeStatusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Common\ChoiceFriendsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FriendsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Groups\GroupInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Groups\GroupsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessagesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Messages\ChatSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Messages\ConversationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NewPostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PhotosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlayerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\CommonSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings\NotificationsSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Settings\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\TestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TestPageOld.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VideoAlbumView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VideoInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VideosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.1.1.35049, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.1.1.35049, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\wpa81\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.1.1.35052, Culture=neutral, PublicKeyToken=2d6752c4fdf70b88, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.5.1.1.0\lib\wpa81\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.PubSubEvents, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Practices.Prism.PubSubEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Microsoft.Practices.Prism.StoreApps.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=1.50.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.1.50.3\lib\dotnet\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SharpDX, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.3.0.0\lib\portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1\SharpDX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpDX.XAudio2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.XAudio2.3.0.0\lib\portable-net45+netcore45+wpa81+MonoAndroid1+MonoTouch1\SharpDX.XAudio2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VKSaver.Commands.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\VKSaver.Commands.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="XboxMusicService, Version=1.0.5542.27830, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XboxMusicSDK.1.7\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XboxMusicService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Design\projectGuides.guides" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NotificationsExtensions\NotificationsExtensions.csproj">
+      <Project>{6e87464b-b064-40ca-8161-7c18c337adff}</Project>
+      <Name>NotificationsExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.BackgroundPlayer\OneVK.BackgroundPlayer.csproj">
+      <Project>{9ef9e80b-2ea7-45c5-9964-ef239912243e}</Project>
+      <Name>OneVK.BackgroundPlayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.LF\OneVK.Core.LF.csproj">
+      <Project>{5b491ab5-5ccd-41f6-80ef-7fa3d72c2d98}</Project>
+      <Name>OneVK.Core.LF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.Models\OneVK.Core.Models.csproj">
+      <Project>{35b9514c-6cf0-48c5-bd7b-7b47e564b5dd}</Project>
+      <Name>OneVK.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.Services\OneVK.Core.Services.csproj">
+      <Project>{a3322349-48b9-44c0-bbb3-bc58f5c288f3}</Project>
+      <Name>OneVK.Core.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.ViewModels\OneVK.Core.ViewModels.csproj">
+      <Project>{f13dec41-819c-4c8d-9f2d-febf6618cd9b}</Project>
+      <Name>OneVK.Core.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.VK\OneVK.Core.VK.csproj">
+      <Project>{a1b92c2c-8b7d-4e8b-8901-3fb7ad356e46}</Project>
+      <Name>OneVK.Core.VK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VKlient.Core\OneVK.Core.csproj">
+      <Project>{07522fac-c338-46db-93aa-ab6b5318ec43}</Project>
+      <Name>OneVK.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <DesignData Include="SampleData\LoginViewModelSampleData.xaml" />
+    <DesignData Include="SampleData\ProfileViewModelSampleData.xaml" />
+    <DesignData Include="SampleData\VKNewsfeedPostSampleData.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0" />
+    <SDKReference Include="Microsoft.VCLibs, Version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Phone</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SampleData\PostSampleData\PostSampleData_Files\" />
+    <Folder Include="SampleData\SampleDataSource\SampleDataSource_Files\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetPlatformIdentifier)' == '' ">
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WP81|AnyCPU'">
+    <OutputPath>bin\WP81\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WP81|ARM'">
+    <OutputPath>bin\ARM\WP81\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'WP81|x86'">
+    <OutputPath>bin\x86\WP81\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\PropertyChanged.Fody.1.50.3\build\dotnet\PropertyChanged.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.1.50.3\build\dotnet\PropertyChanged.Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.1.29.4\build\dotnet\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.4\build\dotnet\Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\PropertyChanged.Fody.1.50.3\build\dotnet\PropertyChanged.Fody.targets" Condition="Exists('..\packages\PropertyChanged.Fody.1.50.3\build\dotnet\PropertyChanged.Fody.targets')" />
+  <Import Project="..\packages\Fody.1.29.4\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\dotnet\Fody.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

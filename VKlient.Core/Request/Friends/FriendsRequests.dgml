@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @12 Member=GetMethod)" Category="CodeSchema_Method" Bounds="-234.084564067091,757.968032,96.5939773866667,25.9598771200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="GetMethod" UseManualLocation="True" />
+    <Node Id="(@1 @38 @39 Member=(Name=GetFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=(Name=VKCountedItemsObject @25 GenericArguments=[(@1 Namespace=VKlient.Model.Profile Type=VKProfileBase)]))]))])),@15]))" Category="CodeSchema_Method" Bounds="17.3583333333333,64.0200000000001,123.716666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetFriendsAsync" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="GetFriendsAsync" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Service/VKFriendsService.cs StartLineNumber=24 StartCharacterOffset=8 EndLineNumber=24 EndCharacterOffset=8)" />
+    <Node Id="(@1 @38 @39 Member=(Name=GetFriendsListsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=(Name=VKCountedItemsObject @25 GenericArguments=[(@1 Namespace=VKlient.Model.Common Type=VKFriendsList)]))]))])),@14]))" Category="CodeSchema_Method" Bounds="439.34,184.02,146.526666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetFriendsListsAsync" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="GetFriendsListsAsync" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Service/VKFriendsService.cs StartLineNumber=126 StartCharacterOffset=8 EndLineNumber=126 EndCharacterOffset=8)" />
+    <Node Id="(@1 @38 @39 Member=(Name=GetMutualFrendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@24 Namespace=System.Collections.Generic Type=(Name=List @25 GenericArguments=[(@1 @41 Type=VKCommonFriendsObject)]))]))])),@17]))" Category="CodeSchema_Method" Bounds="206.913333333333,176.02,158.246666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMutualFrendsAsync" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="GetMutualFrendsAsync" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Service/VKFriendsService.cs StartLineNumber=58 StartCharacterOffset=8 EndLineNumber=58 EndCharacterOffset=8)" />
+    <Node Id="(@1 @38 @39 Member=(Name=GetOnlineFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=VKGetOnlineFriendsObject)]))])),@18]))" Category="CodeSchema_Method" Bounds="0,120.02,158.433333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetOnlineFriendsAsync" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="GetOnlineFriendsAsync" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Service/VKFriendsService.cs StartLineNumber=37 StartCharacterOffset=8 EndLineNumber=37 EndCharacterOffset=8)" />
+    <Node Id="(@1 @38 @39 Member=(Name=GetRecentFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[@29]))])),@19]))" Category="CodeSchema_Method" Bounds="432.68,296.02,159.846666666667,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="GetRecentFriendsAsync" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="GetRecentFriendsAsync" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Service/VKFriendsService.cs StartLineNumber=79 StartCharacterOffset=8 EndLineNumber=79 EndCharacterOffset=8)" />
+    <Node Id="(@1 @38 @39 Member=(Name=SearchFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=(Name=VKCountedItemsObject @25 GenericArguments=[(@1 Namespace=VKlient.Model.Profile Type=VKProfileBase)]))]))])),@22]))" Category="CodeSchema_Method" Bounds="215.835,8.02000000000008,140.403333333333,25.96" CodeSchemaProperty_IsPublic="True" CommonLabel="SearchFriendsAsync" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="SearchFriendsAsync" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Service/VKFriendsService.cs StartLineNumber=216 StartCharacterOffset=8 EndLineNumber=216 EndCharacterOffset=8)" />
+    <Node Id="(@31 Namespace=VKlient.Tests Type=CoreTests Member=(Name=GetObject OverloadingParameters=[(@32 @27 Type=Boolean)]))" Category="CodeSchema_Method" Bounds="467.868333333334,240.02,89.47,25.96" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="GetObject" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Метод" Label="GetObject" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Tests/CoreTests.cs StartLineNumber=23 StartCharacterOffset=8 EndLineNumber=23 EndCharacterOffset=8)" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="642.953333333333,464.5,193.846666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="DeleteFriendsListRequest" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DeleteFriendsListRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/DeleteFriendsListRequest.cs StartLineNumber=7 StartCharacterOffset=4 EndLineNumber=7 EndCharacterOffset=4)" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="661.411666666667,520.5,156.93,25" CodeSchemaProperty_IsPublic="True" CommonLabel="EditFriendRequest" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="EditFriendRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/EditFriendRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@13" Category="CodeSchema_Class" Bounds="422.733333333334,352.5,179.74,25" CodeSchemaProperty_IsPublic="True" CommonLabel="EditFriendsListRequest" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="11" Group="Collapsed" Icon="CodeSchema_Class" Label="EditFriendsListRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/EditFriendsListRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@14" Category="CodeSchema_Class" Bounds="648.226666666667,240.5,183.3,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GetFriendsListsRequest" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GetFriendsListsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetFriendsListsRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@15" Category="CodeSchema_Class" Bounds="205.791666666667,64.5000000000001,160.49,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GetFriendsRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GetFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetFriendsRequest.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" />
+    <Node Id="@17" Category="CodeSchema_Class" Bounds="413.64,120.5,197.926666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMutualFriendsRequest" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GetMutualFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetMutualFriendsRequest.cs StartLineNumber=10 StartCharacterOffset=4 EndLineNumber=10 EndCharacterOffset=4)" />
+    <Node Id="@18" Category="CodeSchema_Class" Bounds="188.433333333333,120.5,195.206666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GetOnlineFriendsRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GetOnlineFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetOnlineFriendsRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@19" Category="CodeSchema_Class" Bounds="641.566666666667,296.5,196.62,25" CodeSchemaProperty_IsPublic="True" CommonLabel="GetRecentFriendsRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="GetRecentFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetRecentFriendsRequest.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" />
+    <Node Id="@20" Category="CodeSchema_Interface" Bounds="1026.29,228.5,106.94,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/IRequest.cs StartLineNumber=5 StartCharacterOffset=4 EndLineNumber=5 EndCharacterOffset=4)" />
+    <Node Id="@21" Category="CodeSchema_Interface" Bounds="871.561666666667,228.5,121.353333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IVKRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IVKRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/IVKRequest.cs StartLineNumber=5 StartCharacterOffset=4 EndLineNumber=5 EndCharacterOffset=4)" />
+    <Node Id="@22" Category="CodeSchema_Class" Bounds="424.015,8.50000000000009,177.176666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="SearchFriendsRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="SearchFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/SearchFriendsRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@30" Category="CodeSchema_Method" Bounds="273.536252568193,315.321504146085,172.977866666667,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMutualFriendsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetMutualFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetMutualFriendsRequest.cs StartLineNumber=131 StartCharacterOffset=8 EndLineNumber=131 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@33" Category="CodeSchema_Method" Bounds="-49.368210787091,590.02953088,154.7432,25.9598771200001" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="EditFriendsListRequest" UseManualLocation="True" />
+    <Node Id="@34" Category="CodeSchema_Method" Bounds="879.470460319246,281.637537725522,158.3512,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetFriendsListsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetFriendsListsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetFriendsListsRequest.cs StartLineNumber=60 StartCharacterOffset=8 EndLineNumber=60 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@35" Category="CodeSchema_Method" Bounds="273.536222050615,371.321504146085,172.977866666667,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMutualFriendsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetMutualFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetMutualFriendsRequest.cs StartLineNumber=119 StartCharacterOffset=8 EndLineNumber=119 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@36" Category="CodeSchema_Method" Bounds="-234.084564067091,590.02953088,154.7432,25.9598771200001" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="EditFriendsListRequest" UseManualLocation="True" />
+    <Node Id="@37" Category="CodeSchema_Method" Bounds="273.536252568193,203.321504146085,172.977866666667,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMutualFriendsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetMutualFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetMutualFriendsRequest.cs StartLineNumber=157 StartCharacterOffset=8 EndLineNumber=157 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="660.53,408.5,158.693333333334,25" CodeSchemaProperty_IsPublic="True" CommonLabel="AddFriendRequest" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="AddFriendRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/AddFriendRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@43" Category="CodeSchema_Method" Bounds="273.536222050615,259.321504146085,172.977866666667,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetMutualFriendsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetMutualFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetMutualFriendsRequest.cs StartLineNumber=143 StartCharacterOffset=8 EndLineNumber=143 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@44" Category="CodeSchema_Method" Bounds="476.514081547685,259.321504146085,172.977866666667,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPrivate="True" CommonLabel="GetMutualFriendsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetMutualFriendsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetMutualFriendsRequest.cs StartLineNumber=173 StartCharacterOffset=8 EndLineNumber=173 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@45" Category="CodeSchema_Method" Bounds="691.119416618074,281.637537725522,158.3512,25.95803392" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetFriendsListsRequest" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="Конструктор" Label="GetFriendsListsRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/GetFriendsListsRequest.cs StartLineNumber=51 StartCharacterOffset=8 EndLineNumber=51 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@46" Category="CodeSchema_Field" Bounds="304.793845453758,702.01519488,102.716526933333,25.9598771200001" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="_addUserIDs" UseManualLocation="True" />
+    <Node Id="@47" Category="CodeSchema_Field" Bounds="298.479653773758,646.02236288,115.344910293333,25.9598771200001" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="_deleteUserIDs" UseManualLocation="True" />
+    <Node Id="@48" Category="CodeSchema_Field" Bounds="321.864993400425,590.02953088,68.5742310399999,25.9598771200001" CodeSchemaProperty_IsPrivate="True" DelayedCrossGroupLinksState="Fetched" Label="_listID" UseManualLocation="True" />
+    <Node Id="@49" Category="CodeSchema_Property" Bounds="141.519019186242,702.49513344,120.816604614182,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="AddUserIDs" UseManualLocation="True" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="649.125000000001,352.5,181.503333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="AddFriendsListRequest" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="AddFriendsListRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/AddFriendsListRequest.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@50" Category="CodeSchema_Property" Bounds="135.348142492909,646.50230144,133.158358000849,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="DeleteUserIDs" UseManualLocation="True" />
+    <Node Id="@51" Category="CodeSchema_Method" Bounds="-28.9541574537578,646.02236288,113.915093333333,25.9598771200001" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" DelayedCrossGroupLinksState="Fetched" Label="GetParameters" UseManualLocation="True" />
+    <Node Id="@52" Category="CodeSchema_Property" Bounds="158.035238172909,590.50946944,87.7841666408488,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="ListID" UseManualLocation="True" />
+    <Node Id="@53" Category="CodeSchema_Property" Bounds="-107.517433400424,757.968032,90.1571961875154,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Name" UseManualLocation="True" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="653.1,64.5000000000001,173.553333333333,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="BaseCountedRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="BaseCountedRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/BaseCountedRequest.cs StartLineNumber=12 StartCharacterOffset=4 EndLineNumber=12 EndCharacterOffset=4)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="419.831666666667,64.5000000000001,185.543333333333,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="BaseGetProfilesRequest" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="BaseGetProfilesRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/BaseGetProfilesRequest.cs StartLineNumber=10 StartCharacterOffset=4 EndLineNumber=10 EndCharacterOffset=4)" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="868.186666666667,316.5,128.103333333333,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="BaseRequest" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="BaseRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/BaseRequest.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="654.358333333333,152.5,171.036666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="DeleteFriendRequest" DelayedChildNodesState="NotFetched" Group="Collapsed" Icon="CodeSchema_Class" Label="DeleteFriendRequest" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/Request/Friends/DeleteFriendRequest.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @38 @39 Member=(Name=GetFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=(Name=VKCountedItemsObject @25 GenericArguments=[(@1 Namespace=VKlient.Model.Profile Type=VKProfileBase)]))]))])),@15]))" Target="@15" Category="References" Bounds="141.074996948242,77,55.7166748046875,0" Weight="2" />
+    <Link Source="(@1 @38 @39 Member=(Name=GetFriendsListsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=(Name=VKCountedItemsObject @25 GenericArguments=[(@1 Namespace=VKlient.Model.Common Type=VKFriendsList)]))]))])),@14]))" Target="@14" Category="References" Bounds="565.282043457031,209.979995727539,115.125305175781,28.3668060302734" Weight="2" />
+    <Link Source="(@1 @38 @39 Member=(Name=GetMutualFrendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@24 Namespace=System.Collections.Generic Type=(Name=List @25 GenericArguments=[(@1 @41 Type=VKCommonFriendsObject)]))]))])),@17]))" Target="@17" Category="References" Bounds="338.551574707031,147.659530639648,114.741760253906,28.3604736328125" Weight="3" />
+    <Link Source="(@1 @38 @39 Member=(Name=GetOnlineFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=VKGetOnlineFriendsObject)]))])),@18]))" Target="@18" Category="References" Bounds="158.433334350586,133,21,0" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="(@1 @38 @39 Member=(Name=GetRecentFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[@29]))])),@19]))" Target="@19" Category="References" Bounds="592.526672363281,309,40.0399780273438,0" Weight="2" />
+    <Link Source="(@1 @38 @39 Member=(Name=SearchFriendsAsync OverloadingParameters=[(@26 @27 Type=(@40 @25 GenericArguments=[(@1 @41 Type=(@42 @25 GenericArguments=[(@1 @41 Type=(Name=VKCountedItemsObject @25 GenericArguments=[(@1 Namespace=VKlient.Model.Profile Type=VKProfileBase)]))]))])),@22]))" Target="@22" Category="References" Bounds="356.238342285156,21,58.7766723632813,0" Weight="2" />
+    <Link Source="(@31 Namespace=VKlient.Tests Type=CoreTests Member=(Name=GetObject OverloadingParameters=[(@32 @27 Type=Boolean)]))" Target="@19" Category="CodeSchema_Calls" Bounds="557.166625976563,263.980377197266,123.24072265625,30.3664245605469" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@10" Target="@20" Category="Implements" Bounds="799.989685058594,262.174560546875,270.315856933594,202.325439453125" Weight="1" />
+    <Link Source="@10" Target="@21" Category="Implements" Bounds="769.853515625,258.095855712891,131.456787109375,206.404144287109" Weight="1" />
+    <Link Source="@10" Target="@8" Category="InheritsFrom" Bounds="776.125854492188,344.977478027344,115.364013671875,119.522521972656" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@11" Target="@20" Category="Implements" Bounds="777.447326660156,262.388397216797,294.242858886719,258.111602783203" Weight="1" />
+    <Link Source="@11" Target="@21" Category="Implements" Bounds="774.767456054688,258.216217041016,127.367126464844,262.283782958984" Weight="1" />
+    <Link Source="@11" Target="@8" Category="InheritsFrom" Bounds="776.866455078125,346.100738525391,124.477844238281,174.399261474609" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@13" Target="(@1 @2 @12 Member=GetMethod)" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@33" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@36" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@46" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@47" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@48" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@49" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@5" Category="InheritsFrom" Weight="1" />
+    <Link Source="@13" Target="@50" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@51" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@52" Category="Contains" FetchingParent="@13" />
+    <Link Source="@13" Target="@53" Category="Contains" FetchingParent="@13" />
+    <Link Source="@14" Target="@20" Category="Implements" Bounds="782.814514160156,209.31999206543,245.932189941406,31.1800079345703" Weight="1" />
+    <Link Source="@14" Target="@21" Category="Implements" Bounds="831.526672363281,245.376647949219,30.5534057617188,1.90599060058594" Weight="1" />
+    <Link Source="@14" Target="@34" Category="Contains" FetchingParent="@14" />
+    <Link Source="@14" Target="@45" Category="Contains" FetchingParent="@14" />
+    <Link Source="@14" Target="@8" Category="InheritsFrom" Weight="1" />
+    <Link Source="@15" Target="@7" Category="InheritsFrom" Bounds="366.281677246094,77,44.0499877929688,0" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@17" Target="@20" Category="Implements" Bounds="611.566650390625,121,449.447509765625,100.682342529297" Weight="1" />
+    <Link Source="@17" Target="@21" Category="Implements" Bounds="549.983825683594,145.5,312.867248535156,83.9571990966797" Weight="1" />
+    <Link Source="@17" Target="@30" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@35" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@37" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@43" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@44" Category="Contains" FetchingParent="@17" />
+    <Link Source="@17" Target="@6" Category="InheritsFrom" Weight="1" />
+    <Link Source="@18" Target="@7" Category="InheritsFrom" Bounds="336.609588623047,91.7794952392578,116.198364257813,28.7205047607422" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@19" Target="@20" Category="Implements" Bounds="835.50341796875,256.215270996094,193.243286132813,40.8538513183594" Weight="1" />
+    <Link Source="@19" Target="@21" Category="Implements" Bounds="775.237243652344,256.666259765625,112.683654785156,39.833740234375" Weight="1" />
+    <Link Source="@19" Target="@8" Category="InheritsFrom" Bounds="837.43115234375,319.142822265625,21.3064575195313,2.21524047851563" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@21" Target="@20" Category="Implements" Bounds="992.914978027344,241,23.875,0" Weight="1" />
+    <Link Source="@22" Target="@20" Category="Implements" Bounds="601.182983398438,1,468.257080078125,218.971664428711" Weight="1" />
+    <Link Source="@22" Target="@21" Category="Implements" Bounds="601.191650390625,25.6774520874023,300.1044921875,198.228721618652" Weight="1" />
+    <Link Source="@22" Target="@6" Category="InheritsFrom" Bounds="563.333984375,33.5,116.587890625,28.7271842956543" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@30" Target="@44" Category="CodeSchema_Calls" Bounds="407.068969726563,287.673156738281,100.214385986328,27.6483459472656" Weight="1" />
+    <Link Source="@33" Target="@5" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@33" Target="@52" Category="CodeSchema_Calls" Bounds="105.36400604248,603.008544921875,43.6858596801758,0" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@34" Target="@8" Category="CodeSchema_Calls" Bounds="1175.62141679359,335.959012687539,129.090742724239,58.7908093527265" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@35" Target="@44" Category="CodeSchema_Calls" Bounds="390.992340087891,290.217346191406,144.708038330078,81.1041564941406" Weight="1" />
+    <Link Source="@36" Target="@33" Category="CodeSchema_Calls" Bounds="-79.358528137207,603.008544921875,20.9980163574219,0" Weight="1" />
+    <Link Source="@36" Target="@5" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@37" Target="@44" Category="CodeSchema_Calls" Bounds="407.068969726563,229.279541015625,100.214385986328,27.6483764648438" Weight="1" />
+    <Link Source="@4" Target="@20" Category="Implements" Bounds="819.223327636719,261.839569091797,249.167053222656,152.560638427734" Weight="1" />
+    <Link Source="@4" Target="@21" Category="Implements" Bounds="775.640808105469,258.016906738281,125.111572265625,150.483093261719" Weight="1" />
+    <Link Source="@4" Target="@8" Category="InheritsFrom" Bounds="767.396728515625,345.749389648438,131.351379394531,62.7506103515625" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@43" Target="@44" Category="CodeSchema_Calls" Bounds="446.514068603516,272.300537109375,21,0" Weight="1" />
+    <Link Source="@44" Target="@6" Category="CodeSchema_Calls" Bounds="760.991773443094,123.396885152207,246.954208838932,84.6040936153323" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@45" Target="@34" Category="CodeSchema_Calls" Bounds="849.470520019531,294.616577148438,21,0" Weight="1" />
+    <Link Source="@49" Target="@46" Category="CodeSchema_FieldRead" Bounds="262.329895019531,714.99560546875,33.4834899902344,0" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@5" Target="@20" Category="Implements" Bounds="830.628356933594,261.658813476563,236.809020996094,108.70849609375" Weight="1" />
+    <Link Source="@5" Target="@21" Category="Implements" Bounds="789.009094238281,256.941986083984,102.078002929688,95.5580139160156" Weight="1" />
+    <Link Source="@5" Target="@8" Category="InheritsFrom" Bounds="806.668884277344,342.337249755859,54.3034057617188,10.1627502441406" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@50" Target="@47" Category="CodeSchema_FieldRead" Bounds="268.5009765625,659.002075195313,20.9980163574219,0" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@51" Target="@49" Category="CodeSchema_Calls" Bounds="68.3157501220703,671.980590820313,86.2255401611328,27.7587280273438" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@51" Target="@5" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@51" Target="@50" Category="CodeSchema_Calls" Bounds="84.9492645263672,659.002075195313,41.4127502441406,0" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@51" Target="@52" Category="CodeSchema_Calls" Bounds="68.3157501220703,618.264831542969,86.2255401611328,27.7587280273438" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@52" Target="@48" Category="CodeSchema_FieldRead" Bounds="245.813110351563,603.008544921875,67.0719909667969,0" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_FieldWrite" />
+    </Link>
+    <Link Source="@53" Target="@5" Category="CodeSchema_Calls" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@6" Target="@20" Category="Implements" Bounds="826.6533203125,82.8644561767578,240.82421875,137.468963623047" Weight="1" />
+    <Link Source="@6" Target="@21" Category="Implements" Bounds="777.989379882813,89.5,122.638671875,134.500427246094" Weight="1" />
+    <Link Source="@6" Target="@8" Category="InheritsFrom" Bounds="774.889953613281,89.5,126.979064941406,222.323028564453" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@7" Target="@6" Category="InheritsFrom" Bounds="605.375,77,38.2249755859375,0" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@8" Target="@20" Category="Implements" Bounds="953.193115234375,258.366821289063,97.453369140625,58.1331787109375" Weight="1" />
+    <Link Source="@9" Target="@20" Category="Implements" Bounds="825.39501953125,165,223.373413085938,58.9132385253906" Weight="1" />
+    <Link Source="@9" Target="@21" Category="Implements" Bounds="771.515075683594,177.5,120.249389648438,47.5092315673828" Weight="1" />
+    <Link Source="@9" Target="@8" Category="InheritsFrom" Bounds="777.989379882813,177.5,122.638671875,134.500427246094" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Calls" Label="Вызовы" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Вызывается" OutgoingActionLabel="Вызовы" />
+    <Category Id="CodeSchema_Class" Label="Класс" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Классы" />
+    <Category Id="CodeSchema_Field" Label="Поле" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Поля" />
+    <Category Id="CodeSchema_FieldRead" Label="Чтение поля" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Чтение по" OutgoingActionLabel="Чтение полей" />
+    <Category Id="CodeSchema_FieldReference" Label="Ссылка на поле" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Ссылается" OutgoingActionLabel="Ссылается на поля" />
+    <Category Id="CodeSchema_FieldWrite" Label="Запись поля" BasedOn="CodeSchema_FieldReference" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Запись по" OutgoingActionLabel="Запись полей" />
+    <Category Id="CodeSchema_Interface" Label="Интерфейс" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="Интерфейсы" />
+    <Category Id="CodeSchema_Member" Label="Член" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Члены" />
+    <Category Id="CodeSchema_Method" Label="Метод" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Методы" />
+    <Category Id="CodeSchema_Property" Label="Свойство" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="Свойства" />
+    <Category Id="CodeSchema_Type" Label="Тип" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Типы" />
+    <Category Id="Contains" Label="Содержит" Description="Указывает, содержит ли источник связи целевой объект" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Содержится в" IsContainment="True" OutgoingActionLabel="Содержит" />
+    <Category Id="Implements" Label="Реализации" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Реализуется" OutgoingActionLabel="Реализации" />
+    <Category Id="InheritsFrom" Label="Наследует от" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Наследуется" OutgoingActionLabel="Наследует от" />
+    <Category Id="References" Label="Ссылки" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Ссылается" OutgoingActionLabel="Ссылки" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Является абстрактным" Description="Флаг, указывающий, что член является Abstract и не содержит полной реализации" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Является конструктором" Description="Флаг, указывающий, что метод является конструктором" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Является Private" Description="Флаг, указывающий на область видимости Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Является Public" Description="Флаг, указывающий на область видимости Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsSpecialName" Label="Является особым именем" Description="Флаг, указывающий, что некоторые компиляторы обрабатывают этот метод особым образом" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Является статическим" Description="Флаг, указывающий, что член является статическим" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsVirtual" Label="Является виртуальным" Description="Флаг, указывающий, что метод можно переопределить" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Виртуализированные данные" Description="При значении true граф может содержать узлы и связи, которые представляют данные для виртуализированных узлов и связей (то есть которые не были фактически созданы в графе)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Состояние отложенных дочерних узлов" Description="Unspecified, если не указано состояние отложенных дочерних узлов. NotFetched, если группа содержит дочерние узлы, еще не переданные в граф. Fetched, если все отложенные дочерние узлы группы уже переданы." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Состояние отложенных связей между группами" Description="Unspecified, если не указано состояние отложенных связей между группами. NotFetched, если отложенные связи между группами в данном узле еще не переданы в граф. Fetched, если все отложенные связи между группами уже переданы." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchedChildrenCount" DataType="System.Int32" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="FunctionTypeFlags" Label="FunctionTypeFlags" Description="FunctionTypeFlags" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Группа" Description="Отображать узел как группу" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Значок" Description="Значок" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Виртуализированный источник связи" Description="При значении true сторона источника связи содержит данные для виртуализированных узлов и связей (то есть которые не были фактически созданы в графе)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Виртуализированное назначение связи" Description="При значении true сторона назначения связи содержит данные для виртуализированных узлов и связей (то есть которые не были фактически созданы в графе)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Метка" Description="Отображаемая метка аннотируемого объекта" DataType="System.String" />
+    <Property Id="Language" Label="Язык" Description="Язык" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Номер начальной строки" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Толщина" Description="Толщина" DataType="System.Double" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Сборка" ValueType="Uri" />
+    <Name Id="GenericArguments" Label="Универсальные аргументы" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" />
+    <Name Id="GenericParameterCount" Label="Число универсальных параметров" ValueType="System.String" />
+    <Name Id="Member" Label="Член" ValueType="System.Object" />
+    <Name Id="Name" Label="Имя" ValueType="System.String" />
+    <Name Id="Namespace" Label="Пространство имен" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Параметр" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Тип" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(07522fac-c338-46db-93aa-ab6b5318ec43.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=VKlient.Request" />
+    <Alias n="3" Id="Type=AddFriendRequest" />
+    <Alias n="4" Id="(@1 @2 @3)" />
+    <Alias n="5" Id="(@1 @2 Type=AddFriendsListRequest)" />
+    <Alias n="6" Id="(@1 @2 Type=BaseCountedRequest)" />
+    <Alias n="7" Id="(@1 @2 Type=BaseGetProfilesRequest)" />
+    <Alias n="8" Id="(@1 @2 Type=BaseRequest)" />
+    <Alias n="9" Id="(@1 @2 Type=DeleteFriendRequest)" />
+    <Alias n="10" Id="(@1 @2 Type=DeleteFriendsListRequest)" />
+    <Alias n="11" Id="(@1 @2 Type=EditFriendRequest)" />
+    <Alias n="12" Id="Type=EditFriendsListRequest" />
+    <Alias n="13" Id="(@1 @2 @12)" />
+    <Alias n="14" Id="(@1 @2 Type=GetFriendsListsRequest)" />
+    <Alias n="15" Id="(@1 @2 Type=GetFriendsRequest)" />
+    <Alias n="16" Id="Type=GetMutualFriendsRequest" />
+    <Alias n="17" Id="(@1 @2 @16)" />
+    <Alias n="18" Id="(@1 @2 Type=GetOnlineFriendsRequest)" />
+    <Alias n="19" Id="(@1 @2 Type=GetRecentFriendsRequest)" />
+    <Alias n="20" Id="(@1 @2 Type=IRequest)" />
+    <Alias n="21" Id="(@1 @2 Type=IVKRequest)" />
+    <Alias n="22" Id="(@1 @2 Type=SearchFriendsRequest)" />
+    <Alias n="23" Id="Name=.ctor" />
+    <Alias n="24" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETPortable/v4.6/Profile/Profile32/System.Collections.dll" />
+    <Alias n="25" Id="GenericParameterCount=1" />
+    <Alias n="26" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETPortable/v4.6/Profile/Profile32/System.Runtime.dll" />
+    <Alias n="27" Id="Namespace=System" />
+    <Alias n="28" Id="(@26 @27 Type=Int64)" />
+    <Alias n="29" Id="(@24 Namespace=System.Collections.Generic Type=(Name=List @25 GenericArguments=[@28]))" />
+    <Alias n="30" Id="(@1 @2 @16 Member=(@23 OverloadingParameters=[@29]))" />
+    <Alias n="31" Uri="Assembly=$(e4dad513-2b63-422f-90b2-949c00e01cfa.OutputPathUri)" />
+    <Alias n="32" Uri="Assembly=$(FxReferenceAssembliesUri)/WindowsPhoneApp/v8.1/System.Runtime.dll" />
+    <Alias n="33" Id="(@1 @2 @12 Member=(@23 OverloadingParameters=[(@26 @27 Type=Int32)]))" />
+    <Alias n="34" Id="(@1 @2 Type=GetFriendsListsRequest Member=(@23 OverloadingParameters=[@28]))" />
+    <Alias n="35" Id="(@1 @2 @16 Member=(@23 OverloadingParameters=[@28]))" />
+    <Alias n="36" Id="(@1 @2 @12 Member=(@23 OverloadingParameters=[(@26 @27 Type=Int32),@29]))" />
+    <Alias n="37" Id="(@1 @2 @16 Member=(@23 OverloadingParameters=[@28,@29]))" />
+    <Alias n="38" Id="Namespace=VKlient.Service" />
+    <Alias n="39" Id="Type=VKFriendsService" />
+    <Alias n="40" Id="Name=Action" />
+    <Alias n="41" Id="Namespace=VKlient.Response" />
+    <Alias n="42" Id="Name=VKResponse" />
+    <Alias n="43" Id="(@1 @2 @16 Member=(@23 OverloadingParameters=[@28,@28]))" />
+    <Alias n="44" Id="(@1 @2 @16 Member=(@23 OverloadingParameters=[@28,(@26 @27 Type=(Name=Nullable @25 GenericArguments=[@28])),@29]))" />
+    <Alias n="45" Id="(@1 @2 Type=GetFriendsListsRequest Member=.ctor)" />
+    <Alias n="46" Id="(@1 @2 @12 Member=_addUserIDs)" />
+    <Alias n="47" Id="(@1 @2 @12 Member=_deleteUserIDs)" />
+    <Alias n="48" Id="(@1 @2 @12 Member=_listID)" />
+    <Alias n="49" Id="(@1 @2 @12 Member=AddUserIDs)" />
+    <Alias n="50" Id="(@1 @2 @12 Member=DeleteUserIDs)" />
+    <Alias n="51" Id="(@1 @2 @12 Member=GetParameters)" />
+    <Alias n="52" Id="(@1 @2 @12 Member=ListID)" />
+    <Alias n="53" Id="(@1 @2 @12 Member=Name)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Результаты" ValueLabel="Да">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Сборка" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Пространство имен" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Интерфейс" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Структура" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Перечисление" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Делегат" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Класс" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Свойство" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Метод" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Событие" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Поле" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Параметр out" ValueLabel="Имеет категорию">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Параметр" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Локальная переменная" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Внешние" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Наследует от" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Реализует" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Вызовы" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Указатель функции" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Ссылка на поле" ValueLabel="Имеет категорию">
+      <Condition Expression="HasCategory('CodeSchema_FieldReference')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="Да" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="Да" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="Да" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="Да" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="Да" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="07522fac-c338-46db-93aa-ab6b5318ec43.OutputPath" Value="C:\Users\Роман.Roman-Win8PC\Source\Workspaces\VKlient\VKlient\VKlient.Core\bin\Debug\VKlient.Core.dll" />
+    <Path Id="07522fac-c338-46db-93aa-ab6b5318ec43.OutputPathUri" Value="file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Core/bin/Debug/VKlient.Core.dll" />
+    <Path Id="e4dad513-2b63-422f-90b2-949c00e01cfa.OutputPathUri" Value="file:///C:/Users/Роман.Roman-Win8PC/Source/Workspaces/VKlient/VKlient/VKlient.Tests/bin/x86/Debug/VKlient.Tests.dll" />
+    <Path Id="FxReferenceAssemblies" Value="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

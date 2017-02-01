@@ -1,0 +1,111 @@
+﻿<Page x:Name="page"
+    x:Class="OneVK.Views.ImageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:OneVK.Controls"
+    xmlns:converters="using:OneVK.Converters"
+    mc:Ignorable="d"
+    Background="Black"
+    c:ChromeFrame.IsVisible="IntermediateFull"
+    c:ChromeFrame.Title="Просмотр фотографии"
+    Style="{StaticResource TransitionDownPage}"
+    d:DataContext="{Binding ImageDesignTimeVM, Source={StaticResource Locator}}"
+    Tapped="page_Tapped">
+
+    <Page.Resources>
+        <converters:IncrementNumberConverter x:Key="IncrementConverter"/>
+    </Page.Resources>      
+
+    <Grid Style="{StaticResource TransitionGridStyle}">
+        <FlipView
+            Padding="0"
+            ItemsSource="{Binding Photos}"
+            SelectedIndex="{Binding CurrentIndex, Mode=TwoWay}"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch">
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Style="{StaticResource TransitionGridStyle}">
+                        <ProgressRing Style="{StaticResource WaveProgressRingStyle}" 
+                                      Width="120" Height="50" IsActive="True"/>
+
+                        <ScrollViewer 
+                            ZoomMode="Enabled" 
+                            MinZoomFactor="1" MaxZoomFactor="3" 
+                            HorizontalScrollBarVisibility="Auto" 
+                            VerticalScrollBarVisibility="Auto" 
+                            DoubleTapped="ScrollRoot_DoubleTapped" 
+                            HorizontalContentAlignment="Center">
+                            <Image 
+                                Source="{Binding CurrentSource, Mode=OneWay}" 
+				                Width="{Binding Converter={StaticResource ScreenWidthConverter}}"/>
+                        </ScrollViewer>
+                    </Grid>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+        <Border Margin="20,80,0,0" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Padding="5,0,5,3" 
+                Background="{StaticResource MenuDimmingBackgroundBrush}"
+                x:Name="CounterPanel">
+            <TextBlock Style="{StaticResource BaseTextStyle}" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Run Text="{Binding CurrentIndex, Converter={StaticResource IncrementConverter}, ConverterParameter=1}"/>
+            <Run Text="из"/>
+            <Run Text="{Binding TotalNumber}"/>
+            </TextBlock>
+        </Border>
+    </Grid>
+
+    <c:ChromeFrame.CommandBar>
+        <c:ContentOneCommandBar x:Name="bar">
+            <c:ContentOneCommandBar.PrimaryCommands>
+                <c:OneCommandBarElementsCollection>
+                    <c:OneCommandBarButton Label="Сохранить">
+                        <c:OneCommandBarButton.Icon>
+                            <FontIcon Glyph="&#xE74E;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                        </c:OneCommandBarButton.Icon>
+                    </c:OneCommandBarButton>
+                </c:OneCommandBarElementsCollection>
+            </c:ContentOneCommandBar.PrimaryCommands>
+            <c:ContentOneCommandBar.SecondaryCommands>
+                <c:OneCommandBarElementsCollection>
+                    <c:OneCommandBarButton Label="очень маленький (75x75)" Style="{StaticResource OneCommandBarMenuButtonStyle}"
+                                           Visibility="{Binding CurrentPhoto.Photo75, Converter={StaticResource NullToInvisibleConverter}}"
+                                           Command="{Binding ChangePhotoSize}"
+                                           CommandParameter="75"/>
+                    <c:OneCommandBarButton Label="маленький (130x130)" Style="{StaticResource OneCommandBarMenuButtonStyle}"
+                                           Visibility="{Binding CurrentPhoto.Photo130, Converter={StaticResource NullToInvisibleConverter}}"
+                                           Command="{Binding ChangePhotoSize}"
+                                           CommandParameter="130"/>
+                    <c:OneCommandBarButton Label="средний (604x604)" Style="{StaticResource OneCommandBarMenuButtonStyle}"
+                                           Visibility="{Binding CurrentPhoto.Photo604, Converter={StaticResource NullToInvisibleConverter}}"
+                                           Command="{Binding ChangePhotoSize}"
+                                           CommandParameter="604"/>
+                    <c:OneCommandBarButton Label="большой (807x807)" Style="{StaticResource OneCommandBarMenuButtonStyle}"
+                                           Visibility="{Binding CurrentPhoto.Photo807, Converter={StaticResource NullToInvisibleConverter}}"
+                                           Command="{Binding ChangePhotoSize}"
+                                           CommandParameter="807"/>
+                    <c:OneCommandBarButton Label="очень большой (1280x1024)" Style="{StaticResource OneCommandBarMenuButtonStyle}"
+                                           Visibility="{Binding CurrentPhoto.Photo1280, Converter={StaticResource NullToInvisibleConverter}}"
+                                           Command="{Binding ChangePhotoSize}"
+                                           CommandParameter="1280"/>
+                    <c:OneCommandBarButton Label="максимальный (2560x2048)" Style="{StaticResource OneCommandBarMenuButtonStyle}"
+                                           Visibility="{Binding CurrentPhoto.Photo2560, Converter={StaticResource NullToInvisibleConverter}}"
+                                           Command="{Binding ChangePhotoSize}"
+                                           CommandParameter="2560"/>
+                </c:OneCommandBarElementsCollection>
+            </c:ContentOneCommandBar.SecondaryCommands>
+
+            <StackPanel Orientation="Horizontal">
+                <c:LikeButton VerticalAlignment="Center"
+                              Like="{Binding CurrentPhoto.Likes, Mode=TwoWay}"
+                              LikeTarget="{Binding CurrentPhoto}"/>
+                <c:CommentsButton VerticalAlignment="Center" Margin="15,0,0,0"
+                                  Comments="{Binding CurrentPhoto.Comments}"/>
+            </StackPanel>
+        </c:ContentOneCommandBar>
+    </c:ChromeFrame.CommandBar>
+</Page>

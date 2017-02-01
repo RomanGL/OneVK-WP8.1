@@ -1,0 +1,342 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:OneVK.Controls"
+    xmlns:conv="using:OneVK.Converters"
+    xmlns:oxaml="using:OneVK.Core.Xaml">
+    
+    <conv:NotificationsTextConverter x:Key="NotificationsTextConverter"/>
+    <conv:SkipNumberUsersConverter x:Key="SkipNumberUsersConverter"/>
+    <conv:UsersListToVisibilityConverter x:Key="UsersListToVisibilityConverter"/>
+    <conv:NotificationPostTextConverter x:Key="NotificationPostTextConverter"/>
+    <x:Double x:Key="StickerWidthHeight">20</x:Double>
+    
+    <DataTemplate x:Key="ReplyCommentPhotoVideoNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <c:UserChatAvatar User="{Binding Feedback.ActionObject}"                                         
+                                  Height="55" Width="55" Margin="0,0,10,0" VerticalAlignment="Top"/>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}" 
+                           Text="{Binding Feedback.ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                <TextBlock Style="{StaticResource BaseTextStyle}" Text="{Binding Feedback.Text}"/>
+                <TextBlock Style="{StaticResource BaseTextStyle}" Margin="0,10,0,0"
+                           Foreground="{ThemeResource LowContrastForegroundBrush}">
+                    <Run Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}"/>
+                    <Run Text="в ответ на ваш комментарий"/>
+                </TextBlock>
+                <TextBlock Text="{Binding Parent.Text}" Style="{StaticResource BaseTextStyle}"
+                           MaxLines="1" TextTrimming="CharacterEllipsis"/>
+            </StackPanel>
+
+            <Border Height="66" Width="66" Grid.Column="2" Background="{ThemeResource ImageBackgroundBrush}" Margin="10,0,0,0" VerticalAlignment="Top">
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Parent.ThumbnailSource}"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReplyCommentNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <c:UserChatAvatar User="{Binding Feedback.ActionObject}"                                         
+                                  Height="55" Width="55" Margin="0,0,10,0" VerticalAlignment="Top"/>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}" 
+                           Text="{Binding Feedback.ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                <RichTextBlock Style="{StaticResource BaseRichTextStyle}" c:RichTextBlockExtensions.Text="{Binding Feedback.Text}" IsTextSelectionEnabled="False"/>
+                <TextBlock Style="{StaticResource BaseTextStyle}" Margin="0,10,0,0"
+                           Foreground="{ThemeResource LowContrastForegroundBrush}">
+                    <Run Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}"/>
+                    <Run Text="в ответ на ваш комментарий"/>
+                </TextBlock>
+                <RichTextBlock Style="{StaticResource BaseRichTextStyle}" c:RichTextBlockExtensions.Text="{Binding Parent.Text}" 
+                               MaxLines="1" TextTrimming="CharacterEllipsis"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="MentionNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <c:UserChatAvatar User="{Binding Feedback.ActionObject}" Height="55" Width="55"
+                              Margin="0,0,10,0" VerticalAlignment="Top"/>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}" 
+                           Text="{Binding Feedback.ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                <TextBlock Style="{StaticResource BaseTextStyle}" Text="{Binding Feedback.Text}"
+                           MaxLines="6" TextTrimming="CharacterEllipsis"/>
+
+                <TextBlock Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}" Margin="0,10,0,0"
+                           Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FriendAcceptedNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" VerticalAlignment="Top">
+                <c:UserChatAvatar User="{Binding Feedback.Items[0].ActionObject}"                                         
+                                         Height="55" Width="55"/>
+                <Border Width="{StaticResource StickerWidthHeight}" Height="{StaticResource StickerWidthHeight}" 
+                        Background="{StaticResource FriendAcceptedStickerNotificationBrush}" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" CornerRadius="10" Margin="0,0,-3,-3">
+                    <TextBlock Text="&#xE109;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" Foreground="White"
+                               IsTextScaleFactorEnabled="False" FontSize="12" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}">
+                            <Run Text="{Binding Feedback.Items[0].ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                            <Run Text="{Binding Converter={StaticResource NotificationsTextConverter}}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+                </TextBlock>
+                <ListView ItemsSource="{Binding Feedback.Items, Converter={StaticResource SkipNumberUsersConverter}, ConverterParameter=1}" 
+                          Visibility="{Binding Feedback.Items, Converter={StaticResource UsersListToVisibilityConverter}}"
+                          Margin="0,10,0,0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <c:UserChatAvatar User="{Binding ActionObject}" Height="45" Width="45" Margin="0,0,3,0"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <TextBlock Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}" Margin="0,10,0,0"
+                           Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="FollowNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" VerticalAlignment="Top">
+                <c:UserChatAvatar User="{Binding Feedback.Items[0].ActionObject}"                                         
+                                         Height="55" Width="55"/>
+                <Border Width="{StaticResource StickerWidthHeight}" Height="{StaticResource StickerWidthHeight}" 
+                        Background="{StaticResource FollowStickerNotificationBrush}" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" CornerRadius="10" Margin="0,0,-3,-3">
+                    <TextBlock Text="&#xE109;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" Foreground="White"
+                               IsTextScaleFactorEnabled="False" FontSize="12" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}">
+                            <Run Text="{Binding Feedback.Items[0].ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                            <Run Text="{Binding Converter={StaticResource NotificationsTextConverter}}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+                </TextBlock>
+                <ListView ItemsSource="{Binding Feedback.Items, Converter={StaticResource SkipNumberUsersConverter}, ConverterParameter=1}" 
+                          Visibility="{Binding Feedback.Items, Converter={StaticResource UsersListToVisibilityConverter}}"
+                          Margin="0,10,0,0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <c:UserChatAvatar User="{Binding ActionObject}" Height="45" Width="45" Margin="0,0,3,0"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <TextBlock Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}" Margin="0,10,0,0"
+                           Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LikePostNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" VerticalAlignment="Top">
+                <c:UserChatAvatar User="{Binding Feedback.Items[0].ActionObject}"                                         
+                                         Height="55" Width="55"/>
+                <Border Width="{StaticResource StickerWidthHeight}" Height="{StaticResource StickerWidthHeight}" 
+                        Background="{StaticResource LikeStickerNotificationBrush}" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" CornerRadius="10" Margin="0,0,-3,-3">
+                    <TextBlock Text="&#xE006;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" Foreground="White"
+                               IsTextScaleFactorEnabled="False" FontSize="12" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}" MaxLines="2" TextTrimming="CharacterEllipsis">
+                            <Run Text="{Binding Feedback.Items[0].ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                            <Run Text="{Binding Converter={StaticResource NotificationsTextConverter}}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+                </TextBlock>
+                <RichTextBlock Style="{StaticResource BaseRichTextStyle}" c:RichTextBlockExtensions.Text="{Binding Parent, Converter={StaticResource NotificationPostTextConverter}}" 
+                               MaxLines="1" TextTrimming="CharacterEllipsis" IsTextSelectionEnabled="False"/>
+                <ListView ItemsSource="{Binding Feedback.Items, Converter={StaticResource SkipNumberUsersConverter}, ConverterParameter=1}" 
+                          Visibility="{Binding Feedback.Items, Converter={StaticResource UsersListToVisibilityConverter}}"
+                          Margin="0,10,0,0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <c:UserChatAvatar User="{Binding ActionObject}" Height="45" Width="45" Margin="0,0,3,0"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <TextBlock Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}" Margin="0,10,0,0"
+                           Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="LikeCommentNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" VerticalAlignment="Top">
+                <c:UserChatAvatar User="{Binding Feedback.Items[0].ActionObject}"                                         
+                                         Height="55" Width="55"/>
+                <Border Width="{StaticResource StickerWidthHeight}" Height="{StaticResource StickerWidthHeight}" 
+                        Background="{StaticResource LikeStickerNotificationBrush}" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" CornerRadius="10" Margin="0,0,-3,-3">
+                    <TextBlock Text="&#xE006;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" Foreground="White"
+                               IsTextScaleFactorEnabled="False" FontSize="12" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}">
+                            <Run Text="{Binding Feedback.Items[0].ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                            <Run Text="{Binding Converter={StaticResource NotificationsTextConverter}}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+                </TextBlock>
+                <RichTextBlock Style="{StaticResource BaseRichTextStyle}" c:RichTextBlockExtensions.Text="{Binding Parent.Text}" 
+                               MaxLines="1" TextTrimming="CharacterEllipsis" IsTextSelectionEnabled="False"/>
+                <TextBlock Style="{StaticResource BaseTextStyle}" MaxLines="1" TextTrimming="CharacterEllipsis">
+                            <Run Text="к записи" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+                            <Run Text="{Binding Parent.Post, Converter={StaticResource NotificationPostTextConverter}}"/>
+                </TextBlock>
+                <ListView ItemsSource="{Binding Feedback.Items, Converter={StaticResource SkipNumberUsersConverter}, ConverterParameter=1}" 
+                          Visibility="{Binding Feedback.Items, Converter={StaticResource UsersListToVisibilityConverter}}"
+                          Margin="0,10,0,0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <c:UserChatAvatar User="{Binding ActionObject}" Height="45" Width="45" Margin="0,0,3,0"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <TextBlock Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}" Margin="0,10,0,0"
+                           Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="LikePhotoVideoNotificationTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" VerticalAlignment="Top">
+                <c:UserChatAvatar User="{Binding Feedback.Items[0].ActionObject}"                                         
+                                         Height="55" Width="55"/>
+                <Border Width="{StaticResource StickerWidthHeight}" Height="{StaticResource StickerWidthHeight}" 
+                        Background="{StaticResource LikeStickerNotificationBrush}" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" CornerRadius="10" Margin="0,0,-3,-3">
+                    <TextBlock Text="&#xE006;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" Foreground="White"
+                               IsTextScaleFactorEnabled="False" FontSize="12" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                </Border>
+            </Grid>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource BaseTextStyle}">
+                            <Run Text="{Binding Feedback.Items[0].ActionObject.Title}" Foreground="{ThemeResource HighContrastForegroundBrush}"/>
+                            <Run Text="{Binding Converter={StaticResource NotificationsTextConverter}}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+                </TextBlock>
+                <ListView ItemsSource="{Binding Feedback.Items, Converter={StaticResource SkipNumberUsersConverter}, ConverterParameter=1}" 
+                          Visibility="{Binding Feedback.Items, Converter={StaticResource UsersListToVisibilityConverter}}"
+                          Margin="0,10,0,0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <c:UserChatAvatar User="{Binding ActionObject}" Height="45" Width="45" Margin="0,0,3,0"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <TextBlock Text="{Binding Date, Converter={StaticResource RelativeTimeConverter}}" Margin="0,10,0,0"
+                           Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource LowContrastForegroundBrush}"/>
+            </StackPanel>
+            <Border Height="66" Width="66" Grid.Column="2" Background="{ThemeResource ImageBackgroundBrush}" Margin="10,0,0,0" VerticalAlignment="Top">
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Parent.ThumbnailSource}"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Border>
+        </Grid>
+    </DataTemplate>
+
+    <oxaml:NotificationTemplateSelector x:Key="NotificationTemplateSelector"
+                                        LikeCommentTemplate="{StaticResource LikeCommentNotificationTemplate}"
+                                        LikePhotoVideoTemplate="{StaticResource LikePhotoVideoNotificationTemplate}"
+                                        LikePostTemplate="{StaticResource LikePostNotificationTemplate}"
+                                        FollowTemplate="{StaticResource FollowNotificationTemplate}"
+                                        FriendAccepted="{StaticResource FriendAcceptedNotificationTemplate}"
+                                        ReplyCommentTemplate="{StaticResource ReplyCommentNotificationTemplate}"
+                                        ReplyCommentPhotoVideoTemplate="{StaticResource ReplyCommentPhotoVideoNotificationTemplate}"
+                                        MentionTemplate="{StaticResource MentionNotificationTemplate}"/>
+</ResourceDictionary>

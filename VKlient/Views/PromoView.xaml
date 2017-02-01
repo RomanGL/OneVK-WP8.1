@@ -1,0 +1,46 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:collections="using:OneVK.Core.Collections"
+    xmlns:behaviors="using:OneVK.Behaviors"
+    xmlns:i="using:Microsoft.Xaml.Interactivity" 
+    xmlns:c="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="OneVK.Views.PromoView"
+    xmlns:ocore="using:OneVK.Core"
+    mc:Ignorable="d"
+    Background="{ThemeResource PostBackgroundBrush}"
+    controls:ChromeFrame.Title="{Binding Title}"
+    controls:ChromeFrame.IsVisible="Intermediate">
+
+    <ScrollViewer>
+        <StackPanel Style="{StaticResource TransitionStackPanelStyle}">
+            <Grid Height="250" Background="{ThemeResource ImageBackgroundBrush}">
+                <Rectangle>
+                    <Rectangle.Fill>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding PromoImage}" Opacity="0.5"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Border VerticalAlignment="Bottom" Padding="0,30,0,0">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Offset="0"/>
+                            <GradientStop Color="#7F000000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Margin="20" VerticalAlignment="Bottom" Style="{StaticResource TransitionStackPanelStyle}">
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource ListItem1Style}" Foreground="White"/>
+                        <TextBlock Text="{Binding Subtitle}" Style="{StaticResource ListItem2Style}" Foreground="White"
+                               TextWrapping="WrapWholeWords" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </Border>                                
+            </Grid>
+            
+            <TextBlock Text="{Binding Text}" Style="{StaticResource BaseTextStyle}" Margin="20,10,20,10"/>
+            <Button Content="{Binding ExternalName}" Style="{StaticResource ButtonStyle}" Margin="20,0,0,50"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

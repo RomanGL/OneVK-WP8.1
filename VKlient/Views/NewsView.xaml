@@ -1,0 +1,92 @@
+﻿<Page
+    x:Name="page"
+    x:Class="OneVK.Views.NewsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    mc:Ignorable="d" 
+    DataContext="{Binding NewsVM, Source={StaticResource Locator}}"    
+    controls:ChromeFrame.Title="Новости Old"
+    Background="{ThemeResource ListPageBackgroundBrush}"
+    Style="{StaticResource TransitionPage}">
+
+    <Page.Resources>
+        <MenuFlyout x:Key="PostFlyout">
+            <MenuFlyoutItem Text="не интересно"
+                            Command="{Binding NewsVM.Ignore, Source={StaticResource Locator}}"
+                            CommandParameter="{Binding}"/>
+        </MenuFlyout>
+        
+        <DataTemplate x:Key="PostTemplate">
+            <controls:PostItem Post="{Binding}" FlyoutBase.AttachedFlyout="{StaticResource PostFlyout}"
+                               Holding="PostItem_Holding" Background="{ThemeResource PostBackgroundBrush}"/>           
+        </DataTemplate>
+
+        <Style x:Key="PostContainerTemplate" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                          ContentTransitions="{TemplateBinding ContentTransitions}" 
+                                          Content="{TemplateBinding Content}" HorizontalAlignment="Stretch"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,0,0,10"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <controls:ChromeFrame.CommandBar>
+        <controls:OneCommandBar>
+            <controls:OneCommandBar.PrimaryCommands>
+                <controls:OneCommandBarElementsCollection>
+                    <controls:OneCommandBarButton Command="{Binding Refresh}" Label="Обновить">
+                        <controls:OneCommandBarButton.Icon>
+                            <FontIcon Glyph="&#xE8EE;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets"/>
+                        </controls:OneCommandBarButton.Icon>
+                    </controls:OneCommandBarButton>
+                </controls:OneCommandBarElementsCollection>
+            </controls:OneCommandBar.PrimaryCommands>            
+        </controls:OneCommandBar>
+    </controls:ChromeFrame.CommandBar>
+    
+    <Grid>
+        <Pivot x:Name="ContentRoot" 
+           Style="{StaticResource PivotStyle}" Margin="0">
+            <PivotItem Header="Все" Style="{StaticResource PivotItemStyle}">
+                <ListView ItemsSource="{Binding News}" Margin="0,-120,0,0"
+                      x:Name="NewsListView"
+                      DataFetchSize="13" IncrementalLoadingThreshold="5"
+                      ItemTemplate="{StaticResource PostTemplate}"                  
+                      SelectionMode="None" 
+                      ItemContainerStyle="{StaticResource PostContainerTemplate}"
+                      Style="{StaticResource TransitionListViewStyle}"
+                      IsSwipeEnabled="False" IsZoomedInView="True"
+                      Loaded="NewsListView_Loaded">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Rectangle Height="120"/>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.FooterTemplate>
+                        <DataTemplate>
+                            <controls:StateBlockOld State="{Binding News.State}" Margin="0,200,0,200"
+                                                 ReloadCommand="{Binding News.LoadCommand}"/>
+                        </DataTemplate>
+                    </ListView.FooterTemplate>
+                    <ListView.FooterTransitions>
+                        <TransitionCollection>
+                            <RepositionThemeTransition/>
+                        </TransitionCollection>
+                    </ListView.FooterTransitions>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Рекоммендации" Style="{StaticResource PivotItemStyle}"/>
+            <PivotItem Header="Друзья" Style="{StaticResource PivotItemStyle}"/>
+        </Pivot>        
+    </Grid>    
+</Page>

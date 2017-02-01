@@ -1,0 +1,93 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:xaml="using:OneVK.Core.Xaml"
+    x:Name="GodModePage"
+    x:Class="OneVK.Views.TestPageOld"
+    mc:Ignorable="d"
+    controls:ChromeFrame.Title="God mode page" 
+    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+    Style="{StaticResource TransitionPage}"
+    Background="{ThemeResource PageBackgroundBrush}">
+
+    <Page.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <DataTemplate x:Key="ChatBubbleContentTemplate">
+            <StackPanel HorizontalAlignment="Stretch">
+                <TextBlock Text="{Binding Body}" Style="{StaticResource BaseTextStyle}" Foreground="White" Pivot.SlideInAnimationGroup="GroupTwo" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Date}" Style="{StaticResource BaseTextStyle}" FontWeight="SemiLight" Foreground="#7FFFFFFF" HorizontalAlignment="Right" Pivot.SlideInAnimationGroup="GroupThree"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SentTemplate">
+            <controls:ChatBubble Content="{Binding}" ChatBubbleDirection="Right"
+    			HorizontalAlignment="Stretch"
+    			ContentTemplate="{StaticResource ChatBubbleContentTemplate}" 
+    			Margin="50,0,0,0" RenderTransformOrigin="0.5,0.5">
+                <controls:ChatBubble.RenderTransform>
+                    <CompositeTransform ScaleY="-1" TranslateX="0" TranslateY="0"/>
+                </controls:ChatBubble.RenderTransform>
+            </controls:ChatBubble>
+        </DataTemplate>
+        <DataTemplate x:Key="ReceivedTemplate">
+            <controls:ChatBubble Content="{Binding}" ChatBubbleDirection="Left"
+    			HorizontalAlignment="Stretch"
+    			ContentTemplate="{StaticResource ChatBubbleContentTemplate}" 
+    			Margin="0,0,50,0" RenderTransformOrigin="0.5,0.5">
+                <controls:ChatBubble.RenderTransform>
+                    <CompositeTransform ScaleY="-1" TranslateX="0" TranslateY="0"/>
+                </controls:ChatBubble.RenderTransform>
+            </controls:ChatBubble>
+        </DataTemplate>
+
+        <xaml:MessageTemplateSelector x:Key="MessageTemplateSelector"
+    		SentTemplate="{StaticResource SentTemplate}"
+    		ReceivedTemplate="{StaticResource ReceivedTemplate}"/>
+    </Page.Resources>
+
+    <Pivot Style="{StaticResource PivotStyle}" x:Name="PivotControl">
+        <PivotItem Header="Core" Style="{StaticResource PivotItemStyle}">
+            <ScrollViewer Margin="0,-120,0,0">
+                <StackPanel HorizontalAlignment="Center" Style="{StaticResource TransitionStackPanelStyle}" Margin="0,120,0,60">
+                    <Button Content="Logout" Command="{Binding Logout}"/>
+                    <Button Content="Go to BotView" Command="{Binding GoToBotView}"/>
+                    <Button Content="Go to BlankPage" Command="{Binding GoToBlankPage}"/>
+                    <Button Content="GetUniqueDeviceID" Command="{Binding GetUniqueDeviceID}"/>
+                    <Button Content="GetDeviceName" Command="{Binding GetDeviceName}"/>
+                    <Button Content="GetOperatingSystemName" Command="{Binding GetOperatingSystemName}"/>
+                    <Button Content="CaptchaForce" Command="{Binding CaptchaForce}"/>
+                    <Button Content="TurnOnPush" Command="{Binding TurnOnNotification}"/>
+                    <Button Content="TestMessageFlags" Command="{Binding TestMessageFlags}"/>
+                    <Button Content="ShowToast" Command="{Binding ShowToast}"/>
+                    <Button Content="ShowLocalFolderPath" Command="{Binding ShowLocalFolderPath}"/>
+                    <Button Content="StartLongPolling" Command="{Binding StartLongPolling}"/>
+                    <Button Content="StopLongPolling" Command="{Binding StopLongPolling}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Tiles and toasts" Style="{StaticResource PivotItemStyle}">
+            <ScrollViewer Margin="0,-120,0,0">
+                <StackPanel Margin="0,120,0,60">
+                    <Button Content="Send badge tile" Command="{Binding SendBadgeTile}"/>     
+                    <Button Content="Clear badge tile" Command="{Binding ClearBadgeTile}"/>
+                    <Button Content="Send message tile" Command="{Binding SendMessageTile}"/>
+                    <Button Content="Send toast" Command="{Binding SendToast}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="VK Saver Integration" Style="{StaticResource PivotItemStyle}">
+            <ScrollViewer Margin="0,-120,0,0">
+                <StackPanel Margin="0,120,0,60">
+                    <Button Content="Start VK Saver" Command="{Binding StartVKSaver}"/>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+    </Pivot>
+</Page>

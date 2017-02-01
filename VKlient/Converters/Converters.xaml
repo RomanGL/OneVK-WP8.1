@@ -1,0 +1,23 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Converters"
+    xmlns:data="using:OneVK.Core.Xaml.Data">
+    
+    <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <local:RelativeTimeConverter x:Key="RelativeTimeConverter"/>
+    <local:ScreenWidthConverter x:Key="ScreenWidthConverter"/>
+    <local:ImageHeightConverter x:Key="ImageHeightConverter"/>
+    <local:ImageWidthConverter x:Key="ImageWidthConverter"/>
+    <local:DimmingColorBrushConverter x:Key="DimmingColorConverter"/>
+    <data:MultipleViewModelConverter x:Key="MultipleVMConverter"/>
+    <data:TimeSpanToStringConverter x:Key="TimeSpanConverter"/>
+    <local:ItemClickEventArgsToClickedItemConverter
+            x:Key="ItemClickEventArgsConverter"/>
+    <local:CounterVisibilityConverter x:Key="CounterVisibilityConverter"/>
+    <local:NullToInvisibleConverter x:Key="NullToInvisibleConverter"/>
+    <local:ObjectToStringConverter x:Key="ObjectToStringConverter"/>  
+    <local:TypingUsersToStringConverter x:Key="TypingUsersToStringConverter"/>
+    <local:ReverseBooleanConverter x:Key="ReverseBooleanConverter"/>
+    <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
+</ResourceDictionary>

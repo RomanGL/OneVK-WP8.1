@@ -1,0 +1,52 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="OneVK.Views.SettingsView"
+    mc:Ignorable="d"
+    Background="{ThemeResource PageBackgroundBrush}"
+    Style="{StaticResource TransitionPage}"
+    controls:ChromeFrame.Title="Настройки"
+    DataContext="{Binding SettingsVM, Source={StaticResource Locator}}">
+
+    <ScrollViewer Margin="0,95,0,0">
+        <StackPanel Margin="20,20,20,0" Style="{StaticResource TransitionStackPanelStyle}">
+            <Grid Margin="0,0,0,15" Background="Transparent"
+						DataContext="{Binding SidebarVM.Profile, Source={StaticResource Locator}}"
+                        Style="{StaticResource TransitionGridStyle}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Tapped">
+                        <Core:InvokeCommandAction Command="{Binding SettingsVM.GoToProfileCommand, Mode=OneWay, Source={StaticResource Locator}}"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+                <Border HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="70" CornerRadius="40" Background="{ThemeResource ImageBackgroundBrush}"
+                                Pivot.SlideInAnimationGroup="GroupTwo">
+                    <Ellipse StrokeThickness="0">
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Photo100}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="15,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding FullName, Mode=OneWay}" Style="{StaticResource MenuItemStyle}" Foreground="{ThemeResource TextForegroundBrush}" Margin="0" TextWrapping="NoWrap"
+                                       Pivot.SlideInAnimationGroup="GroupTwo"/>
+                    <TextBlock  Text="{Binding Status}" Style="{StaticResource BaseTextStyle}" Foreground="{ThemeResource TextForegroundBrush}" Margin="0,-5,0,0"
+                                        Pivot.SlideInAnimationGroup="GroupThree"/>
+                </StackPanel>
+            </Grid>
+            <Button Content="Общие" Style="{StaticResource ButtonStyle}" Command="{Binding GoToCommonSettingsCommand}" Width="250"/>
+            <Button Content="Уведомления" Style="{StaticResource ButtonStyle}" Command="{Binding GoToNotificationsSettingsCommand}" Width="250"/>
+            <Button Content="О программе" Style="{StaticResource ButtonStyle}" Command="{Binding GoToAboutCommand}" Width="250"/>
+
+            <Button Content="Выйти" Style="{StaticResource ButtonStyle}" Width="250" Margin="0,40,0,0"/>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

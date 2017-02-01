@@ -1,0 +1,128 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cw="using:OneVK.Controls.Wall" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:i="using:Microsoft.Xaml.Interactivity" 
+    xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:c="using:OneVK.Controls" 
+    mc:Ignorable="d">
+
+    <Style x:Key="PostHeaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}">
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+        <Setter Property="FontWeight" Value="SemiLight"/>
+        <Setter Property="FontSize" Value="22"/>
+    </Style>
+
+    <Style x:Key="RepostHeaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PostHeaderTextStyle}">
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+
+    <Style x:Key="PostSubheaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PostHeaderTextStyle}">
+        <Setter Property="Foreground" Value="{ThemeResource LowContrastForegroundBrush}"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+
+    <Style x:Key="ShortNewsfeedPostContentStyle" TargetType="cw:PostContent">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="cw:PostContent">
+                    <StackPanel DataContext="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <ListViewItem Style="{StaticResource ListContainerStyle}" Margin="-18,0" BorderBrush="{x:Null}">
+                            <Grid Margin="0,-5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border HorizontalAlignment="Left" Width="50" Height="50" Background="{ThemeResource ImageBackgroundBrush}" CornerRadius="25" Margin="0,0,10,0">
+                                    <Ellipse StrokeThickness="0">
+                                        <Ellipse.Fill>
+                                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Post.Owner.Photo100}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition">
+                                    <TextBlock Text="{Binding Post.Owner.Name}" Style="{StaticResource PostHeaderTextStyle}" HorizontalAlignment="Left" Margin="0,-3,0,0"/>
+                                    <TextBlock Text="{Binding Post.Date, Converter={StaticResource RelativeTimeConverter}}" Style="{StaticResource PostSubheaderTextStyle}" Margin="0,-5,0,0"/>
+                                </StackPanel>
+                                <c:OneTopBarButton Grid.Column="2" Margin="0,0,-6,0">
+                                    <c:OneTopBarButton.Icon>
+                                        <FontIcon FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" Glyph="&#xE712;" Foreground="{ThemeResource TextForegroundBrush}"/>
+                                    </c:OneTopBarButton.Icon>
+                                </c:OneTopBarButton>
+                            </Grid>
+
+                            <i:Interaction.Behaviors>
+                                <ic:EventTriggerBehavior EventName="Tapped">
+                                    <ic:InvokeCommandAction Command="{Binding DataContext.OpenNewsfeedItemOwner}"
+                                                            CommandParameter="{Binding Post}"/>
+                                </ic:EventTriggerBehavior>
+                            </i:Interaction.Behaviors>
+                        </ListViewItem>
+                        <RichTextBlock c:RichTextBlockExtensions.Text="{Binding Post.Text}" Style="{StaticResource BaseRichTextStyle}" 
+                                       Margin="0" IsTextSelectionEnabled="False" MaxLines="7" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ShortRepostContentStyle" TargetType="cw:PostContent">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="cw:PostContent">
+                    <StackPanel>
+                        <ListViewItem Style="{StaticResource ListContainerStyle}" Margin="-18,0" BorderBrush="{x:Null}">
+                            <Grid Margin="0,-5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <FontIcon Glyph="&#xE248;" FontFamily="ms-appx:/Assets/segmdl2.ttf#Segoe MDL2 Assets" 
+                                  RenderTransformOrigin="0.5,0.5" Margin="0,0,10,0"
+                                  Foreground="{ThemeResource TextForegroundBrush}">
+                                    <FontIcon.RenderTransform>
+                                        <CompositeTransform ScaleX="-1"/>
+                                    </FontIcon.RenderTransform>
+                                </FontIcon>
+                                <Border HorizontalAlignment="Left" Width="35" Height="35" Background="{ThemeResource ImageBackgroundBrush}" CornerRadius="20" Margin="0,0,10,0" Grid.Column="1">
+                                    <Ellipse StrokeThickness="0">
+                                        <Ellipse.Fill>
+                                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Post.Owner.Photo100}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Border>
+                                <StackPanel Grid.Column="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition">
+                                    <TextBlock Text="{Binding Post.Owner.Name}" Style="{StaticResource RepostHeaderTextStyle}" HorizontalAlignment="Left" Margin="0"/>
+                                    <TextBlock Text="{Binding Post.Date, Converter={StaticResource RelativeTimeConverter}}" Style="{StaticResource PostSubheaderTextStyle}" Margin="0,-5,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </ListViewItem>
+                        <RichTextBlock c:RichTextBlockExtensions.Text="{Binding Post.Text}" Style="{StaticResource BaseRichTextStyle}" 
+                                       Margin="0" IsTextSelectionEnabled="False" MaxLines="7" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="cw:PostPresenter">
+        <Setter Property="Margin" Value="0,5,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="cw:PostPresenter">
+                    <Border Background="{ThemeResource PostBackgroundBrush}" Padding="18,10,18,18">
+                        <StackPanel x:Name="ContentPanel"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

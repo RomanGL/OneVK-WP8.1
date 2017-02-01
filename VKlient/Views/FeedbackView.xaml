@@ -1,0 +1,54 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:xaml="using:OneVK.Core.Xaml"
+    xmlns:converters="using:OneVK.Converters"
+    xmlns:behaviors="using:OneVK.Behaviors"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="OneVK.Views.FeedbackView"
+    mc:Ignorable="d"
+    Background="{ThemeResource PageBackgroundBrush}"
+    controls:ChromeFrame.Title="Уведомления"
+    controls:ChromeFrame.IsVisible="Visible"
+    DataContext="{Binding NotificationsVM, Source={StaticResource Locator}}"
+    Style="{StaticResource TransitionPage}">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Themes/NotificationsTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Page.Resources>
+    
+    <Pivot Style="{StaticResource PivotStyle}">
+        <PivotItem Header="Ответы" Style="{StaticResource PivotItemStyle}">
+            <ListView ItemsSource="{Binding Notifications}" Margin="0,-120,0,0"
+				  ItemContainerStyle="{StaticResource ListContainerStyle}"
+                  ItemTemplateSelector="{StaticResource NotificationTemplateSelector}"
+                  Style="{StaticResource TransitionListViewStyle}"
+                  IsItemClickEnabled="True">
+                <ListView.FooterTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20,100,20,110">
+                            <controls:StateBlockOld State="{Binding Notifications.State}" ReloadCommand="{Binding Notifications.LoadCommand}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.FooterTemplate>
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Rectangle Height="0" Margin="0,120,0,0"/>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <Interactivity:Interaction.Behaviors>
+                    <behaviors:IncrementalUpDownLoadingBehavior ScrollHeightTriggerOffset="700" NumberItemsToLoad="20"/>
+                </Interactivity:Interaction.Behaviors>
+            </ListView>
+        </PivotItem>
+    </Pivot>
+</Page>

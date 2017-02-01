@@ -1,0 +1,162 @@
+﻿<mvvm:VisualStateAwarePage
+    x:Class="OneVK.Views.TestView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="using:Microsoft.Practices.Prism.StoreApps"
+    xmlns:c="using:OneVK.Controls"
+    mc:Ignorable="d"
+    mvvm:ViewModelLocator.AutoWireViewModel="True"
+    c:ChromeFrame.IsVisible="Visible"
+    c:ChromeFrame.Title="Тестовая страница"
+    Background="{ThemeResource ListPageBackgroundBrush}">
+
+    <Pivot Style="{StaticResource PivotStyle}">
+        <PivotItem Header="LongPoll Service" Style="{StaticResource PivotItemStyle}">
+            <ScrollViewer Margin="0,-120,0,0">
+                <StackPanel Margin="0,0,0,40" Style="{StaticResource TransitionStackPanelStyle}">
+                    <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                            Margin="0,130,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Основное" Style="{StaticResource ContentHeaderTextStyle}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Режим работы" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                                <ToggleSwitch Grid.Column="1" IsOn="{Binding LongPollServiceState, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"/>
+                                <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="Данный параметр запускает или останавливает LongPoll Service" Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" Margin="0,10,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Настраиваемое уведомление" Style="{StaticResource ContentHeaderTextStyle}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <Button Content="Тест десериализации ответа" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Stretch"
+                                    Command="{Binding DeserializeLongPollResponse, Mode=OneTime}"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Уведомления" Style="{StaticResource PivotItemStyle}">
+            <ScrollViewer Margin="0,-120,0,0">
+                <StackPanel Margin="0,0,0,40" Style="{StaticResource TransitionStackPanelStyle}">
+                    <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                            Margin="0,130,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Отправить тестовое уведомление" Style="{StaticResource ContentHeaderTextStyle}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Button Content="Стандартное" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,5,0"
+                                        Command="{Binding ShowSimplePush, Mode=OneTime}"/>
+                                <Button Content="Предупреждение" Grid.Column="1" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Stretch" Margin="5,0,0,0"
+                                        Command="{Binding ShowSimplePush, Mode=OneTime}" CommandParameter="Warning"/>
+
+                                <Button Content="Ошибка" Grid.Row="1" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,5,0"
+                                        Command="{Binding ShowSimplePush, Mode=OneTime}" CommandParameter="Error"/>
+                                <Button Content="Информация" Grid.Row="1" Grid.Column="1" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Stretch" Margin="5,0,0,0"
+                                        Command="{Binding ShowSimplePush, Mode=OneTime}" CommandParameter="Info"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    
+                    <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" Margin="0,10,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Настраиваемое уведомление" Style="{StaticResource ContentHeaderTextStyle}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <TextBlock Text="Текст уведомления" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                            <TextBox Text="{Binding CustomPushContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>                           
+
+                            <TextBlock Text="Заголовок уведомления" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                            <TextBox Text="{Binding CustomPushTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <TextBlock Text="Тип уведомления" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                            <ComboBox Style="{StaticResource ComboBoxStyle}" SelectedIndex="{Binding CustomPushType, Mode=TwoWay}">
+                                <ComboBoxItem Content="Defaut"/>
+                                <ComboBoxItem Content="Error"/>
+                                <ComboBoxItem Content="Warning"/>
+                                <ComboBoxItem Content="Info"/>
+                            </ComboBox>                            
+
+                            <TextBlock Text="Представление навигации" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                            <ComboBox Style="{StaticResource ComboBoxStyle}" SelectedIndex="{Binding CustomPushView, Mode=TwoWay}">
+                                <ComboBoxItem Content="None"/>
+                                <ComboBoxItem Content="ErrorView"/>
+                                <ComboBoxItem Content="SettingsView"/>
+                                <ComboBoxItem Content="NewsView"/>
+                                <ComboBoxItem Content="AboutView"/>
+                            </ComboBox>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <TextBlock Text="Длительность в секундах" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                            <TextBox Text="{Binding CustomPushDuration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+                            
+                            <CheckBox Content="Без звука" IsChecked="{Binding CustomPushNoSound, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}"/>
+                            <CheckBox Content="Без вибрации" IsChecked="{Binding CustomPushNoVibration, Mode=TwoWay}" Style="{StaticResource CheckBoxStyle}"/>
+                            
+                            <Button Content="Отправить" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Stretch"
+                                        Command="{Binding ShowCustomPush}"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+        <PivotItem Header="Push уведомления" Style="{StaticResource PivotItemStyle}">
+            <ScrollViewer Margin="0,-120,0,0">
+                <StackPanel Margin="0,0,0,40" Style="{StaticResource TransitionStackPanelStyle}">
+                    <Border Background="{ThemeResource PostBackgroundBrush}" Padding="20,20" Style="{StaticResource TransitionBorder}" 
+                            Margin="0,130,0,0">
+                        <StackPanel>
+                            <TextBlock Text="Push уведомления" Style="{StaticResource ContentHeaderTextStyle}"/>
+                            <Rectangle Height="1" Fill="{ThemeResource ListSeparatorBackgroundColor}" Margin="-20,15,-20,15"/>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Режим работы" Style="{StaticResource ToggleSwitchLine1TextStyle}"/>
+                                <ToggleSwitch Grid.Column="1" IsOn="{Binding IsPushEnabled, Mode=TwoWay}" Style="{StaticResource ToggleSwitchStyle}"
+                                              IsEnabled="{Binding IsPushStateChanging, Converter={StaticResource ReverseBooleanConverter}}"/>
+                                <TextBlock Grid.ColumnSpan="2" Grid.Row="1" Text="Данный параметр запускает или прекращает получение уведомлений при закрытом приложении" 
+                                           Style="{StaticResource ToggleSwitchLine2TextStyle}"/>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+    </Pivot>
+</mvvm:VisualStateAwarePage>

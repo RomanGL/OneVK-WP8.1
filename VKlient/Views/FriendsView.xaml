@@ -1,0 +1,126 @@
+﻿<Page
+    x:Name="Page"
+    x:Class="OneVK.Views.FriendsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:data="using:OneVK.Core.Xaml.Data"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:OneVK.Controls"
+    mc:Ignorable="d"
+    controls:ChromeFrame.Title="Друзья"
+    controls:ChromeFrame.IsVisible="Visible"
+    Style="{StaticResource TransitionPage}"
+    Background="{ThemeResource PageBackgroundBrush}">
+
+    <Page.BottomAppBar>
+        <CommandBar x:Name="MainAppBar" ClosedDisplayMode="Minimal" Style="{StaticResource TransparentCommandBar}">
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="RefreshButton" Label="обновить"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <Page.Resources>
+        <data:DataContextProxy x:Key="DataContextProxy" DataContext="{Binding DataContext, ElementName=Page}"/>
+
+        <DataTemplate x:Key="FriendTemplate">
+            <Grid Height="55">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Background="{ThemeResource ImageBackgroundBrush}" Width="55" Height="55" CornerRadius="35"
+        			    Pivot.SlideInAnimationGroup="GroupOne" VerticalAlignment="Center">
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Photo50}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <StackPanel Grid.Column="1" Margin="9,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListItem1Style}"
+                           Text="{Binding FullName}" MaxLines="1" TextTrimming="CharacterEllipsis"
+                           Pivot.SlideInAnimationGroup="GroupTwo"/>
+                    <TextBlock Style="{StaticResource ListItem2Style}"
+                           Text="Онлайн" MaxLines="1" TextTrimming="CharacterEllipsis"
+                           Pivot.SlideInAnimationGroup="GroupThree"
+                           Visibility="{Binding Online, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="FriendsListTemplate">
+            <Grid Height="55">
+                <TextBlock Style="{StaticResource ListItem1Style}"
+                           Text="{Binding Name}" MaxLines="1" TextTrimming="CharacterEllipsis"
+                           Pivot.SlideInAnimationGroup="GroupOne" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Pivot Style="{StaticResource PivotStyle}"
+           x:Name="ContentPivot"
+           SelectionChanged="ContentPivot_SelectionChanged">
+        <PivotItem Header="Все" Style="{StaticResource PivotItemStyle}">
+            <ListView ItemsSource="{Binding Friends}"
+                  DataFetchSize="13" IncrementalLoadingThreshold="5"
+                  ItemTemplate="{StaticResource FriendTemplate}"
+                  ItemContainerStyle="{StaticResource ListContainerStyle}"
+                  Style="{StaticResource TransitionFullListViewStyle}"
+                  SelectionMode="None"
+                  IsSwipeEnabled="False" IsZoomedInView="True"
+                  ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                  IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+                <ListView.FooterTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20,5,20,55">
+                            <controls:StateBlockOld State="{Binding Friends.State}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.FooterTemplate>
+            </ListView>
+        </PivotItem>
+        <PivotItem Header="Онлайн" Style="{StaticResource PivotItemStyle}">
+            <ListView ItemsSource="{Binding FriendsOnline}"
+                  DataFetchSize="13" IncrementalLoadingThreshold="5"
+                  ItemTemplate="{StaticResource FriendTemplate}"
+                  ItemContainerStyle="{StaticResource ListContainerStyle}"
+                      Style="{StaticResource TransitionFullListViewStyle}"
+                  SelectionMode="None"
+                  IsSwipeEnabled="False" IsZoomedInView="True"
+                  ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                  IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+                <ListView.FooterTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20,5,20,55">
+                            <controls:StateBlockOld State="{Binding FriendsOnline.State}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.FooterTemplate>
+            </ListView>
+        </PivotItem>
+        <PivotItem Header="Списки" Style="{StaticResource PivotItemStyle}">
+            <ListView ItemsSource="{Binding FriendsList}"
+                  DataFetchSize="13" IncrementalLoadingThreshold="5"
+                  ItemTemplate="{StaticResource FriendsListTemplate}"
+                  ItemContainerStyle="{StaticResource ListContainerStyle}"
+                      Style="{StaticResource TransitionFullListViewStyle}"
+                  SelectionMode="None"
+                  IsSwipeEnabled="False" IsZoomedInView="True"
+                  ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                  IsItemClickEnabled="True">
+                <ListView.FooterTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20,5,20,55">
+                            <controls:StateBlockOld State="{Binding FriendsList.State}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.FooterTemplate>
+            </ListView>
+        </PivotItem>
+    </Pivot>
+</Page>

@@ -1,0 +1,24 @@
+﻿<Newsfeed:VKNewsfeedPost xmlns:Newsfeed="using:OneVK.Model.Newsfeed" 
+                         xmlns:Common="using:OneVK.Model.Common" 
+                         xmlns:System="using:System" 
+                         xmlns:Wall="using:OneVK.Model.Wall" 
+                         xmlns:Profile="using:OneVK.Model.Profile"
+                         AccessKey="Libero vestibulum phasellus eleifend risus" 
+                         CanDelete="False" CopyPostDate="05/23/2015 12:12:07" 
+                         CanEdit="True" Date="05/23/2015 12:12:07" 
+                         FullText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." 
+                         FriendsOnly="False" 
+                         HasText="True" 
+                         IsLongText="True" 
+                         PreviewText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." 
+                         Type="post">
+    <Newsfeed:VKNewsfeedPost.Comments>
+        <Common:VKComments Count="56" CanComment="True"/>
+    </Newsfeed:VKNewsfeedPost.Comments>
+    <Newsfeed:VKNewsfeedPost.Likes>
+        <Common:VKLikes CanLike="True" CanPublish="True" UserLikes="True" Count="1256"/>
+    </Newsfeed:VKNewsfeedPost.Likes>	
+	<Newsfeed:VKNewsfeedPost.Reposts>
+		<Common:VKReposts Count="36" UserReposted="False"/>
+	</Newsfeed:VKNewsfeedPost.Reposts>
+</Newsfeed:VKNewsfeedPost>

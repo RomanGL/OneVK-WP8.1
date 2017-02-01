@@ -1,0 +1,4 @@
+﻿<ViewModel:LoginViewModel xmlns:ViewModel="using:OneVK.ViewModel" 
+                          xmlns:Command="using:GalaSoft.MvvmLight.Command" 
+                          IsEnabled="True" Login="someone@example.com" Password="password">
+</ViewModel:LoginViewModel>

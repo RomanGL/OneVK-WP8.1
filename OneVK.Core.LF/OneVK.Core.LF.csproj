@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B491AB5-5CCD-41F6-80EF-7FA3D72C2D98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OneVK.Core.LF</RootNamespace>
+    <AssemblyName>OneVK.Core.LF</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\OneVK.Core.Models\OneVK.Core.Models.csproj">
+      <Project>{35b9514c-6cf0-48c5-bd7b-7b47e564b5dd}</Project>
+      <Name>OneVK.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneVK.Core.Services\OneVK.Core.Services.csproj">
+      <Project>{a3322349-48b9-44c0-bbb3-bc58f5c288f3}</Project>
+      <Name>OneVK.Core.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TargetPlatform Include="Windows, Version=8.1" />
+    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ILFService.cs" />
+    <Compile Include="Json\LFImageSizeConverter.cs" />
+    <Compile Include="LFService.cs" />
+    <Compile Include="Models\Audio\LFAlbumBase.cs" />
+    <Compile Include="Models\Audio\LFAlbums.cs" />
+    <Compile Include="Models\Audio\LFArtistBase.cs" />
+    <Compile Include="Models\Audio\LFArtistExtended.cs" />
+    <Compile Include="Models\Audio\LFArtistOnTour.cs" />
+    <Compile Include="Models\Audio\LFArtists.cs" />
+    <Compile Include="Models\Audio\LFAudioBase.cs" />
+    <Compile Include="Models\Audio\LFAudioExtended.cs" />
+    <Compile Include="Models\Audio\LFMediaElement.cs" />
+    <Compile Include="Models\Audio\LFSimilarArtist.cs" />
+    <Compile Include="Models\Audio\LFSimilarArtists.cs" />
+    <Compile Include="Models\Audio\LFStreamable.cs" />
+    <Compile Include="Models\Audio\LFTrackInfo.cs" />
+    <Compile Include="Models\Audio\LFTracks.cs" />
+    <Compile Include="Models\Common\ISupportValidation.cs" />
+    <Compile Include="Models\Common\LFAditionalData.cs" />
+    <Compile Include="Models\Common\LFErrors.cs" />
+    <Compile Include="Models\Common\LFImage.cs" />
+    <Compile Include="Models\Common\LFImageSize.cs" />
+    <Compile Include="Models\Common\LFStats.cs" />
+    <Compile Include="Models\Common\LFTag.cs" />
+    <Compile Include="Models\Common\LFTags.cs" />
+    <Compile Include="Models\Response\LFArtistInfoResponse.cs" />
+    <Compile Include="Models\Response\LFChartArtistsResponse.cs" />
+    <Compile Include="Models\Response\LFChartTracksResponse.cs" />
+    <Compile Include="Models\Response\LFResponse.cs" />
+    <Compile Include="Models\Response\LFSimilarArtistsResponse.cs" />
+    <Compile Include="Models\Response\LFTopAlbumsResponse.cs" />
+    <Compile Include="Models\Response\LFTopTracksResponse.cs" />
+    <Compile Include="Models\Response\LFTrackInfoResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net45+wp80+win8+wpa81+dnxcore50\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

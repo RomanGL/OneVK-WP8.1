@@ -1,0 +1,89 @@
+﻿<Page
+    x:Class="OneVK.Views.VideoAlbumView"
+    x:Name="Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OneVK.Views"
+    xmlns:data="using:OneVK.Core.Xaml.Data"
+    xmlns:controls="using:OneVK.Controls"
+    xmlns:converters="using:OneVK.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource PageBackgroundBrush}"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    controls:ChromeFrame.Title="{Binding Album.Title}"
+    controls:ChromeFrame.IsVisible="Visible"
+    Style="{StaticResource TransitionPage}">
+
+    <Page.Resources>
+        <data:DataContextProxy x:Key="DataContextProxy" DataContext="{Binding DataContext, ElementName=Page}"/>
+        <converters:ViewsCountConverter x:Key="ViewsCountConverter"/>
+
+        <MenuFlyout x:Key="VideoMenuFlyout">
+            <MenuFlyoutItem x:Name="DeleteVideoItemFlyout" Text="удалить" Command="{Binding DataSource.DeleteCommand, Source={StaticResource DataContextProxy}}" 
+                            CommandParameter="{Binding}"/>
+        </MenuFlyout>
+        
+        <DataTemplate x:Key="VideoItem">
+            <Grid Height="75" Tag="{Binding ID}" Holding="VideoHolding" 
+                  FlyoutBase.AttachedFlyout="{StaticResource VideoMenuFlyout}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Background="{ThemeResource ImageBackgroundBrush}" Grid.Column="0" VerticalAlignment="Center">
+                    <Image Source="{Binding Photo320}" Width="100" Pivot.SlideInAnimationGroup="GroupOne"/>
+                </Grid>
+                <StackPanel Grid.Column="1" Margin="9,0,0,0">
+                    <TextBlock Text="{Binding Title}" Style="{StaticResource ListItem1Style}" TextWrapping="Wrap" MaxLines="1" TextTrimming="CharacterEllipsis" Pivot.SlideInAnimationGroup="GroupTwo"/>
+                    <TextBlock Text="{Binding Duration, Converter={StaticResource TimeSpanConverter}}" Style="{StaticResource ListItem2Style}" TextWrapping="Wrap" Pivot.SlideInAnimationGroup="GroupThree"/>
+                    <TextBlock Text="{Binding ViewsCount, Converter={StaticResource ViewsCountConverter}}" Style="{StaticResource ListItem3Style}" TextWrapping="Wrap" Pivot.SlideInAnimationGroup="GroupThree"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <controls:ChromeFrame.CommandBar>
+        <controls:OneCommandBar>
+            <controls:OneCommandBar.PrimaryCommands>
+                <controls:OneCommandBarElementsCollection>
+                    <controls:OneCommandBarButton Command="{Binding RefreshCommand}" Icon="Refresh" Label="Обновить"/>
+                </controls:OneCommandBarElementsCollection>
+            </controls:OneCommandBar.PrimaryCommands>
+        </controls:OneCommandBar>
+    </controls:ChromeFrame.CommandBar>
+
+    <Grid>
+        <ListView ItemsSource="{Binding Videos}"
+                  DataFetchSize="13" IncrementalLoadingThreshold="5"
+                  ItemTemplate="{StaticResource VideoItem}"
+                  ItemContainerStyle="{StaticResource ListContainerStyle}"
+                  Style="{StaticResource TransitionListViewStyle}"
+                  SelectionMode="None"
+                  IsSwipeEnabled="False" IsZoomedInView="True"
+                  ContinuumNavigationTransitionInfo.ExitElementContainer="True"
+                  IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+            <ListView.ItemContainerTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                    <AddDeleteThemeTransition/>
+                    <ReorderThemeTransition/>
+                </TransitionCollection>
+            </ListView.ItemContainerTransitions>
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="20,5,20,55">
+                        <controls:StateBlockOld State="{Binding Videos.State}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.FooterTemplate>
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Rectangle Height="85"/>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+        </ListView>
+    </Grid>
+</Page>
